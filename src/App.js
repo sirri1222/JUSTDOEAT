@@ -14,6 +14,7 @@ import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Detail from "./pages/Detail";
+import ListMenu from "./components/ListMenu";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/notfound" element={<NotFound />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/listMenu" element={<ListMenu />} />
           <Route path="*" element={<Home />} />
         </Routes>
         <Footer />
