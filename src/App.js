@@ -8,6 +8,7 @@ import {
 import IdPwFind from "./pages/IdPwFind";
 import Login from "./pages/Login";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import NotFound from "./pages/NotFound";
 import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
@@ -30,6 +31,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="*" element={<Home />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );
