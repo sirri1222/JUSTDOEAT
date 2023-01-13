@@ -1,5 +1,6 @@
 import React from "react";
 import Logo from "../components/Logo";
+
 const IdPwFind = () => {
   return (
     <div>
@@ -105,11 +106,9 @@ const IdPwFind = () => {
           </div>
       
           <div>
-            <button
-              type="submit"
-              className="
-              mx-auto
-      px-24
+          <button type="submit" className="
+      w-full
+      px-6
       py-2.5
       bg-gray-600
       text-white
@@ -124,16 +123,11 @@ const IdPwFind = () => {
       active:bg-gray-800 active:shadow-lg
       transition
       duration-150
-      ease-in-out"
-            >
-              ID찾기
-            </button>
-            <button
-              type="submit"
-              className="
-             
-      mx-4
-            px-24
+      ease-in-out">ID찾기</button>
+       <button type="submit" className="
+       mt-5
+      w-full
+      px-6
       py-2.5
       bg-gray-600
       text-white
@@ -148,10 +142,7 @@ const IdPwFind = () => {
       active:bg-gray-800 active:shadow-lg
       transition
       duration-150
-      ease-in-out"
-            >
-              PW찾기
-            </button>
+      ease-in-out">PW찾기</button>
           </div>
         </form>
       </div>

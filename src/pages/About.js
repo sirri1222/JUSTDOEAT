@@ -1,8 +1,9 @@
 import React from 'react'
+import ListMenu from '../components/ListMenu'
 
 const About = () => {
   return (
-    <div>About</div>
+    <div><ListMenu/></div>
   )
 }
 

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const HeaderNav = () => {
   return (
     <div>
-      <nav className="flex justify-between">
+      <nav>
         <div className="container-fluid w-full flex flex-wrap items-center justify-between px-6">
           {/* <!-- Left links --> */}
           <ul className="navbar-nav flex flex-col pl-0 list-style-none mr-auto">

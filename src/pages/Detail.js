@@ -1,8 +1,12 @@
 import React from 'react'
-
+import List from "../components/List";
+import Map from "../components/Map";
 const Detail = () => {
   return (
-    <div>Detail</div>
+    <div>
+      <Map/>
+      <List/>
+    </div>
   )
 }
 

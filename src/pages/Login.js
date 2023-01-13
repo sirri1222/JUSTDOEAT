@@ -2,7 +2,29 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Logo from '../components/Logo'
 
+
 const Login = () => {
+
+  // const signInFunc = (e) => {
+  //   e.preventDefault();
+  //   if(!email){
+  //     return Swal.fire({
+  //       title: "이메일을 입력하세요.",
+  //       width: 600,
+  //       padding: "3em",
+  //       color: "#716add",
+  //       // background: "#fff url(/images/trees.png)",
+  //       backdrop: `
+  //         rgba(0,0,123,0.4)
+  //         url("/images/nyan-cat.gif")
+  //         left top
+  //         no-repeat
+  //       `,
+  //     });
+  //   }
+  // }
+  
+
   return (
     <div>
       <section className="h-screen">
