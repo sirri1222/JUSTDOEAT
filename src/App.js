@@ -16,6 +16,7 @@ import About from "./pages/About";
 import Detail from "./pages/Detail";
 
 import Buy from "./pages/Buy";
+import ListMenu from "./components/ListMenu";
 
 
 function App() {
