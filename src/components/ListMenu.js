@@ -2,10 +2,7 @@ import React from "react";
 
 const ListMenu = () => {
   return (
-    <div
-      className="flex justify-between w-5/6"
-      style={{ margin: "0 auto" }}
-    >
+    <div className="flex justify-between w-5/6" style={{ margin: "0 auto" }}>
       <div className="w-4/6 m-5">
         <div className="flex justify-between h-40 shadow-md">
           <img src="photo/kfc_logo.PNG" class="scale-75 ..."></img>
@@ -20,18 +17,33 @@ const ListMenu = () => {
         </div>
         <div>
           <div className="flex justify-around m-5">
-          <button type="button" class="inline-block px-6 py-2 border-2
+            <button
+              type="button"
+              class="inline-block px-6 py-2 border-2
            border-green-500 text-green-500 font-medium text-xs leading-tight 
            uppercase rounded-full hover:bg-green-500 hover:bg-opacity-4 hover:text-white focus:outline-none 
-           focus:ring-0 transition duration-150 ease-in-out">메 뉴</button>
-    <button type="button" class="inline-block px-6 py-2 border-2
+           focus:ring-0 transition duration-150 ease-in-out"
+            >
+              메 뉴
+            </button>
+            <button
+              type="button"
+              class="inline-block px-6 py-2 border-2
      border-red-600 text-red-600 font-medium text-xs leading-tight uppercase 
      rounded-full hover:bg-red-600 hover:bg-opacity-4  hover:text-white focus:outline-none focus:ring-0 
-     transition duration-150 ease-in-out">리 뷰</button>
-    <button type="button" class="inline-block px-6 py-2 border-2
+     transition duration-150 ease-in-out"
+            >
+              리 뷰
+            </button>
+            <button
+              type="button"
+              class="inline-block px-6 py-2 border-2
      border-yellow-500 text-yellow-500 font-medium text-xs leading-tight uppercase 
      rounded-full hover:bg-yellow-500 hover:bg-opacity-4  hover:text-white focus:outline-none focus:ring-0 
-     transition duration-150 ease-in-out">정 보</button>
+     transition duration-150 ease-in-out"
+            >
+              정 보
+            </button>
           </div>
           <div className="flex justify-between h-40">
             <img
