@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 const Header = () => {
   return (
+<<<<<<< HEAD
     <div>
       <div className="flex flex-row">
         <div className="navbar bg-gray-700 navbar-expand-lg shadow-md py-2 relative flex items-center w-full justify-between">
@@ -60,6 +61,13 @@ const Header = () => {
         </div>
       </div>
   
+=======
+    <div className="flex flex-row">
+      <Link to="/home">Home</Link>|<Link to="/about">about</Link>|
+      <Link to="/detail">detail</Link>|<Link to="/idpwfind">idpwfind</Link>|
+      <Link to="/login">login</Link>|<Link to="/notfound">notfound</Link>|
+      <Link to="/signup">signup</Link>|<Link to="/listmenu">ListMenu</Link>
+>>>>>>> 0c1fbe8802a9ac8d6906012583ba0c0b13a0288b
     </div>
   );
 };

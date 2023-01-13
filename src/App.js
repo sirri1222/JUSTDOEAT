@@ -14,7 +14,11 @@ import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Detail from "./pages/Detail";
+<<<<<<< HEAD
 import Buy from "./pages/Buy";
+=======
+import ListMenu from "./components/ListMenu";
+>>>>>>> 0c1fbe8802a9ac8d6906012583ba0c0b13a0288b
 
 function App() {
   return (
@@ -29,8 +33,13 @@ function App() {
           <Route path="/idpwfind" element={<IdPwFind />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
+<<<<<<< HEAD
           <Route path="/buy" element={<Buy />} />
           <Route path="*" element={<NotFound />} />
+=======
+          <Route path="/listMenu" element={<ListMenu />} />
+          <Route path="*" element={<Home />} />
+>>>>>>> 0c1fbe8802a9ac8d6906012583ba0c0b13a0288b
         </Routes>
         <Footer />
       </div>
