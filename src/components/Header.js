@@ -57,94 +57,9 @@ const Header = () => {
               signup
             </Link>
           </div>
-         
-        </div> 
-      </div><div className="flex items-center justify-end ">
-            <Link
-              to="/about"
-              className="
-             rounded-l
-             px-6
-             py-2.5
-             bg-gray-800
-             text-white
-             font-medium
-             text-xs
-             leading-tight
-             uppercase
-             hover:bg-gray-700
-             focus:bg-gray-700 focus:outline-none focus:ring-0
-             active:bg-gray-800
-             transition
-             duration-150
-             ease-in-out"
-            >
-              about
-            </Link>{" "}
-            <Link
-              to="/detail"
-              className="
-       rounded-l
-       px-6
-       py-2.5
-       bg-gray-800
-       text-white
-       font-medium
-       text-xs
-       leading-tight
-       uppercase
-       hover:bg-gray-700
-       focus:bg-gray-700 focus:outline-none focus:ring-0
-       active:bg-gray-800
-       transition
-       duration-150
-       ease-in-out"
-            >
-              detail
-            </Link>
-            <Link
-              to="/idpwfind"
-              className="
-             rounded-l
-             px-6
-             py-2.5
-             bg-gray-800
-             text-white
-             font-medium
-             text-xs
-             leading-tight
-             uppercase
-             hover:bg-gray-700
-             focus:bg-gray-700 focus:outline-none focus:ring-0
-             active:bg-gray-800
-             transition
-             duration-150
-             ease-in-out"
-            >
-              idpwfind
-            </Link>
-            <Link
-              to="/buy"
-              className="
-             rounded-l
-             px-6
-             py-2.5
-             bg-gray-800
-             text-white
-             font-medium
-             text-xs
-             leading-tight
-             uppercase
-             hover:bg-gray-700
-             focus:bg-gray-700 focus:outline-none focus:ring-0
-             active:bg-gray-800
-             transition
-             duration-150
-             ease-in-out"
-            >
-             buy
-            </Link>
-          </div>
+        </div>
+      </div>
+  
     </div>
   );
 };
