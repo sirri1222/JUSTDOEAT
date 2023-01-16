@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import ListMenuMenu from "./ListMenuMenu";
 import ListReview from "./ListReview";
 import StoreInfo from "./StoreInfo";
@@ -11,12 +12,15 @@ const ListMenu = () => {
   useEffect(() => {}, [showType]);
 
   return (
-    <div className="flex justify-between w-5/6" style={{ margin: "0 auto" }}>
+    <div
+      className="flex justify-between w-5/6 pt-6"
+      style={{ margin: "0 auto" }}
+    >
       <div className="w-4/6 m-5">
         <div className="flex justify-between h-40 shadow-md">
           <img src="photo/KFC_1.jpg" class="scale-75 ..."></img>
-          <div className="flex justify-content: center  flex-col py-4 w-3/4 ml-5 ">
-            <div className="flex justify-content: center flex-col ">
+          <div className="flex justify-center  flex-col py-4 w-3/4 ml-5 ">
+            <div className="flex justify-center flex-col ">
               <span>★★★★☆4.8</span>
               <span>최소주문금액 11,000원</span>
               <span>결제 신용카드, 현금,JPay</span>
@@ -82,16 +86,18 @@ const ListMenu = () => {
               </div>
             </div>
             HTML
-            <button
-              type="button"
-              class="mb-2 w-full inline-block px-6 py-2.5
+            <Link to="/Buy">
+              <button
+                type="button"
+                class="mb-2 w-full inline-block px-6 py-2.5
                bg-red-600 text-white font-medium text-xs leading-normal uppercase rounded shadow-md
                 hover:bg-red-700 hover:shadow-lg
                  focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0
                active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out"
-            >
-              Button
-            </button>
+              >
+                주문하기
+              </button>
+            </Link>
           </div>
         </div>
       </div>

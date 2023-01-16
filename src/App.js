@@ -16,8 +16,7 @@ import About from "./pages/About";
 import Detail from "./pages/Detail";
 
 import Buy from "./pages/Buy";
-import ListMenu from "./components/ListMenu";
-
+import DeliveryInfo from "./components/DeliveryInfo";
 
 function App() {
   return (
@@ -32,11 +31,8 @@ function App() {
           <Route path="/idpwfind" element={<IdPwFind />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
-
+          <Route path="/deliveryinfo" element={<DeliveryInfo />} />
           <Route path="/buy" element={<Buy />} />
- 
-
-
         </Routes>
         <Footer />
       </div>

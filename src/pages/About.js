@@ -1,9 +1,13 @@
 import React from 'react'
 import ListMenu from '../components/ListMenu'
+import DeliveryInfo from '../components/DeliveryInfo'
 
 const About = () => {
   return (
-    <div><ListMenu/></div>
+    <div>
+      <ListMenu/>
+      <DeliveryInfo/>
+    </div>
   )
 }
 
