@@ -1,14 +1,12 @@
-import React from 'react'
-import ListMenu from '../components/ListMenu'
-import DeliveryInfo from '../components/DeliveryInfo'
+import React from "react";
+import ListMenu from "../components/ListMenu";
 
 const About = () => {
   return (
     <div>
-      <ListMenu/>
-      <DeliveryInfo/>
+      <ListMenu />
     </div>
-  )
-}
+  );
+};
 
-export default About
+export default About;
