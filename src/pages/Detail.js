@@ -1,11 +1,29 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+import DetailNav from '../components/DetailNav';
 import List from "../components/List";
-import Map from "../components/Map";
+
+import Pagination from '../components/Pagination';
+
+
 const Detail = () => {
   return (
     <div>
-      <Map/>
-      <List/>
+
+   <DetailNav/>
+      
+     
+    
+     <Link to="/about"><List/></Link> 
+     <Link to="/about"><List/></Link> 
+     <Link to="/about"><List/></Link> 
+     <Link to="/about"><List/></Link> 
+     <Link to="/about"><List/></Link> 
+     <Link to="/about"><List/></Link> 
+     <Link to="/about"><List/></Link> 
+     <Link to="/about"><List/></Link> 
+    
+      <Pagination/>
     </div>
   )
 }

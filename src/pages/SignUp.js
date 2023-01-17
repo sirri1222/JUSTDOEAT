@@ -2,15 +2,14 @@ import React from 'react'
 import Logo from '../components/Logo'
 const Signup = () => {
   return (
-    <div>
+    <div className=" block p-6 rounded-lg shadow-lg bg-white max-w-2xl mx-auto">
 <section className="h-screen">
 <div className="px-3 mx-auto text-gray-800">
           <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap g-6">
-        
-            <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
+            <div className="">
               <Logo></Logo>
   <form>
-    <div className="grid grid-cols-2 gap-4">
+    <div className="grid gap-4">
       <div className="form-group mb-6">
         <input type="text" className="form-control
           block
@@ -28,6 +27,7 @@ const Signup = () => {
           m-0
           focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none" id="exampleInput123"
           aria-describedby="emailHelp123" placeholder="이름"/>
+          <button className='absolute right-1 top-1'>실명확인</button>
       </div>
       <div className="form-group mb-6">
         <input type="text" className="form-control
@@ -82,7 +82,6 @@ const Signup = () => {
         focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none" id="exampleInput126"
         placeholder="비밀번호"/>
     </div>
-  
     <div className="form-group mb-6">
       <input type="password" className="form-control block
         w-full
@@ -125,14 +124,12 @@ const Signup = () => {
       duration-150
       ease-in-out">Sign up</button>
   </form>
-
     </div>
     </div>
-    </div> 
+    </div>
      </section>
     </div>
-  
+ 
   )
 }
-
 export default Signup

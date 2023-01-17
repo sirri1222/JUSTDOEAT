@@ -14,30 +14,38 @@ import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Detail from "./pages/Detail";
+import Password from "./pages/Password";
 
 import Buy from "./pages/Buy";
-import ListMenu from "./components/ListMenu";
+import ShoppingBag from "./pages/ShoppingBag";
 
 
 function App() {
+
+
   return (
     <Router>
       <div>
+     
         <Header />
+
         <Routes>
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/detail" element={<Detail />} />
-          <Route path="/idpwfind" element={<IdPwFind />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-
-          <Route path="/buy" element={<Buy />} />
- 
-
-
         </Routes>
+        <div className="max-w-6xl mx-auto ">
+          <Routes>
+            <Route path="/about" element={<About />} />
+            <Route path="/detail" element={<Detail />} />
+            <Route path="/idpwfind" element={<IdPwFind />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/password" element={<Password />} />
+            <Route path="/shoppingbag" element={<ShoppingBag />} />
+
+            <Route path="/buy" element={<Buy />} />
+          </Routes>
+        </div>
         <Footer />
       </div>
     </Router>

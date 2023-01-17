@@ -26,17 +26,17 @@ const Login = () => {
   
 
   return (
-    <div>
-      <section className="h-screen">
+    <div className=" block p-6 rounded-lg shadow-lg bg-white max-w-2xl mx-auto">
+      <section className=" h-screen">
         <div className="px-3 mx-auto text-gray-800">
           <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap g-6">
         
-            <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
+            <div >
           <Logo></Logo>
               <form >
-                <div className="flex flex-row items-center justify-center lg:justify-start">
+                <div className="flex flex-row mx-auto justify-center">
                  
-                  <p className="text-lg mb-0 mr-4">소셜 로그인</p>
+                  <p className="text-lg mb-0 mr-4 ">소셜 로그인</p>
                   <button
                     type="button"
                     data-mdb-ripple="true"

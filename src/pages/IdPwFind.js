@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Logo from "../components/Logo";
 
 const IdPwFind = () => {
@@ -44,7 +45,7 @@ const IdPwFind = () => {
               className="block mt-1 text-xs text-gray-600"
             ></small>
           </div>
-          <div className="form-group mb-6">
+          <div className="flex form-group mb-6">
             <label
               for="exampleInputPassword1"
               className="form-label inline-block mb-2 text-gray-700"
@@ -68,7 +69,7 @@ const IdPwFind = () => {
               id="exampleInputPassword1"
               placeholder="인증번호를 입력하세요."
             />
-           
+           <button className="">인증번호 받기</button>
           </div>
 
           <div className="form-group mb-6">
@@ -103,6 +104,7 @@ const IdPwFind = () => {
               id="emailHelp"
               className="block mt-1 text-xs text-gray-600"
             ></small>
+              
           </div>
       
           <div>
@@ -124,7 +126,7 @@ const IdPwFind = () => {
       transition
       duration-150
       ease-in-out">ID찾기</button>
-       <button type="submit" className="
+      <Link to="/password"> <button type="submit" className="
        mt-5
       w-full
       px-6
@@ -142,7 +144,7 @@ const IdPwFind = () => {
       active:bg-gray-800 active:shadow-lg
       transition
       duration-150
-      ease-in-out">PW찾기</button>
+      ease-in-out">PW찾기</button></Link>
           </div>
         </form>
       </div>

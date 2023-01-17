@@ -9,40 +9,34 @@ const HeaderNav = () => {
           {/* <!-- Left links --> */}
           <ul className="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
             <li className="nav-item px-2">
-              <Link
-                to="/about"
-                className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0"
-              >
+              {" "}
+             
+            </li>
+            <li className="nav-item px-2">
+              <Link to="/about" className="nav-link text-gray-500 p-0">
                 about
               </Link>{" "}
             </li>
             <li className="nav-item pr-2">
-              <Link
-                to="/detail"
-                className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0"
-              >
+              <Link to="/detail" className="nav-link text-gray-500 p-0">
                 detail
               </Link>
             </li>
             <li className="nav-item pr-2">
-              <Link
-                to="/idpwfind"
-                className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0"
-              >
+              <Link to="/idpwfind" className="nav-link text-gray-500 p-0">
                 idpwfind
               </Link>
             </li>
             <li className="nav-item pr-2">
-              <Link
-                to="/buy"
-                className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0"
-              >
+              <Link to="/buy" className="nav-link text-gray-500 p-0">
                 buy
               </Link>
             </li>
           </ul>
         </div>
       </nav>
+
+    
     </div>
   );
 };

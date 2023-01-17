@@ -14,7 +14,7 @@ const ListMenu = () => {
     <div className="flex justify-between w-5/6" style={{ margin: "0 auto" }}>
       <div className="w-4/6 m-5">
         <div className="flex justify-between h-40 shadow-md">
-          <img src="photo/KFC_1.jpg" class="scale-75 ..."></img>
+          <img src="/photo/KFC_1.jpg" class="scale-75 ..." ></img>
           <div className="flex justify-content: center  flex-col py-4 w-3/4 ml-5 ">
             <div className="flex justify-content: center flex-col ">
               <span>★★★★☆4.8</span>
