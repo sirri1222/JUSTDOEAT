@@ -4,12 +4,12 @@ import Logo from "../components/Logo";
 
 const IdPwFind = () => {
   return (
-    <div>
+    <div className=" block p-6 rounded-lg shadow-lg bg-white max-w-2xl mx-auto">
        <section className="h-screen">
     <div className="px-3 mx-auto text-gray-800">
           <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap g-6">
         
-            <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
+            <div className="">
           <Logo></Logo>
         <form className="mx-auto">
           <div className="form-group mb-6">
@@ -45,7 +45,7 @@ const IdPwFind = () => {
               className="block mt-1 text-xs text-gray-600"
             ></small>
           </div>
-          <div className="flex form-group mb-6">
+          <div className="flex form-group mb-6 relative">
             <label
               for="exampleInputPassword1"
               className="form-label inline-block mb-2 text-gray-700"
@@ -69,7 +69,8 @@ const IdPwFind = () => {
               id="exampleInputPassword1"
               placeholder="인증번호를 입력하세요."
             />
-           <button className="">인증번호 받기</button>
+           <button className="absolute right-1.5 top-1 px-3 py-2 text-xs font-medium text-center text-white bg-gray-700 rounded-lg hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800">인증번호 받기</button>
+         
           </div>
 
           <div className="form-group mb-6">

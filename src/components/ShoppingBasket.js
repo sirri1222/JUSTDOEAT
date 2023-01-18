@@ -15,46 +15,15 @@ const ShoppingBasket = () => {
                 alt="Polaroid camera"
               />
               <div className="flex flex-col justify-between w-full pb-4">
-                <div className="flex justify-between w-full pb-2 space-x-2">
+                <div className="flex justify-between pb-2 space-x-2">
                   <div className="space-y-1">
                     <h3 className="text-lg font-semibold leading-snug sm:pr-8">
                       Polaroid camera
                     </h3>
                     <p className="text-sm dark:text-gray-400">Classic</p>
                   </div>
-                  
                 </div>
-                <div className="custom-number-input h-10 w-32 flex mr-5 justify-between">
-              <label
-                for="custom-input-number"
-                className="w-full text-gray-700 text-sm font-semibold"
-              >
-               
-              </label>
-              <div className="flex flex-row h-10 w-full rounded-lg relative bg-transparent mt-1">
-                <button
-                  data-action="decrement"
-                  className=" bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-l cursor-pointer outline-none"
-                >
-                  <span className="m-auto text-2xl font-thin">−</span>
-                </button>
-                <input
-                  type="number"
-                  className="focus:outline-none text-center w-full bg-gray-300 font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none"
-                  name="custom-input-number"
-                  value="0"
-                ></input>
-                <button
-                  data-action="increment"
-                  className="bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-r cursor-pointer"
-                >
-                  <span className="m-auto text-2xl font-thin">+</span>
-                </button>
-              </div>
-            <div className="text-right">
-                    <p className="text-lg font-semibold">59.99€</p>
-                  </div>
-                </div>
+
                 <div className="flex text-sm divide-x">
                   <button
                     type="button"
@@ -86,12 +55,38 @@ const ShoppingBasket = () => {
                     </svg>
                     <span>좋아요</span>
                   </button>
-                 
+                </div>
               </div>
+              <div className="custom-number-input h-10 w-32 flex justify-between">
+                <label
+                  for="custom-input-number"
+                  className="w-full text-gray-700 text-sm font-semibold"
+                ></label>
+                <div className="flex flex-row h-10 w-full rounded-lg relative bg-transparent mt-1">
+                  <button
+                    data-action="decrement"
+                    className=" bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-l cursor-pointer outline-none"
+                  >
+                    <span className="m-auto text-2xl font-thin">−</span>
+                  </button>
+                  <input
+                    type="number"
+                    className="focus:outline-none text-center w-full bg-gray-300 font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none"
+                    name="custom-input-number"
+                    value="0"
+                  ></input>
+                  <button
+                    data-action="increment"
+                    className="bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-r cursor-pointer"
+                  >
+                    <span className="m-auto text-2xl font-thin">+</span>
+                  </button>
+                </div>
+                <div className="text-right">
+                  <p className="text-lg font-semibold">59.99€</p>
+                </div>
+              </div>{" "}
             </div>
-
-           </div>
-            
           </li>
 
           <li className="flex flex-col py-6 sm:flex-row sm:justify-between">
