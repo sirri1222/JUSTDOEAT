@@ -28,7 +28,7 @@ const ListReview = () => {
         <li>
           <img
             src="photo/revw.jpg"
-            className="w-full"
+            className="w-full" alt="리뷰사진"
           ></img>
         </li>
         <div class="mb-4"><li className="py-3 px-6 border-t border-gray-300 text-gray-600">
