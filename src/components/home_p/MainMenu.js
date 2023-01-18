@@ -5,15 +5,15 @@ const MainMenu = () => {
   return (
     <div>
      
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto max-w-5xl">
           <div className="flex justify-around ">
           <div className="flex w-100">
-              <div className=" p-1 ml-3">
+              <div className=" p-1 ml-3   ">
                 <Link to="/detail">
                   <button >
                     <img
                       alt="gallery"
-                      className="block object-cover object-center w-full h-full rounded-lg
+                      className="block rounded-full object-cover object-center w-full h-full rounded-lg
                     opacity-1 transition duration-300 ease-in-out hover:opacity-60"
                       src="/photo/중국집.png"
                     />

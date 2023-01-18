@@ -1,10 +1,10 @@
 import React from "react";
 import Banner from "../components/Banner";
-import BasketModal from "../components/BasketModal";
 
-import HeaderBottom from "../components/HeaderBottom";
-import HeaderNav from "../components/HeaderNav";
-import MainMenu from "../components/MainMenu";
+
+import HeaderBottom from "../components/home_p/HeaderBottom";
+
+import MainMenu from "../components/home_p/MainMenu";
 
 
 const Home = () => {
@@ -13,7 +13,6 @@ const Home = () => {
   return (
     <div>
 
-      <HeaderNav />
       <HeaderBottom />
 
       <MainMenu />

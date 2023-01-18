@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import DeliveryInfo from "./DeliveryInfo";
+import DeliveryInfo from "../modal_p/DeliveryInfo";
 const ListMenuMenu = () => {
   const [isShowing, setIsShowing] = useState(false);
   const openDeliveryInfo = () => {

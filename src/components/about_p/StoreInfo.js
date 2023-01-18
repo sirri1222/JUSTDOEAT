@@ -3,7 +3,7 @@ import React from "react";
 const StoreInfo = () => {
   return (
     <div>
-      <div className=" bg-white border border-gray-200 p-2">
+      <div className=" bg-white border-b-2 border-gray-200 p-2">
         <div className=" py-3  ">
           <img src="photo/bell.PNG" className=" scale-75 " alt="사장님 알림"></img>
           <p className="text-xs ml-4">
@@ -18,7 +18,7 @@ const StoreInfo = () => {
           </p>
         </div>
       </div>
-      <div className=" bg-white border border-gray-200 p-2">
+      <div className=" bg-white border-b-2 border-gray-200 p-2">
         <div className="py-3  ">
           <img src="photo/card.PNG" className=" scale-75 "alt="결제정보"></img>
           <p className="text-xs ml-4">
@@ -29,7 +29,7 @@ const StoreInfo = () => {
           </p>
         </div>
       </div>
-      <div className=" bg-white border border-gray-200 p-2">
+      <div className=" bg-white border-b-2 border-gray-200 p-2">
         <div className="py-3  ">
           <img src="photo/info.PNG" className=" scale-75 " alt="사업자정보"></img>
           <p className="text-xs ml-4">
@@ -43,7 +43,7 @@ const StoreInfo = () => {
           </p>
         </div>
       </div>
-      <div className=" bg-white border border-gray-200 p-2">
+      <div className=" bg-white  border-gray-200 p-2">
         <div className="py-3  ">
           <img src="photo/store.PNG" className=" scale-75 "alt="업체정보"></img>
           <p className="text-xs ml-4">

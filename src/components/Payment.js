@@ -6,6 +6,11 @@ const Payment = () => {
       {" "}
       <div className="block p-6 rounded-lg shadow-lg bg-white max-w-2xl mx-auto">
         <form>
+          <div className="block p-2 bg-gray-200 max-w-2xl mx-auto">
+            {" "}
+            <p className="bg-gray-200">배달정보</p>
+          </div>
+
           <label>주소</label>
           <div className="form-group mb-6">
             <input
@@ -73,7 +78,10 @@ const Payment = () => {
           </div>
 
           <div className="form-group mb-6">
+            <div className="block p-2 bg-gray-200 max-w-2xl mx-auto"> 
             <label>주문시 요청사항</label>
+            </div>
+           
             <input
               type="password"
               className="form-control block
@@ -96,11 +104,12 @@ const Payment = () => {
           </div>
 
           <div className="form-group mb-6">
-            <label>결제수단 선택</label>
-
-            <div class="mb-3 xl:w-96">
+            <div className="block p-2 bg-gray-200 max-w-2xl mx-auto">
+              <label>결제수단 선택</label>
+            </div>
+            <div class="mb-3">
               <select
-                class="form-select appearance-none
+                class="form-select 
   block
   w-full
   px-3
@@ -115,7 +124,6 @@ const Payment = () => {
   ease-in-out
   m-0
   focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
-              
               >
                 <option selected>결제 수단선택</option>
                 <option value="3">현장결제</option>

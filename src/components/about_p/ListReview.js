@@ -1,4 +1,5 @@
 import React from "react";
+import Pagination from "../Pagination";
 
 const ListReview = () => {
   return (
@@ -18,29 +19,27 @@ const ListReview = () => {
     //   </li>
     // </ul>
     <div className="w-l" style={{ margin: "0 auto" }}>
-      <ul className="block rounded-lg shadow-lg bg-white">
-        <li className="py-3 px-6 bg-gray-100 border-b border-gray-300">real***님</li>
+      <ul className="block rounded-lg shadow-lg  bg-white">
+        <li className="py-3 px-3 bg-gray-100 border-b border-gray-300">
+          real***님
+        </li>
         <li className="flex justify-between np-6 ">
           <p className="text-gray-700 text-sm ml-4 p-1 mb-1 justify-content: center">
-            ★★★★★|맛 ★ 5 양 ★ 5 배달 ★ 1
+            맛★★★★★ |양★ 5 |배달★★
           </p>
         </li>
-        <li>
-          <img
-            src="photo/revw.jpg"
-
-            className="w-full" alt="리뷰사진"
->>>>>>> bbcb74e6a075eba1a58944cead8a1b8060047d10
-          ></img>
-        </li>
-        <div class="mb-4"><li className="py-3 px-6 border-t border-gray-300 text-gray-600">
-          배달 최악. 1시간 넘어서 다 식어서 옴. 가게가 문제인지 배달이 문제인지
-          찾아서 고소하고 싶을정도. 얼마나 차게 식었는지 내가 배달온걸
-          전자렌지를 돌려먹었다. 이 뭔
-        </li></div>
-        
+        <div className="flex p-2 justify-between border-t border-gray-300 text-gray-600">
+          <li>
+            <img src="photo/revw.jpg" className="" alt="리뷰사진"></img>
+          </li>
+          <li className="px-3">
+            배달 최악. 1시간 넘어서 다 식어서 옴. 가게가 문제인지 배달이
+            문제인지 찾아서 고소하고 싶을정도. 얼마나 차게 식었는지 내가
+            배달온걸 전자렌지를 돌려먹었다. 이 뭔
+          </li>
+        </div>
       </ul>
-      
+      <Pagination />
     </div>
   );
 };

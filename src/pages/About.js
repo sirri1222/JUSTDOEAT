@@ -1,18 +1,13 @@
 import React from "react";
 
-import DetailNav from "../components/DetailNav";
-import ListMenu from "../components/ListMenu";
-import Pagination from "../components/Pagination";
-
+import DetailNav from "../components/detail_p/DetailNav";
+import ListMenu from "../components/about_p/ListMenu";
 
 const About = () => {
   return (
     <div>
-
-      <DetailNav/>
+      <DetailNav />
       <ListMenu />
-      <Pagination />
-
     </div>
   );
 };
