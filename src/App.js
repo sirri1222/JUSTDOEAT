@@ -17,7 +17,9 @@ import Detail from "./pages/Detail";
 import Password from "./pages/Password";
 
 import Buy from "./pages/Buy";
+
 import ShoppingBag from "./pages/ShoppingBag";
+
 
 
 function App() {
@@ -32,6 +34,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<Home />} />
+
         </Routes>
         <div className="max-w-6xl mx-auto ">
           <Routes>
