@@ -4,10 +4,7 @@ import ListMenuMenu from "./ListMenuMenu";
 import ListReview from "./ListReview";
 import StoreInfo from "./StoreInfo";
 
-
-const ListMenu = ({increaseQ, decreaseQ,
-  cartCountTotal,
-  removeFromCart, }) => {
+const ListMenu = ({ increaseQ, decreaseQ, cartCountTotal, removeFromCart }) => {
   // 0은 List 메뉴
   // 1은 상세메뉴
   // 2는 정보메뉴
