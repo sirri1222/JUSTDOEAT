@@ -8,14 +8,14 @@ const DetailNav = () => {
       <nav className="bg-gray-100 flex px-5 justify-between items-center rounded-md w-full p-3">
         <div className="flex">
           <ol className="list-reset flex justify-start ">
-            <li>
+          <li>
               <Link
                 to="/detail"
-                className=" text-lg mr-6  dark:text-white hover:underline text-center font-semibold leading-snug "
+                className="text-gray-600 mr-6  dark:text-white hover:underline text-lg font-semibold leading-snug hover:"
               >
                 중식
               </Link>
-            </li>
+            </li>{" "}
             <li>
               <Link
                 to="/detail"
@@ -70,6 +70,22 @@ const DetailNav = () => {
                 className="text-gray-600 mr-6  dark:text-white hover:underline text-lg font-semibold leading-snug hover:"
               >
                 편의점
+              </Link>
+            </li>{" "}
+            <li>
+              <Link
+                to="/detail"
+                className="text-gray-600 mr-6  dark:text-white hover:underline text-lg font-semibold leading-snug hover:"
+              >
+                족발보쌈
+              </Link>
+            </li>{" "}
+            <li>
+              <Link
+                to="/detail"
+                className="text-gray-600 mr-6  dark:text-white hover:underline text-lg font-semibold leading-snug hover:"
+              >
+                카페디져트
               </Link>
             </li>{" "}
           </ol>

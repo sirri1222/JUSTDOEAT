@@ -107,9 +107,9 @@ const Payment = () => {
             <div className="block p-2 bg-gray-200 max-w-2xl mx-auto">
               <label>결제수단 선택</label>
             </div>
-            <div class="mb-3">
+            <div className="mb-3">
               <select
-                class="form-select 
+                className="form-select 
   block
   w-full
   px-3
@@ -133,9 +133,9 @@ const Payment = () => {
                 <option value="3">삼성페이</option>
               </select>
             </div>
-            <div class="flex justify-center space-x-2">
-              <div class="flex w-full items-center justify-center">
-                <div class="inline-flex " role="group">
+            <div >
+              <div className="flex w-full items-center justify-around">
+           
                   <button
                     type="button"
                     className="
@@ -185,8 +185,11 @@ const Payment = () => {
                       alt="삼성페이"
                     ></img>
                     삼성페이
-                  </button>
-                </div>
+                  </button></div>
+                  <div className="flex my-5 w-full items-center justify-around">
+                  <button type="button" className="inline-block px-11 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">신용카드</button>
+                  <button type="button" className="inline-block px-11 py-2.5  bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">현장결제</button>
+               
               </div>
             </div>
           </div>

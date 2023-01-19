@@ -4,7 +4,10 @@ import ListMenuMenu from "./ListMenuMenu";
 import ListReview from "./ListReview";
 import StoreInfo from "./StoreInfo";
 
-const ListMenu = () => {
+
+const ListMenu = ({increaseQ, decreaseQ,
+  cartCountTotal,
+  removeFromCart, }) => {
   // 0은 List 메뉴
   // 1은 상세메뉴
   // 2는 정보메뉴
@@ -81,7 +84,7 @@ const ListMenu = () => {
               </div>
             </div>
             HTML
-            <Link to="/Buy">
+            <Link to="/shoppingbag">
               <button
                 type="button"
                 className="mb-2 w-full inline-block px-6 py-2.5
@@ -90,7 +93,7 @@ const ListMenu = () => {
                  focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0
                active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out"
               >
-                주문하기
+                장바구니로 이동하기
               </button>
             </Link>
           </div>

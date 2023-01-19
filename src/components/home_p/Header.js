@@ -9,7 +9,7 @@ const Header = () => {
           <Link to="/home">
             <img
               className=" ml-10 h-full w-40 "
-              src="/photo/logoYogiyo.png"
+              src="/photo/JUSTDOEAT3.jpg"
               alt="로고"
             ></img>
           </Link>

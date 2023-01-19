@@ -1,13 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import { NumberCheck } from "../NumberCheck";
 
-const DeliveryInfo = ({ setIsShowing }) => {
+const DeliveryInfo = ({ setIsShowing ,carts, setCarts }) => {
   const hidePop = (e) => {
     // 하단 으로 click 을 전달하지 않는다.
     e.stopPropagation();
     setIsShowing(false);
   };
+
+
+
+    
   return (
     <div className="flex justify-center">
       <div className=" bg-white ">
@@ -43,7 +47,7 @@ const DeliveryInfo = ({ setIsShowing }) => {
                   <br />
                   ＋콜라（M）2）
                   <span className="my-auto w-20">
-                    <NumberCheck />
+                   <NumberCheck />
                   </span>
                 </p>
               </li>
@@ -83,17 +87,20 @@ const DeliveryInfo = ({ setIsShowing }) => {
                bg-blue-300"
           >
             <button
+         
               type="button"
               className=" inline-block w-1/2 px-6 py-2.5 bg-black text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
             >
               주문표에 추가
             </button>
+            <Link to="/buy">
             <button
               type="button"
               className=" inline-block w-1/2 px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
             >
               주문하기
             </button>
+            </Link>
           </div>
         </div>
       </div>

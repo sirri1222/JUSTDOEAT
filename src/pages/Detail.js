@@ -9,7 +9,7 @@ const Detail = () => {
   return (
     <div>
       <DetailNav />
-
+   
       <Link to="/about">
         <List />
       </Link>

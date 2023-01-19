@@ -1,10 +1,15 @@
-import React from 'react'
+import React,{useState} from 'react'
+
 import ShoppingBasket from '../components/ShoppingBasket'
 
 const ShoppingBag = () => {
+ 
   return (
     <div>
-<ShoppingBasket/>
+
+<ShoppingBasket
+
+/>
     </div>
   )
 }

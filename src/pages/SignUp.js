@@ -5,15 +5,15 @@ const Signup = () => {
     <div className=" block p-6 rounded-lg shadow-lg bg-white max-w-2xl mx-auto">
       <section className="h-screen">
         <div className="px-3 mx-auto text-gray-800">
-          <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap g-6">
+          <div className="flex xl:justify-center lg:justify-between justify-center items-center g-6">
             <div className="">
               <Logo></Logo>
               <form>
-                <div className="ralative grid gap-4">
-                  <div className="ralative form-group mb-6">
+                <div className=" grid gap-4">
+                  <div className="form-group mb-6">
                     <input
                       type="text"
-                      className="ralative form-control
+                      className="form-control
           block
           w-full
           px-3
@@ -32,12 +32,14 @@ const Signup = () => {
                       aria-describedby="emailHelp123"
                       placeholder="이름"
                     />
-                    <button className="absolute right-1 top-1">실명확인</button>
                   </div>
-                  <div className=" form-group mb-6 ">
+                  <div className="relative form-group mb-6 ">
+                    <button className="absolute top-1 right-2 px-3 py-2 text-xs font-medium text-center text-black bg-gray-200 itborder border-gray-300 rounded-lg hover:opacity-70 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+                      인증번호 받기
+                    </button>
                     <input
                       type="text"
-                      className="form-control
+                      className=" form-control
           block
           w-full
           px-3
@@ -54,13 +56,11 @@ const Signup = () => {
           focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
                       id="exampleInput124"
                       aria-describedby="emailHelp124"
-                      placeholder="아이디"
+                      placeholder="전화번호"
                     />
                   </div>
                 </div>
-                <button className="absolute right-1.5 top-1 px-3 py-2 text-xs font-medium text-center text-white bg-gray-700 rounded-lg hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
-                  인증번호 받기
-                </button>
+
                 <div className="form-group mb-6">
                   <input
                     type="email"

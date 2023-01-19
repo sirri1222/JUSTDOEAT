@@ -19,13 +19,15 @@ import Password from "./pages/Password";
 import Buy from "./pages/Buy";
 
 import ShoppingBag from "./pages/ShoppingBag";
+import { useState } from "react";
 
 
 
 function App() {
-
+  
 
   return (
+  
     <Router>
       <div>
      
@@ -38,13 +40,13 @@ function App() {
         </Routes>
         <div className="max-w-6xl mx-auto ">
           <Routes>
-            <Route path="/about" element={<About />} />
+            <Route path="/about" element={<About  />} />
             <Route path="/detail" element={<Detail />} />
             <Route path="/idpwfind" element={<IdPwFind />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/password" element={<Password />} />
-            <Route path="/shoppingbag" element={<ShoppingBag />} />
+            <Route path="/shoppingbag" element={<ShoppingBag  />} />
 
             <Route path="/buy" element={<Buy />} />
           </Routes>

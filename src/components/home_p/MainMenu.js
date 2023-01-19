@@ -13,7 +13,7 @@ const MainMenu = () => {
                   <button >
                     <img
                       alt="gallery"
-                      className="block rounded-full object-cover object-center w-full h-full rounded-lg
+                      className="block object-cover object-center w-full h-full rounded-lg
                     opacity-1 transition duration-300 ease-in-out hover:opacity-60"
                       src="/photo/중국집.png"
                     />
@@ -133,7 +133,7 @@ const MainMenu = () => {
 
          <div className="flex justify-start mb-11">
             <div className="flex">
-              <div className=" p-1">
+              <div className="mx-5 p-1">
                 <Link to="/detail">
                   <button>
                     <img
@@ -148,7 +148,7 @@ const MainMenu = () => {
               </div>
             </div>
             <div className="flex  w-100">
-              <div className="w-full p-1">
+              <div className="w-full mx-3 p-1">
                 <Link to="/detail">
                   <button>
                     <img

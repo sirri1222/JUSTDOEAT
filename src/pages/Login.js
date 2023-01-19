@@ -142,14 +142,14 @@ const Login = () => {
                   </Link>
                 </div>
 
-                <div class="text-center lg:text-left">
+                <div class="text-center relative ">
                   <button
                     type="button"
-                    class="inline-block px-7 py-3 bg-gray-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out"
+                    class="inline-block w-full py-3 bg-gray-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out"
                   >
                     Login
                   </button>
-                  <p class="text-sm font-semibold mt-2 pt-1 mb-0">
+                  <p class="text-sm font-semibold  mt-2 pt-1 mb-0">
                     아직 계정이 없으신가요?
                     <Link
                       to="/signup"
