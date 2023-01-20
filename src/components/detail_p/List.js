@@ -1,9 +1,43 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ListItem from "./ListItem";
+import Pagination from "react-js-pagination";
+import requests from "../../api/request";
+import instance from "../../api/axios";
+const List = (props) => {
+  // 데이터 패치 하기
+  const [data, setData] = useState([]);
+  const [ListPage, setListPage] = useState(1);
+  const [ListPageInfo, setListPageInfo] = useState({});
+  const fetchData = async () => {
+    const params = {
+      page: 0,
+      page: ListPage - 1,
+    };
 
-const list = (props) => {
+    console.log("되니");
+    const list = await instance.get(requests.fetchDetail, { params });
+    // console.log(list.data);
+    setData(list.data.list);
+    console.log(list.data.list);
+    const { content, totalPages, totalCount, size } = list.data.list
+      ? list.data.list
+      : {};
+    const StoreList = content ? content : "";
+    const TotalList =
+      StoreList &&
+      StoreList.map((item) => {
+        return <ListItem key={item.seq} ListData={item}></ListItem>;
+      });
+    const pageInfo = { totalPages, totalCount, size };
+    setData(TotalList);
 
+    setListPageInfo(pageInfo);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, [ListPage]);
   // const [bookList, setBookList] = useState([]);
   // const [listPage, setListPage] = useState(1);
   // const [listPageInfo, setListPageInfo] = useState({});
@@ -33,29 +67,35 @@ const list = (props) => {
   // reviewList.map((item) => {
   //   return <ReviewItem key={item.reviewSeq} reviewData={item} />;
   // });
-  
+  // 데이터 패치 하기
+  const handlePageChange = (page) => {
+    setListPage(page);
+  };
 
-
-
-
-return (
+  return (
     <div>
-      <div className="flex flex-col max-w-3xl border-b-2 p-6 mx-auto sm:p-10 dark:bg-gray-900 dark:text-gray-100">
-        <div className="flex flex-col py-6 sm:flex-row sm:justify-between">
-          <div className="flex w-full space-x-2 sm:space-x-4">
-            <img
-              className="flex-shrink-0 object-cover w-20 h-20 dark:border-transparent rounded outline-none sm:w-32 sm:h-32 dark:bg-gray-500"
-              src="/photo/KFC_1.jpg"
-              alt="Polaroid camera"
-            />
-            <ul className="flex flex-col justify-between w-full my-auto">
-            <ListItem/>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <ul className="flex flex-col justify-between w-full my-auto">
+        <ListItem />
+        {data}
+      </ul>
+      {/* <div>
+        <ul className="list-group list-group-flush">{data ? data : ""}</ul>
+        {data ? (
+          <Pagination
+            activePage={ListPage}
+            itemsCountPerPage={ListPageInfo.size}
+            totalItemsCount={parseInt(ListPageInfo.totalCount)}
+            pageRangeDisplayed={10}
+            prevPageText={"‹"}
+            nextPageText={"›"}
+            onChange={handlePageChange}
+          />
+        ) : (
+          ""
+        )}
+      </div> */}
     </div>
   );
 };
 
-export default list;
+export default List;

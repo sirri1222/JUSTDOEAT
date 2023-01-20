@@ -13,29 +13,9 @@ const Detail = () => {
       <Link to="/about">
         <List />
       </Link>
-      <Link to="/about">
-        <List />
-      </Link>
-      <Link to="/about">
-        <List />
-      </Link>
-      <Link to="/about">
-        <List />
-      </Link>
-      <Link to="/about">
-        <List />
-      </Link>
-      <Link to="/about">
-        <List />
-      </Link>
-      <Link to="/about">
-        <List />
-      </Link>
-      <Link to="/about">
-        <List />
-      </Link>
+ 
 
-      <Pagination />
+   
     </div>
   );
 };

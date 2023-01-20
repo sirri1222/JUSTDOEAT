@@ -20,6 +20,7 @@ import Buy from "./pages/Buy";
 
 import ShoppingBag from "./pages/ShoppingBag";
 import { useState } from "react";
+import Aaaa from "./임시 보관/Aaaa";
 
 
 
@@ -47,6 +48,7 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/password" element={<Password />} />
             <Route path="/shoppingbag" element={<ShoppingBag  />} />
+            <Route path="/test" element={<Aaaa  />} />
 
             <Route path="/buy" element={<Buy />} />
           </Routes>

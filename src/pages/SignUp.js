@@ -1,8 +1,38 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Logo from "../components/Logo";
+import SignupModal from "../components/modal_p/SignupModal";
+
 const Signup = () => {
+
+  const [isShowing, setIsShowing] = useState(false);
+  const openSignUpModal = () => {
+    setIsShowing(true);
+  };
+  useEffect(() => {
+    console.log("isShowing", isShowing);
+
+    // 클린함수(컴포넌트가 사라질때 마지막 실행함수)
+    return () => {
+      console.log("팝업이 제거 됨");
+    };
+  }, [isShowing]);
+
+  // 팝업창 css
+  const popup = {
+    position: "fixed",
+    left: 0,
+    top: 0,
+    width: "100%",
+    height: "100%",
+    background: "rgba(0,0,0,0.5)",
+    zIndex: 9,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  };
   return (
     <div className=" block p-6 rounded-lg shadow-lg bg-white max-w-2xl mx-auto">
+     
       <section className="h-screen">
         <div className="px-3 mx-auto text-gray-800">
           <div className="flex xl:justify-center lg:justify-between justify-center items-center g-6">
@@ -34,9 +64,7 @@ const Signup = () => {
                     />
                   </div>
                   <div className="relative form-group mb-6 ">
-                    <button className="absolute top-1 right-2 px-3 py-2 text-xs font-medium text-center text-black bg-gray-200 itborder border-gray-300 rounded-lg hover:opacity-70 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
-                      인증번호 받기
-                    </button>
+               
                     <input
                       type="text"
                       className=" form-control
@@ -61,7 +89,7 @@ const Signup = () => {
                   </div>
                 </div>
 
-                <div className="form-group mb-6">
+                <div onClick={openSignUpModal} className="form-group mb-6">
                   <input
                     type="email"
                     className="form-control block
@@ -103,6 +131,16 @@ const Signup = () => {
                     placeholder="비밀번호"
                   />
                 </div>
+<div><button ><SignupModal/></button>
+<div>
+  
+              {/* 팝업창 */}
+              {isShowing && (
+          <div style={popup} >
+            <SignupModal setIsShowing={setIsShowing} />
+          </div>
+        )}</div>  </div>
+              
                 <div className="form-group mb-6">
                   <input
                     type="password"
@@ -161,11 +199,17 @@ const Signup = () => {
                 >
                   Sign up
                 </button>
+       
               </form>
             </div>
           </div>
+         
         </div>
       </section>
+
+      {/* 모달창 */}
+      
+    
     </div>
   );
 };

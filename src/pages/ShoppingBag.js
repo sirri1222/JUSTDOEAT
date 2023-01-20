@@ -1,17 +1,13 @@
-import React,{useState} from 'react'
+import React from "react";
 
-import ShoppingBasket from '../components/ShoppingBasket'
+import ShoppingBasket from "../components/Cart/ShoppingBasket";
 
 const ShoppingBag = () => {
- 
   return (
     <div>
-
-<ShoppingBasket
-
-/>
+      <ShoppingBasket />
     </div>
-  )
-}
+  );
+};
 
-export default ShoppingBag
+export default ShoppingBag;
