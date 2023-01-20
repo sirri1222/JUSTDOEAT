@@ -1,4 +1,4 @@
-import { Navigation, Pagination } from "swiper";
+import { Navigation, Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -8,28 +8,52 @@ import "swiper/css/scrollbar";
 
 const HeaderBottom = () => {
   return (
-    <div className="App">
-      <Swiper
-        modules={[Navigation, Pagination]}
-        spaceBetween={0}
-        slidesPerView={3}
-        navigation
-        pagination={{ clickable: true }}
-        scrollbar={{ draggable: true }}
-      >
-        <SwiperSlide>
-          <img src="photo/banner7.jpg" className="w-full" alt="제품사진"></img>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="photo/banner7.jpg" className="" alt="제품사진"></img>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="photo/banner7.jpg" className="" alt="제품사진"></img>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="photo/banner7.jpg" className="" alt="제품사진"></img>
-        </SwiperSlide>
-      </Swiper>
+    <div className="App ">
+      <div className="">
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
+          spaceBetween={0}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          scrollbar={{ draggable: true }}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: true,
+          }}
+          loop={true}
+          loopAdditionalSlides={1}
+        >
+          <SwiperSlide>
+            <img
+              src="photo/banner7.jpg"
+              className="w-full "
+              alt="제품사진"
+            ></img>
+          </SwiperSlide>
+          <SwiperSlide>
+            <img
+              src="photo/banner7.jpg"
+              className="w-full"
+              alt="제품사진"
+            ></img>
+          </SwiperSlide>
+          <SwiperSlide>
+            <img
+              src="photo/banner7.jpg"
+              className="w-full"
+              alt="제품사진"
+            ></img>
+          </SwiperSlide>
+          <SwiperSlide>
+            <img
+              src="photo/banner7.jpg"
+              className="w-full"
+              alt="제품사진"
+            ></img>
+          </SwiperSlide>
+        </Swiper>
+      </div>
     </div>
   );
 };
