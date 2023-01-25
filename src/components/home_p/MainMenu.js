@@ -13,8 +13,8 @@ const MainMenu = () => {
                   <button >
                     <img
                       alt="gallery"
-                      className="block object-cover object-center w-full h-full rounded-lg
-                    opacity-1 transition duration-300 ease-in-out hover:opacity-60"
+                      className="block object-cover mb-3  object-center w-full h-full rounded-lg
+                      hover:opacity-50 hover:scale-125  transition duration-300 ease-in-out"
                       src="/photo/중국집.png"
                     />
                     중식
@@ -28,8 +28,8 @@ const MainMenu = () => {
                   <button>
                     <img
                       alt="gallery"
-                      className="block object-cover object-center w-full h-full rounded-lg
-                    opacity-1 transition duration-300 ease-in-out hover:opacity-60"
+                      className="block object-cover mb-3  object-center w-full h-full rounded-lg
+                      hover:opacity-50 hover:scale-125  transition duration-300 ease-in-out"
                       src="/photo/일식9.png"
                     />
                     일식
@@ -43,8 +43,8 @@ const MainMenu = () => {
                   <button>
                     <img
                       alt="gallery"
-                      className="block object-cover object-center w-full h-full rounded-lg
-                    opacity-1 transition duration-300 ease-in-out hover:opacity-60"
+                      className="block object-cover mb-3  object-center w-full h-full rounded-lg
+                      hover:opacity-50 hover:scale-125  transition duration-300 ease-in-out"
                       src="/photo/분식.png"
                     />
                     분식
@@ -58,8 +58,8 @@ const MainMenu = () => {
                   <button>
                     <img
                       alt="gallery"
-                      className="block object-cover object-center w-full h-full rounded-lg
-                    opacity-1 transition duration-300 ease-in-out hover:opacity-60"
+                      className="block object-cover mb-3  object-center w-full h-full rounded-lg
+                      hover:opacity-50  hover:scale-125  transition duration-300 ease-in-out"
                       src="/photo/한식5.png"
                     />
                     한식
@@ -75,8 +75,8 @@ const MainMenu = () => {
                   <button>
                     <img
                       alt="gallery"
-                      className="block object-cover object-center w-full h-full rounded-lg
-                    opacity-1 transition duration-300 ease-in-out hover:opacity-60"
+                      className="block object-cover mb-3  object-center w-full h-full rounded-lg
+                      hover:opacity-50  hover:scale-125  transition duration-300 ease-in-out"
                       src="/photo/치킨3.png"
                     />
                     치킨
@@ -90,8 +90,8 @@ const MainMenu = () => {
                   <button>
                     <img
                       alt="gallery"
-                      className="block object-cover object-center w-full h-full rounded-lg
-                    opacity-1 transition duration-300 ease-in-out hover:opacity-60"
+                      className="block object-cover mb-3  object-center w-full h-full rounded-lg
+                      hover:opacity-50 hover:scale-125  transition duration-300 ease-in-out"
                       src="/photo/피자3.png"
                     />
                     피자
@@ -105,8 +105,8 @@ const MainMenu = () => {
                   <button>
                     <img
                       alt="gallery"
-                      className="block object-cover object-center w-full h-full rounded-lg
-                    opacity-1 transition duration-300 ease-in-out hover:opacity-60"
+                      className="block object-cover mb-3  object-center w-full h-full rounded-lg
+                      hover:opacity-50  hover:scale-125  transition duration-300 ease-in-out"
                       src="/photo/핫도그.png"
                     />
                     핫도그
@@ -120,8 +120,8 @@ const MainMenu = () => {
                   <button>
                     <img
                       alt="gallery"
-                      className="block object-cover object-center w-full h-full rounded-lg
-                    opacity-1 transition duration-300 ease-in-out hover:opacity-60 bg-orange-400"
+                      className="block object-cover mb-3  object-center w-full h-full rounded-lg
+                      hover:opacity-50 hover:scale-125  transition duration-300 ease-in-out"
                       src="/photo/편의점.png"
                     />
                     편의점
@@ -138,8 +138,8 @@ const MainMenu = () => {
                   <button>
                     <img
                       alt="gallery"
-                      className="block object-cover object-center w-full h-full rounded-lg
-                    opacity-1 transition duration-300 ease-in-out hover:opacity-60"
+                      className="block object-cover mb-3  object-center w-full h-full rounded-lg
+                      hover:opacity-50  hover:scale-125  transition duration-300 ease-in-out"
                       src="/photo/족발보쌈.png"
                     />
                     족발보쌈
@@ -153,8 +153,8 @@ const MainMenu = () => {
                   <button>
                     <img
                       alt="gallery"
-                      className="block object-cover object-center w-full h-full rounded-lg
-                    opacity-1 transition duration-300 ease-in-out hover:opacity-60"
+                      className="block object-cover mb-3  object-center w-full h-full rounded-lg
+                      hover:opacity-50  hover:scale-125  transition duration-300 ease-in-out"
                       src="/photo/카페디져트.png"
                     />
                     카페디져트
