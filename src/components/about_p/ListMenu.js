@@ -9,6 +9,13 @@ const ListMenu = ({ increaseQ, decreaseQ, cartCountTotal, removeFromCart }) => {
   // 1은 상세메뉴
   // 2는 정보메뉴
   const [showType, setShowType] = useState(0);
+  const onRemove = () => {
+    if (window.confirm("주문 메뉴를 모두 삭제하시겠습니까?")) {
+      alert("삭제되었습니다.");
+    } else {
+      alert("취소합니다.");
+    }
+  };
   useEffect(() => {}, [showType]);
 
   return (
@@ -68,11 +75,14 @@ const ListMenu = ({ increaseQ, decreaseQ, cartCountTotal, removeFromCart }) => {
         <div className="block rounded-lg shadow-lg bg-white text-white max-w-sm text-center">
           <div className=" flex justify-between bg-red-500 ">
             <p className="p-3  py-2.5 "> 주문표 </p>
-            <img
-              src="photo/휴지통.png"
-              className="scale-50 "
-              alt="제품사진"
-            ></img>
+
+            <button onClick={onRemove}>
+              <img
+                src="photo/휴지통.png"
+                className="scale-50 "
+                alt="제품사진"
+              ></img>
+            </button>
           </div>
           <div className="p-6">
             <h5 className="text-gray-900 text-xl font-medium mb-2">
