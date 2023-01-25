@@ -1,6 +1,6 @@
 import React from "react";
 
-const StoreInfo = () => {
+const StoreInfo = ({item}) => {
   return (
     <div>
       <div className=" bg-white border-b-2 border-gray-200 p-2">

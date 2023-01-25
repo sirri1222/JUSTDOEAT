@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ReviewItem = () => {
+const ReviewItem = ({item}) => {
   return (
     <div>
 

@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import requests from "../../api/request";
 import instance from "../../api/axios";
-const ListItem = (props) => {
+const ListItem = ({item}) => {
+  console.log(item);
   return (
     <div>
       <div className="flex flex-col max-w-3xl border-b-2 p-6 mx-auto sm:p-10 dark:bg-gray-900 dark:text-gray-100">
@@ -15,12 +16,12 @@ const ListItem = (props) => {
             />{" "}
             <li className="flex justify-between w-full my-auto ">
               <div className="space-y-3">
-                <h3 className="text-lg font-semibold leading-snug">가게이름</h3>
+                <h3 className="text-xl font-extrabold leading-snug">{item.siName}</h3>
                 <div className="flex flex-col ">
-                  <span className="text-sm ">★★★★☆4.8</span>
-                  <span className="text-sm">최소주문금액 11,000원</span>
+                  <span className="text-sm  "><span className="font-bold ">open </span>{item.storeDetail.sdOpenTime} - <span className="font-bold ">close </span>{item.storeDetail.sdCloseTime} </span>
+                  <span className="text-sm"><span className="font-bold ">최소주문금액 </span> {item.menuInfo[0].miPrice}원</span>
                   <span className="text-sm">결제 신용카드, 현금,JPay</span>
-                  <span className="text-sm">배달시간 40~50분</span>
+                  <span className="text-sm">배달시간 {item.siMinDeliveryTime}~{item.siMaxDeliveryTime} </span>
                 </div>
               </div>
               <div className="flex text-sm divide-x"></div>

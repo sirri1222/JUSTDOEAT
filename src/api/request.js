@@ -1,6 +1,6 @@
 const requests = {
-  fetchDetail: "/menu/list",
-  fetchAbout: "/about/detail",
+  fetchDetail: "/store/info",
+  fetchAbout: "/menu/list",
   fetchReview: "/review",
 };
 export default requests;

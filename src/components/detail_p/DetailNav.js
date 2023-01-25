@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import WellOrder from "../WellOrder";
 
-const DetailNav = () => {
+const DetailNav = ({item}) => {
   return (
     <div>
       <nav className="bg-gray-100 flex px-5 justify-between items-center rounded-md w-full p-3">

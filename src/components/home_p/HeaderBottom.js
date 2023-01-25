@@ -8,7 +8,7 @@ import "swiper/css/scrollbar";
 
 const HeaderBottom = () => {
   return (
-    <div className="App ">
+    <div className=" ">
       <div className="">
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
