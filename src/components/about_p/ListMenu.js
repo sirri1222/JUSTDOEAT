@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ListMenuMenu from "./ListMenuMenu";
@@ -17,6 +18,19 @@ const ListMenu = ({ increaseQ, decreaseQ, cartCountTotal, removeFromCart }) => {
     }
   };
   useEffect(() => {}, [showType]);
+
+  // 외부 서버 데이터 연동
+  // useEffec 를 이용해서 최초에 데이터를 가지고 온다.
+  const [menuList, setMenuList] = useState([]);
+  useEffect(() => {
+    console.log("데이터 가지고와요.");
+    axios
+      .get("http://192.168.0.156:9988/menu/list?page=0")
+      .then((res) => {
+        setMenuList(res.data.list);
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   return (
     <div
@@ -39,6 +53,7 @@ const ListMenu = ({ increaseQ, decreaseQ, cartCountTotal, removeFromCart }) => {
             </div>
           </div>
         </div>
+        {/* 가게 메뉴 리뷰 정보 */}
         <div>
           <div className="flex justify-around m-5">
             <button
@@ -63,13 +78,19 @@ const ListMenu = ({ increaseQ, decreaseQ, cartCountTotal, removeFromCart }) => {
               정 보
             </button>
           </div>
-
-          <div>
-            {showType === 0 && <ListMenuMenu />}
-            {showType === 1 && <ListReview />}
-            {showType === 2 && <StoreInfo />}
-          </div>
         </div>
+
+        {/* 서버에서 가지고 온 목록을 출력한다. */}
+        {menuList.map((item, index) => (
+          <div key={index}>
+            <div>
+              {showType === 0 && <ListMenuMenu item={item} />}
+              {showType === 1 && <ListReview />}
+              {showType === 2 && <StoreInfo />}
+            </div>
+          </div>
+        ))}
+
       </div>
       <div className=" w-2/6 pt-6 rounded-md">
         <div className="block rounded-lg shadow-lg bg-white text-white max-w-sm text-center">

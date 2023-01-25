@@ -1,8 +1,20 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { NumberCheck } from "../NumberCheck";
 
-const DeliveryInfo = ({ setIsShowing, carts, setCarts }) => {
+const DeliveryInfo = ({ setIsShowing, item, carts, setCarts }) => {
+  // console.log("주문창 item", item);
+  // 전체 제품 선택수
+  const [count, setCount] = useState(1);
+  // 전체 합산 금액
+  const [totalMoney, setTotalMoney] = useState(item.miPrice);
+
+  // 제품 선택에 따른 총 가격 출력
+  useEffect(() => {
+    setTotalMoney(item.miPrice * count);
+  }, [count]);
+
   const hidePop = (e) => {
     // 하단 으로 click 을 전달하지 않는다.
     e.stopPropagation();
@@ -26,24 +38,25 @@ const DeliveryInfo = ({ setIsShowing, carts, setCarts }) => {
 
           <div className="bg-gray-100 ">
             <h2 className="text-gray-900 pl-8 pt-6 text-xl font-semibold ">
-              복마니버거팩
+              {item.miName}
             </h2>
             <div className="flex justify-center">
               <ul className=" rounded-lg w-96 text-gray-900 mb-10">
                 <li className="px-6 flex justify-between my-3 py-2 border-b border-gray-200 w-full rounded-t-lg">
                   <span className="font-semibold block ">가격</span>
-                  <span> 25,700원</span>
+                  <span> {item.miPrice}원</span>
                 </li>
                 <li className="px-6 py-2 border-b my-3 border-gray-200 w-full">
                   <p className="font-semibold block ">메뉴</p>
                   <p className="flex justify-between">
-                    （징거버거＋스콜쳐버거베이직
+                    {/* （징거버거＋스콜쳐버거베이직
                     <br />
                     ＋텐더6＋케이준후라이（M）
                     <br />
-                    ＋콜라（M）2）
+                    ＋콜라（M）2） */}
+                    {item.miAdditionalEx}
                     <span className="my-auto w-20">
-                      <NumberCheck />
+                      <NumberCheck setCount={setCount} />
                     </span>
                   </p>
                 </li>
@@ -61,20 +74,25 @@ const DeliveryInfo = ({ setIsShowing, carts, setCarts }) => {
                       className="form-multiselect block w-full mt-1"
                       multiple
                     >
-                      <option>
+                      {item.option.map((optItem, index) => (
+                        <option key={index}>
+                          {optItem.moName} +{optItem.moPrice}
+                        </option>
+                      ))}
+                      {/* <option>
                         양상추 <span>+500</span>
                       </option>
                       <option>치킨 1개 +1000</option>
                       <option>감자튀김 +1000</option>
                       <option>콘슬로우 +1500</option>
-                      <option>콜라 +1200</option>
+                      <option>콜라 +1200</option> */}
                     </select>
                   </label>
                 </li>
 
                 <li className="px-6 flex justify-between  border-b border-gray-200 w-full rounded-t-lg">
                   <span className="font-semibold block ">총 합계</span>
-                  <span> 25,700원</span>
+                  <span> {totalMoney}원</span>
                 </li>
               </ul>
             </div>
