@@ -38,10 +38,10 @@ const HeaderBottom = () => {
               alt="제품사진"
             ></img>
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide className="h-full">
             <img
               src="photo/banner7.jpg"
-              className="w-full"
+              className=""
               alt="제품사진"
             ></img>
           </SwiperSlide>

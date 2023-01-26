@@ -69,9 +69,11 @@ const IdPwFind = () => {
               id="exampleInputPassword1"
               placeholder="인증번호를 입력하세요."
             />
-           <button className="absolute right-1.5 top-1 px-3 py-2 text-xs font-medium text-center text-white bg-gray-700 rounded-lg hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800">인증번호 받기</button>
-         
-          </div>
+           <button
+         onClick={()=>{alert("인증번호를 입력하세요")}}
+            className="absolute right-1.5 top-1 px-3 py-2 text-xs font-medium text-center text-white bg-gray-700 rounded-lg hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800">인증번호 받기</button>
+          
+          </div> 
 
           <div className="form-group mb-6">
             <label

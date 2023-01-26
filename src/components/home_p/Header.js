@@ -9,15 +9,15 @@ const Header = () => {
         <div className="navbar navbar-expand-sm py-1 relative flex items-center justify-between w-full ">
           <Link to="/home">
             <img
-              className=" ml-10  h-16 w-40 "
-              src="/photo/JUSTDOEAT3.jpg"
+              className=" ml-10 h-17 w-40 "
+              src="/photo/jdelogo-s.png"
               alt="로고"
             ></img>
           </Link>
           <div className="flex">
           <input
             type="search"
-            className="  ml-20  px-10 py-1.5 text-base font-normal
+            className="ml-22  px-10 py-1.5 text-base font-normal
        text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition
        ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
             placeholder="주소를 입력해주세요."
@@ -46,8 +46,8 @@ const Header = () => {
             </svg>
           </button></div>
         </div>
-        <div className="flex items-center relative mr-10">
-          <div className="flex items-center justify-end mx-8">
+        <div className="flex items-center  relative mr-10">
+          <div className="flex items-center  justify-end mx-8">
             <Link
               to="/login"
               className="
@@ -65,7 +65,7 @@ const Header = () => {
              duration-150
              ease-in-out"
             >
-              <img className="absolute top-3  left-5 w-11" src="/photo/info (1).png" alt="로그인"></img>
+              <img className="absolute top-9 left-5 w-11" src="/photo/info (1).png" alt="로그인"></img>
             </Link>
             {/* <Link
               to="/signup"
@@ -101,7 +101,7 @@ const Header = () => {
                   d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"
                 ></path>
               </svg> */}
-              <img className="absolute top-3 right-1 w-11" src="/photo/basket.png" alt="장바구니"></img>
+              <img className="absolute top-9 right-1 w-11" src="/photo/basket.png" alt="장바구니"></img>
               <span className="text-white bg-red-700 absolute rounded-full text-xs -mt-2.5 ml-2 py-0 px-1.5">
                 1
               </span>
