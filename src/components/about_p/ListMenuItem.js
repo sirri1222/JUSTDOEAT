@@ -10,12 +10,7 @@ const ListMenuItem = (props) => {
   };
   useEffect(() => {
     console.log("isShowing", isShowing);
-    // if (isShowing) {
-    //   const notiTimer = setTimeout(() => {
-    //     setIsShowing(false);
-    //   }, 3000);
-    //   return () => clearTimeout(notiTimer);
-    // }
+    
   }, [isShowing]);
 
   // 팝업창 css
