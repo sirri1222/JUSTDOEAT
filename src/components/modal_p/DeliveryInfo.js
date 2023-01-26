@@ -9,7 +9,6 @@ const DeliveryInfo = ({ setIsShowing, item, carts, setCarts }) => {
   const [count, setCount] = useState(1);
   // 전체 합산 금액
   const [totalMoney, setTotalMoney] = useState(item.miPrice);
-
   // 제품 선택에 따른 총 가격 출력
   useEffect(() => {
     setTotalMoney(item.miPrice * count);
@@ -60,22 +59,31 @@ const DeliveryInfo = ({ setIsShowing, item, carts, setCarts }) => {
                     </span>
                   </p>
                 </li>
+
                 <li className="px-6 py-2 border-b my-3 border-gray-200 w-full">
                   <span className="font-semibold block ">추가선택</span>
                   {/* <!-- Required form plugin --> */}
-                  <Link
+                  {/* <Link
                     to="https://cdn.jsdelivr.net/npm/@tailwindcss/custom-forms@0.2.1/dist/custom-forms.css"
                     rel="stylesheet"
-                  />
+                   /> */}
+                  <div>
+                    {/* {item.option.map((optItem, index) => (
+                      <input type="checkbox" key={index}>
+                        <div class="form-check"></div>
+                        {optItem.moName} +{optItem.moPrice}
+                      </input>
+                    ))} */}
+                  </div>
 
                   <label className="block text-left mx-w-sm">
-                    <span className="text-gray-700"></span>
                     <select
                       className="form-multiselect block w-full mt-1"
                       multiple
                     >
                       {item.option.map((optItem, index) => (
                         <option key={index}>
+                          <div class="form-check"></div>
                           {optItem.moName} +{optItem.moPrice}
                         </option>
                       ))}
@@ -102,14 +110,13 @@ const DeliveryInfo = ({ setIsShowing, item, carts, setCarts }) => {
           className=" w-full  
                bg-blue-300"
         >
-          
-            <button
-              type="button"
-              className=" inline-block w-1/2 px-6 py-2.5 bg-black text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-            >
-              주문표에 추가
-            </button>
-          
+          <button
+            type="button"
+            className=" inline-block w-1/2 px-6 py-2.5 bg-black text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+          >
+            주문표에 추가
+          </button>
+
           <Link to="/buy">
             <button
               type="button"

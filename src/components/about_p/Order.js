@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { NumberCheck } from "../NumberCheck";
 
 const order = () => {
+  
+
   const onRemove = () => {
     if (window.confirm("주문 메뉴를 모두 삭제하시겠습니까?")) {
       alert("삭제되었습니다.");
@@ -11,8 +13,7 @@ const order = () => {
       alert("취소합니다.");
     }
   };
-  //   useEffect(() => {}, [showType]);
-
+ 
   return (
     <div className=" w-2/6 pt-6 rounded-md">
       <div className="block rounded-lg shadow-lg bg-white text-white max-w-sm text-center">
@@ -40,19 +41,22 @@ const order = () => {
           </div>
         </div>
 
-        <div className="flex justify-between ">
+        <div className="flex items-center justify-between ">
           {" "}
           <button
-            className="pl-2 pr-10 px-28  cursor-pointer   transition  mb-4"
+            onClick={onRemove}
+            className=""
             // onClick={hidePop}
           >
             <img
-              src="photo/sprite-1.png"
-              className="scale-75"
+              src="photo/sprite_1.png"
+              className=" scale-50"
               alt="제품사진"
             ></img>
           </button>
-          <NumberCheck />
+          <div className="pr-4 w-20">
+            <NumberCheck />
+          </div>
         </div>
 
         <Link to="/shoppingbag">

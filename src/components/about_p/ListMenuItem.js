@@ -10,7 +10,6 @@ const ListMenuItem = (props) => {
   };
   useEffect(() => {
     console.log("isShowing", isShowing);
-    
   }, [isShowing]);
 
   // 팝업창 css
@@ -48,7 +47,7 @@ const ListMenuItem = (props) => {
         {/* 팝업창 */}
         {isShowing && (
           <div style={popup}>
-            <DeliveryInfo setIsShowing={setIsShowing} item={props.item}/>
+            <DeliveryInfo setIsShowing={setIsShowing} item={props.item} />
           </div>
         )}
       </li>
