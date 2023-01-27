@@ -5,7 +5,7 @@ import WellOrder from "../WellOrder";
 const DetailNav = ({item}) => {
   return (
     <div>
-      <nav className="bg-gray-100 flex px-5 justify-between items-center rounded-md w-full p-3">
+      <nav className="bg-gray-80 flex px-5 justify-between items-center rounded-md w-full p-3">
         <div className="flex">
           <ol className="list-reset flex justify-start ">
           <li>
@@ -85,7 +85,7 @@ const DetailNav = ({item}) => {
                 to="/detail"
                 className="text-gray-600 mr-6  dark:text-white hover:underline text-lg font-semibold leading-snug hover:"
               >
-                카페디져트
+                카페디저트
               </Link>
             </li>{" "}
           </ol>
