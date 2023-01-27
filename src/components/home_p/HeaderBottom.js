@@ -16,7 +16,7 @@ const HeaderBottom = () => {
           slidesPerView={1}
           navigation
           pagination={{ clickable: true }}
-          scrollbar={{ draggable: true }}
+          // scrollbar={{ draggable: true }}
           autoplay={{
             delay: 2500,
             disableOnInteraction: true,
@@ -33,21 +33,21 @@ const HeaderBottom = () => {
           </SwiperSlide>
           <SwiperSlide>
             <img
-              src="photo/banner7.jpg"
+              src="photo/banner8.jpg"
               className="w-full"
               alt="제품사진"
             ></img>
           </SwiperSlide>
           <SwiperSlide>
             <img
-              src="photo/banner7.jpg"
+              src="photo/banner9.jpg"
               className="w-full"
               alt="제품사진"
             ></img>
           </SwiperSlide>
           <SwiperSlide>
             <img
-              src="photo/banner7.jpg"
+              src="photo/banner10.jpg"
               className="w-full"
               alt="제품사진"
             ></img>
