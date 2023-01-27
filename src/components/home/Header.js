@@ -11,7 +11,7 @@ const Header = () => {
         <div className="navbar navbar-expand-sm py-1 relative flex items-center justify-between w-full ">
           <Link to="/home">
             <img
-              className=" ml-10 h-17 w-40 "
+              className=" ml-10 w-20 m-6 "
               src="/photo/jdelogo-s.png"
               alt="로고"
             ></img>
@@ -112,7 +112,7 @@ const Header = () => {
               </svg> */}
 
               <img
-                className="absolute top-3 right-1 w-11"
+                className="absolute top-9 right-1 w-11"
                 src="/photo/basket.png"
                 alt="장바구니"
               ></img>
