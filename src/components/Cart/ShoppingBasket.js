@@ -5,11 +5,11 @@ import { NumberCheck } from "../NumberCheck";
 const ShoppingBasket = (props) => {
   return (
     <div>
-      <div className=" block p-6 rounded-lg shadow-lg bg-white max-w-2xl mx-auto">
-        <div className="flex flex-col max-w-3xl p-6 mx-auto space-y-4 sm:p-10 dark:bg-gray-900 dark:text-gray-100">
+      <div className="   p-6 rounded-lg shadow-lg bg-white max-w-2xl mx-auto">
+        <div className="flex  flex-col max-w-3xl p-6 mx-auto space-y-4 sm:p-10 dark:bg-gray-900 dark:text-gray-100">
           <h2 className="text-xl font-semibold">장바구니</h2>
           <ul className="flex flex-col  ">
-            <li className="relative border-b-2 border-gray-300 flex py-6">
+            <li className="relative border-b-2  border-gray-300 flex py-6">
               <div className="flex w-full space-x-2 sm:space-x-4">
                 <img
                   className="flex-shrink-0 object-cover w-20 h-20 dark:border-transparent rounded outline-none sm:w-32 sm:h-32 dark:bg-gray-500"

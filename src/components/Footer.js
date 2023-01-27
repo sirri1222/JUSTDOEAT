@@ -4,16 +4,16 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div>
-      <footer className="text-center pb-2 bg-zinc-800 text-zinc-400">
+      <footer className=" text-center pb-2 bg-zinc-800 text-zinc-400">
         <div className=" px-6 pt-6">
-          <div className="text-center p-4 ">
+          <div className=" text-center p-4 ">
             대구광역시 중구 동성로 12 둘리빌딩 5층
             <br />
             사업자등록번호 : 000-00-00000 / 주식회사 JUST DO EAT / 대표자 :
             홍길동
             <br />
             TEL : 053)000-0000 월~금 09:00~12:00, 13:00~17:00 공휴일 제외 / FAX : 053)000-0000
-            <div className="text-whitehite mt-5">
+            <div className=" text-whitehite mt-5">
               
               ⓒ 2023 JUST DO EAT All Rights Reserved.
             </div>
