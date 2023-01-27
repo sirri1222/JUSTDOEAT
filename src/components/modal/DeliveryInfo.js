@@ -27,7 +27,7 @@ const DeliveryInfo = ({ setIsShowing, item }) => {
         <div className="flex justify-between  content-center h-10 px-2 bg-gray-100">
           <span className="p-8 pt-2  pb-6 font-semibold ">상세 메뉴</span>
           <button
-            className="pr-3 pt-2 font-bold cursor-pointer  text-red-600 hover:text-red-900  transition  mb-4"
+            className="pr-3 pt-2 font-bold cursor-pointer  text-red-600 hover:text-bl  transition  mb-4"
             onClick={hidePop}
           >
             X
