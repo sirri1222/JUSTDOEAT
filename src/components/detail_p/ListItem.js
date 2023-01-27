@@ -18,7 +18,7 @@ const ListItem = ({item}) => {
               <div className="space-y-3">
                 <h3 className="text-xl font-extrabold leading-snug">{item.siName}</h3>
                 <div className="flex flex-col ">
-                  <span className="text-sm  "><span className="font-bold ">open </span>{item.storeDetail.sdOpenTime} - <span className="font-bold ">close </span>{item.storeDetail.sdCloseTime} </span>
+                  <span className="text-sm  "><span className="font-bold ">open </span>- <span className="font-bold ">close </span></span>
                   <span className="text-sm"><span className="font-bold ">최소주문금액 </span> {item.menuInfo[0].miPrice}원</span>
                   <span className="text-sm">결제 신용카드, 현금,JPay</span>
                   <span className="text-sm">배달시간 {item.siMinDeliveryTime}~{item.siMaxDeliveryTime} </span>

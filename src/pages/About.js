@@ -1,7 +1,5 @@
-import React from "react";
-
-import DetailNav from "../components/detail_p/DetailNav";
-import ListMenu from "../components/about_p/ListMenu";
+import DetailNav from "../components/detail/DetailNav";
+import ListMenu from "../components/about/ListMenu";
 
 const About = () => {
   return (

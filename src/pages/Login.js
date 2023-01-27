@@ -1,15 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-
 import { Link, useNavigate } from "react-router-dom";
-import { loginUser } from "../components/_action/User_action";
 import Logo from "../components/Logo.js";
 import instance from "../api/axios";
-import request from "../api/request";
 
 const Login = () => {
-  const dispatch = useDispatch();
   const [id, setId] = useState("");
   const [pwd, setPwd] = useState("");
   const [uerInfo, setUserInfo] = useState({
@@ -17,11 +12,10 @@ const Login = () => {
     pwd: "",
   });
   const IdHandler = (event) => setId(event.target.value);
-
   const pwdHandler = (event) => setPwd(event.target.value);
+  const navigate = useNavigate();
+  // 로그인 처리
   const onSubmitHandler = (event) => {
-    // 로그인 처리
-
     event.preventDefault();
     if (!id) {
       alert("이메일 형식이 잘못되었습니다.");
@@ -29,53 +23,20 @@ const Login = () => {
     if (!pwd) {
       alert("비밀번호 형식이 잘못되었습니다.");
     }
-
     instance
       .post("http://192.168.0.156:9988/member/login", { id, pwd })
       .then((res) => {
-        console.log(res);
+        // store 에 저장 처리 예정
+        console.log("성공", res);
+        navigate("/");
       })
       .catch((err) => {
+        // 서버가 반응이 없을 때
         console.log(err);
+        // 서버가 죽었을 때 임시처리
+        // 추후제거
+        navigate("/");
       });
-
-    // console.log(loginSuccess);
-
-    // 버튼만 누르면 리로드 되는것을 막아줌
-
-    // const tempUser = firebase.auth();
-    // tempUser
-    //   .signInWithIdAndPassword(Id, pwd)
-    //   .then((userCredential) => {
-    //     // 로그인 성공
-    //     const user = userCredential.user;
-    //     console.log(user);
-    //     navigate("/home");
-    //     // Redux 를 이용한 App 의 store 관리 시작
-    //     // component 의 state 로 관리하기는 복잡하다.
-    //   })
-    //   .catch((error) => {
-    //     // 로그인 실패
-    //     const errorCode = error.code;
-    //     const errorMessage = error.message;
-    //     // console.log(errorCode, errorMessage);
-    //     if (errorCode === "auth/wrong-password") {
-    //       setErrMsg("비밀번호를 확인하세요.");
-    //     } else if (errorCode === "auth/user-not-found") {
-    //       setErrMsg("이메일을 확인하세요.");
-    //     } else {
-    //       setErrMsg("로그인에 실패하였습니다.");
-    //     }
-    //   });
-    // console.log('Id', Id);
-    // console.log('Password', Password);
-
-    // let body = {
-    //     Id: Id,
-    //     pwd: pwd,
-    // }
-
-    // dispatch(loginUser(body));
   };
 
   return (
@@ -87,10 +48,10 @@ const Login = () => {
               <Logo></Logo>
               <form onSubmit={onSubmitHandler}>
                 {/* <!-- Id input --> */}
-                <div class="mb-6">
+                <div className="mb-6">
                   <input
                     type="text"
-                    class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
+                    className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
                     id="exampleFormControlInput2"
                     placeholder="이메일"
                     value={id}
@@ -99,10 +60,10 @@ const Login = () => {
                 </div>
 
                 {/* <!-- Password input --> */}
-                <div class="mb-6">
+                <div className="mb-6">
                   <input
                     type="password"
-                    class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
+                    className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
                     id="exampleFormControlInput2"
                     placeholder="비밀번호"
                     value={pwd}
@@ -110,23 +71,24 @@ const Login = () => {
                   />
                 </div>
 
-                <div class="flex justify-around items-center mb-6">
-                  <div class="form-group form-check">
+                <div className="flex justify-around items-center mb-6">
+                  <div className="form-group form-check">
                     <input
                       type="checkbox"
-                      class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-gray-600 checked:border-gray-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                      className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-gray-600 checked:border-gray-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                       id="exampleCheck2"
+                      onChange={() => {}}
                     />
                     <label
-                      class="form-check-label inline-block text-gray-800"
-                      for="exampleCheck2"
+                      className="form-check-label inline-block text-gray-800"
+                      htmlFor="exampleCheck2"
                     >
                       아이디 기억하기
                     </label>
                   </div>
                 </div>
 
-                <div class="text-center relative ">
+                <div className="text-center relative ">
                   <button
                     onClick={(e) => {
                       onSubmitHandler(e);
@@ -135,7 +97,7 @@ const Login = () => {
                   >
                     로그인
                   </button>
-                  {/* <p class="text-sm font-semibold  mt-2 pt-1 mb-0">
+                  {/* <p className="text-sm font-semibold  mt-2 pt-1 mb-0">
                     아직 계정이 없으신가요?
                     <Link
                       to="/signup"
@@ -152,13 +114,13 @@ const Login = () => {
                   </p>
                   <button
                     type="button"
-                    class="inline-block w-full py-3 my-3 bg-green-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out"
+                    className="inline-block w-full py-3 my-3 bg-green-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out"
                   >
                     네이버 아이디로 로그인
                   </button>
                   <button
                     type="button"
-                    class="inline-block w-full py-3 bg-yellow-500 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out"
+                    className="inline-block w-full py-3 bg-yellow-500 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out"
                   >
                     카카오 아이디로 로그인
                   </button>

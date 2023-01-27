@@ -1,6 +1,9 @@
 import React from "react";
+import { useState } from "react";
 
 const Payment = () => {
+  // 추후 각 항목별로 useState 를 만들어야 함.
+  const [val, setVal] = useState("");
   return (
     <div>
       {" "}
@@ -31,6 +34,8 @@ const Payment = () => {
     focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
               id="exampleInput125"
               placeholder="(필수)주소를 입력하세요"
+              value={val}
+              onChange={() => {}}
             />
           </div>
           <div className="form-group mb-6">
@@ -52,6 +57,8 @@ const Payment = () => {
     focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
               id="exampleInput126"
               placeholder="(필수)상세주소를 입력하세요"
+              value={val}
+              onChange={() => {}}
             />
           </div>
           <label>전화번호</label>
@@ -74,14 +81,16 @@ const Payment = () => {
     focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
               id="exampleInput126"
               placeholder="Password"
+              value={val}
+              onChange={() => {}}
             />
           </div>
 
           <div className="form-group mb-6">
-            <div className="block p-2 bg-gray-200 max-w-2xl mx-auto"> 
-            <label>주문시 요청사항</label>
+            <div className="block p-2 bg-gray-200 max-w-2xl mx-auto">
+              <label>주문시 요청사항</label>
             </div>
-           
+
             <input
               type="password"
               className="form-control block
@@ -100,6 +109,8 @@ const Payment = () => {
     focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
               id="exampleInput126"
               placeholder="요청사항을 입력하세요."
+              value={val}
+              onChange={() => {}}
             />
           </div>
 
@@ -124,21 +135,34 @@ const Payment = () => {
   ease-in-out
   m-0
   focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
+                value={val}
+                onClick={() => {}}
               >
-                <option selected>결제 수단선택</option>
-                <option value="3">현장결제</option>
-                <option value="1">신용카드</option>
-                <option value="2">휴대전화</option>
-                <option value="3">네이버페이</option>
-                <option value="3">삼성페이</option>
+                <option value={val} onClick={() => {}}>
+                  결제 수단선택
+                </option>
+                <option value="3" onClick={() => {}}>
+                  현장결제
+                </option>
+                <option value="1" onClick={() => {}}>
+                  신용카드
+                </option>
+                <option value="2" onClick={() => {}}>
+                  휴대전화
+                </option>
+                <option value="3" onClick={() => {}}>
+                  네이버페이
+                </option>
+                <option value="3" onClick={() => {}}>
+                  삼성페이
+                </option>
               </select>
             </div>
-            <div >
+            <div>
               <div className="flex w-full items-center justify-around">
-           
-                  <button
-                    type="button"
-                    className="
+                <button
+                  type="button"
+                  className="
     rounded-l
     px-6
     py-2
@@ -154,14 +178,14 @@ const Payment = () => {
     duration-150
     ease-in-out
   "
-                  >
-                    <img src="/photo/NAVERPAY.PNG" alt="네이버페이"></img>
-                    네이버 페이
-                  </button>
+                >
+                  <img src="/photo/NAVERPAY.PNG" alt="네이버페이"></img>
+                  네이버 페이
+                </button>
 
-                  <button
-                    type="button"
-                    className="
+                <button
+                  type="button"
+                  className="
     rounded-r
   
     px-6
@@ -178,18 +202,28 @@ const Payment = () => {
     duration-150
     ease-in-out
   "
-                  >
-                    <img
-                      className="w-30 h-20"
-                      src="/photo/SAMSUNGPAY.PNG"
-                      alt="삼성페이"
-                    ></img>
-                    삼성페이
-                  </button></div>
-                  <div className="flex my-5 w-full items-center justify-around">
-                  <button type="button" className="inline-block px-11 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">신용카드</button>
-                  <button type="button" className="inline-block px-11 py-2.5  bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">현장결제</button>
-               
+                >
+                  <img
+                    className="w-30 h-20"
+                    src="/photo/SAMSUNGPAY.PNG"
+                    alt="삼성페이"
+                  ></img>
+                  삼성페이
+                </button>
+              </div>
+              <div className="flex my-5 w-full items-center justify-around">
+                <button
+                  type="button"
+                  className="inline-block px-11 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                >
+                  신용카드
+                </button>
+                <button
+                  type="button"
+                  className="inline-block px-11 py-2.5  bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                >
+                  현장결제
+                </button>
               </div>
             </div>
           </div>
@@ -213,6 +247,8 @@ const Payment = () => {
     focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
               id="exampleInput125"
               placeholder="쿠폰 코드를 입력하세요."
+              value={val}
+              onChange={() => {}}
             />
           </div>
           <div className="form-group form-check text-center mb-6">
@@ -221,10 +257,12 @@ const Payment = () => {
               classNameName="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-gray-600 checked:border-gray-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain mr-2 cursor-pointer"
               id="exampleCheck25"
               checked
+              value={val}
+              onChange={() => {}}
             />
             <label
               className="form-check-label inline-block text-gray-800"
-              for="exampleCheck25"
+              htmlFor="exampleCheck25"
             >
               개인정보 수집에 동의합니다.
             </label>

@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState } from "react";
 import instance from "../api/axios";
 import Logo from "../components/Logo";
-import SignupModal from "../components/modal_p/SignupModal";
 
 const Signup = () => {
-  const dispatch = useDispatch();
   const [uiEmail, setuiEmail] = useState("");
   const [uiPwd, setUiPwd] = useState("");
   const [uiPwdCheck, setUiPwdCheck] = useState("");
@@ -14,6 +11,7 @@ const Signup = () => {
   const [uiId, setUiid] = useState("");
   const [uiPhone, setUiPhon] = useState("");
   const [uiName, setUiName] = useState("");
+  const [usabledId, setUsableId] = useState("");
 
   const isCheckBoxClicked = () => {
     setUiGender(!uiGen);
@@ -39,13 +37,11 @@ const Signup = () => {
     // 이메일 유효성 검사
     const isValidEmail = uiEmail.includes("@") && uiEmail.includes(".");
     event.preventDefault();
-    if (uiId.length === "" ) {
+    if (uiId.length === "") {
       alert(" 필수 정보를 모두입력해 주세요.");
-    }
-    else if(uiName === ""){
+    } else if (uiName === "") {
       alert(" 필수 정보를 모두입력해 주세요.");
-    }
-    else if(uiName === ""){
+    } else if (uiName === "") {
       alert(" 필수 정보를 모두입력해 주세요.");
     }
     if (!isValidEmail) {
@@ -62,55 +58,52 @@ const Signup = () => {
     if (uiPwd !== uiPwdCheck) {
       alert("비밀번호 확인이 일치하지 않습니다.");
     }
-const DuplicationAPI = async(uiId) => {
-  let return_value
-  await instance
-.post("http://192.168.0.156:9988/member/join", {
-  uiName,
-  uiId,
-  uiEmail,
-  uiPhone,
-})
-.then((res) => {
-  console.log(res);
-})
-.catch((res) => {
-  console.log(res);
-}); 
+    const DuplicationAPI = async (uiId) => {
+      let return_value;
+      await instance
+        .post("http://192.168.0.156:9988/member/join", {
+          uiName,
+          uiId,
+          uiEmail,
+          uiPhone,
+        })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((res) => {
+          console.log(res);
+        });
 
-return return_value;
+      return return_value;
+    };
+    const DuplicationCheck = () => {
+      DuplicationAPI(uiId).then((res) => {
+        console.log(res);
+        if (res === false) {
+          alert("사용 가능한 아이디입니다.");
+          setUsableId(res);
+        } else {
+          alert("중복된 아이디입니다. 다시 시도하세요.");
+          setUsableId(res);
+          setUiid("");
+        }
+      });
+    };
 
-} 
-const DuplicationCheck = () => {
-  DuplicationAPI(uiId)
-  .then((res)=>{
-    console.log(res)
-    if(res === false){
-      alert('사용 가능한 아이디입니다.');
-      setUsableId(res);
-    }
-    else{
-      alert('중복된 아이디입니다. 다시 시도하세요.');
-      setUsableId(res);
-      setUserid('');
-    }
-  })
-}
-
-// 데이터 api
- instance
-.post("http://192.168.0.156:9988/member/join", {
-  uiName,
-  uiId,
-  uiEmail,
-  uiPhone,
-})
-.then((res) => {
-  console.log(res);
-})
-.catch((res) => {
-  console.log(res);
-}); 
+    // 데이터 api
+    instance
+      .post("http://192.168.0.156:9988/member/join", {
+        uiName,
+        uiId,
+        uiEmail,
+        uiPhone,
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((res) => {
+        console.log(res);
+      });
   };
 
   // 클린함수(컴포넌트가 사라질때 마지막 실행함수)
@@ -155,10 +148,11 @@ const DuplicationCheck = () => {
                           type="checkbox"
                           id="inlineCheckbox1"
                           value="option1"
+                          onChange={() => {}}
                         />
                         <label
                           className="form-check-label inline-block text-gray-800"
-                          for="inlineCheckbox1"
+                          htmlFor="inlineCheckbox1"
                         >
                           남자
                         </label>
@@ -170,10 +164,11 @@ const DuplicationCheck = () => {
                           type="checkbox"
                           id="inlineCheckbox2"
                           value="option2"
+                          onChange={() => {}}
                         />
                         <label
                           className="form-check-label inline-block text-gray-800"
-                          for="inlineCheckbox2"
+                          htmlFor="inlineCheckbox2"
                         >
                           여자
                         </label>
@@ -201,7 +196,6 @@ const DuplicationCheck = () => {
                       id="exampleInput124"
                       aria-describedby="emailHelp124"
                       onChange={phoneHandler}
-                      
                       placeholder="전화번호(필수)"
                     />
                   </div>
@@ -304,10 +298,11 @@ const DuplicationCheck = () => {
                     className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-gray-600 checked:border-gray-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain mr-2 cursor-pointer"
                     id="exampleCheck25"
                     checked
+                    onChange={() => {}}
                   />
                   <label
                     className="form-check-label inline-block text-gray-800"
-                    for="exampleCheck25"
+                    htmlFor="exampleCheck25"
                   >
                     개인정보 수집에 동의합니다
                   </label>

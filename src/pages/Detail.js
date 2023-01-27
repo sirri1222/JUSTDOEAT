@@ -1,21 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import DetailNav from "../components/detail_p/DetailNav";
-import List from "../components/detail_p/List";
-
-import Pagination from "../components/Pagination";
+import { useState } from "react";
+import DetailNav from "../components/detail/DetailNav";
+import List from "../components/detail/List";
 
 const Detail = () => {
+  const [siSeq, setSeq] = useState(0);
   return (
     <div>
       <DetailNav />
-   
-      <Link to="/about">
-        <List />
-      </Link>
- 
-
-   
+      <div>
+        <List siSeq={siSeq} />
+      </div>
     </div>
   );
 };

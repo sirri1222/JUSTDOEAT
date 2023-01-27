@@ -1,27 +1,11 @@
-import React, {useEffect, useState} from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import { Link } from "react-router-dom";
-import requests from "../../api/request";
-import instance from "../../api/axios";
-import List from "../detail_p/List"
-import {removeItem} from "../../Redux.js/CartSlice"
 import { NumberCheck } from "../NumberCheck";
 
-
-
 const ShoppingBasket = (props) => {
-
-
-
-// storeSlice에 저장된 함수 가져와서 사용하기 
-let state = useSelector((state)=>{return state})
-let dispatch = useDispatch();
-// console.log(state)
   return (
-   
-    <div> 
-
-     <div className=" block p-6 rounded-lg shadow-lg bg-white max-w-2xl mx-auto">
+    <div>
+      <div className=" block p-6 rounded-lg shadow-lg bg-white max-w-2xl mx-auto">
         <div className="flex flex-col max-w-3xl p-6 mx-auto space-y-4 sm:p-10 dark:bg-gray-900 dark:text-gray-100">
           <h2 className="text-xl font-semibold">장바구니</h2>
           <ul className="flex flex-col  ">
@@ -44,7 +28,6 @@ let dispatch = useDispatch();
 
                   <div className="flex text-sm divide-x">
                     <button
-                     onClick={()=> dispatch(removeItem())}
                       type="button"
                       className="flex items-center px-2 py-1 pl-0 space-x-1"
                     >
@@ -76,13 +59,13 @@ let dispatch = useDispatch();
                     </button>
                     <div className="absolute right-0 w-20">
                       {" "}
-                      <NumberCheck></NumberCheck>
+                      <NumberCheck />
                     </div>
                   </div>
                 </div>
                 <div className="custom-number-input h-10 w-32 flex justify-between">
                   <label
-                    for="custom-input-number"
+                    htmlFor="custom-input-number"
                     className="w-full text-gray-700 text-sm font-semibold"
                   ></label>
 
@@ -115,8 +98,6 @@ let dispatch = useDispatch();
           </div>
         </div>
       </div>
-  
-     
     </div>
   );
 };

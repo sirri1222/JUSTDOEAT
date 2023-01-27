@@ -17,16 +17,16 @@ const Header = () => {
             ></img>
           </Link>
           <div className="flex">
-
-          <input
-            type="search"
-            className="ml-22  px-10 py-1.5 text-base font-normal
+            <input
+              type="search"
+              className="  ml-20  px-10 py-1.5 text-base font-normal
 
        text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition
        ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
               placeholder="주소를 입력해주세요."
               aria-label="Search"
               aria-describedby="button-addon2"
+              onChange={() => {}}
             />
             <button
               className="btn px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out flex items-center"
@@ -70,9 +70,11 @@ const Header = () => {
              duration-150
              ease-in-out"
             >
-
-              <img className="absolute top-9 left-5 w-11" src="/photo/info (1).png" alt="로그인"></img>
-
+              <img
+                className="absolute top-9 left-5 w-11"
+                src="/photo/infouser.png"
+                alt="로그인"
+              ></img>
             </Link>
             {/* <Link
               to="/signup"
@@ -110,7 +112,7 @@ const Header = () => {
               </svg> */}
 
               <img
-                className="absolute top-9 right-1 w-11"
+                className="absolute top-3 right-1 w-11"
                 src="/photo/basket.png"
                 alt="장바구니"
               ></img>

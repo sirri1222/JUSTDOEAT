@@ -1,6 +1,6 @@
 import React from "react";
 
-import ShoppingBasket from "../components/Cart/ShoppingBasket";
+import ShoppingBasket from "../components/cart/ShoppingBasket";
 
 const ShoppingBag = () => {
   return (
