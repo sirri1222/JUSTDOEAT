@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import instance from "../api/axios";
 import Logo from "../components/Logo";
@@ -8,6 +8,8 @@ const Signup = () => {
   const dispatch = useDispatch();
   const [uiEmail, setuiEmail] = useState("");
   const [uiPwd, setUiPwd] = useState("");
+  const [uiPwdCheck, setUiPwdCheck] = useState("");
+
   const [uiGen, setUiGender] = useState(1);
   const [uiId, setUiid] = useState("");
   const [uiPhone, setUiPhon] = useState("");
@@ -21,44 +23,100 @@ const Signup = () => {
   const phoneHandler = (event) => setUiPhon(event.target.value);
 
   const pwHandler = (event) => setUiPwd(event.target.value);
+  const pwCheckHandler = (event) => setUiPwdCheck(event.target.value);
   const idHandler = (event) => setUiid(event.target.value);
   const onSubmitHandler = (event) => {
     // 로그인 처리
-  // 1. 아이디검사
-        // 첫글자는 반드시 영소문자로 이루어지고, 
-        // 숫자가 하나이상 포함되어야함.
-        // 아이디의 길이는 4~12글자 사이
-        // 비밀번호 특수문자 검사를 위한 정규식표현.
-const specialLetter = uiPwd.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
-        const regExp1 = uiId.includes("/^[a-z][a-z\d]{3,11}$/") && uiId.includes("/[0-9]/");
-    
-        // 이메일 유효성 검사
+    // 1. 아이디검사
+    // 첫글자는 반드시 영소문자로 이루어지고,
+    // 숫자가 하나이상 포함되어야함.
+    // 아이디의 길이는 4~12글자 사이
+    // 비밀번호 특수문자 검사를 위한 정규식표현.
+    const specialLetter = uiPwd.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+    const regExp1 =
+      uiId.includes("/^[a-z][a-zd]{3,11}$/") && uiId.includes("/[0-9]/");
+
+    // 이메일 유효성 검사
     const isValidEmail = uiEmail.includes("@") && uiEmail.includes(".");
     event.preventDefault();
+    if (uiId.length === "" ) {
+      alert(" 필수 정보를 모두입력해 주세요.");
+    }
+    else if(uiName === ""){
+      alert(" 필수 정보를 모두입력해 주세요.");
+    }
+    else if(uiName === ""){
+      alert(" 필수 정보를 모두입력해 주세요.");
+    }
     if (!isValidEmail) {
       alert("이메일 형식이 잘못되었습니다.");
     }
     if (!specialLetter) {
       alert("비밀번호를 입력해 주세요.");
     }
-    if(!regExp1)
-    { alert("아이디는 영소문자로 시작하는 4~12글자이며, 숫자를 하나이상 포함하세요.")}
+    if (!regExp1) {
+      alert(
+        "아이디는 영소문자로 시작하는 4~12글자이며, 숫자를 하나이상 포함하세요."
+      );
+    }
+    if (uiPwd !== uiPwdCheck) {
+      alert("비밀번호 확인이 일치하지 않습니다.");
+    }
+const DuplicationAPI = async(uiId) => {
+  let return_value
+  await instance
+.post("http://192.168.0.156:9988/member/join", {
+  uiName,
+  uiId,
+  uiEmail,
+  uiPhone,
+})
+.then((res) => {
+  console.log(res);
+})
+.catch((res) => {
+  console.log(res);
+}); 
 
-   instance.post("http://192.168.0.156:9988/member/join" , {uiName, uiId, uiEmail, uiPhone })
-   .then((res)=>{
+return return_value;
+
+} 
+const DuplicationCheck = () => {
+  DuplicationAPI(uiId)
+  .then((res)=>{
     console.log(res)
-   })
-   .catch((res)=>{
-    console.log(res)
-   })
+    if(res === false){
+      alert('사용 가능한 아이디입니다.');
+      setUsableId(res);
+    }
+    else{
+      alert('중복된 아이디입니다. 다시 시도하세요.');
+      setUsableId(res);
+      setUserid('');
+    }
+  })
+}
+
+// 데이터 api
+ instance
+.post("http://192.168.0.156:9988/member/join", {
+  uiName,
+  uiId,
+  uiEmail,
+  uiPhone,
+})
+.then((res) => {
+  console.log(res);
+})
+.catch((res) => {
+  console.log(res);
+}); 
   };
- 
 
-    // 클린함수(컴포넌트가 사라질때 마지막 실행함수)
- 
+  // 클린함수(컴포넌트가 사라질때 마지막 실행함수)
+
   return (
     <div className=" block p-6 rounded-lg shadow-lg bg-white max-w-2xl mx-auto">
-     
       <section className="h-screen">
         <div className="px-3 mx-auto text-gray-800">
           <div className="flex xl:justify-center lg:justify-between justify-center items-center g-6">
@@ -87,22 +145,42 @@ const specialLetter = uiPwd.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
                       id="exampleInput123"
                       aria-describedby="emailHelp123"
                       onChange={nameHandler}
-                      placeholder="이름"
+                      placeholder="이름(필수)"
                     />
-                 <div className="flex justify-center">
-  <div className="mx-9 my-auto form-check form-check-inline">
-    <input onClick={isCheckBoxClicked} className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" id="inlineCheckbox1" value="option1"/>
-    <label className="form-check-label inline-block text-gray-800" for="inlineCheckbox1">남자</label>
-  </div>
-  <div className="form-check my-auto form-check-inline">
-    <input onClick={isCheckBoxClicked} className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" id="inlineCheckbox2" value="option2"/>
-    <label className="form-check-label inline-block text-gray-800" for="inlineCheckbox2">여자</label>
-  </div>
- 
-</div>
+                    <div className="flex justify-center">
+                      <div className="mx-9 my-auto form-check form-check-inline">
+                        <input
+                          onClick={isCheckBoxClicked}
+                          className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                          type="checkbox"
+                          id="inlineCheckbox1"
+                          value="option1"
+                        />
+                        <label
+                          className="form-check-label inline-block text-gray-800"
+                          for="inlineCheckbox1"
+                        >
+                          남자
+                        </label>
+                      </div>
+                      <div className="form-check my-auto form-check-inline">
+                        <input
+                          onClick={isCheckBoxClicked}
+                          className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                          type="checkbox"
+                          id="inlineCheckbox2"
+                          value="option2"
+                        />
+                        <label
+                          className="form-check-label inline-block text-gray-800"
+                          for="inlineCheckbox2"
+                        >
+                          여자
+                        </label>
+                      </div>
+                    </div>
                   </div>
                   <div className="relative form-group mb-6 ">
-               
                     <input
                       type="text"
                       className=" form-control
@@ -123,13 +201,14 @@ const specialLetter = uiPwd.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
                       id="exampleInput124"
                       aria-describedby="emailHelp124"
                       onChange={phoneHandler}
-                      placeholder="전화번호"
+                      
+                      placeholder="전화번호(필수)"
                     />
                   </div>
                 </div>
 
                 <div className="relative form-group mb-6">
-                <button className="absolute top-1.5 right-4">중복검사</button>
+                  <button className="absolute top-1.5 right-4">중복검사</button>
                   <input
                     type="email"
                     className="form-control block
@@ -147,12 +226,11 @@ const specialLetter = uiPwd.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
         m-0
         focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
                     id="exampleInput125"
-                    placeholder="아이디"
+                    placeholder="아이디(필수)"
                     onChange={idHandler}
                   />
-                  
                 </div>
-                
+
                 <div className="form-group mb-6">
                   <input
                     type="email"
@@ -171,7 +249,7 @@ const specialLetter = uiPwd.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
         m-0
         focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
                     id="exampleInput125"
-                    placeholder="이메일"
+                    placeholder="이메일(선택)"
                     onChange={emailHandler}
                   />
                 </div>
@@ -193,12 +271,11 @@ const specialLetter = uiPwd.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
         m-0
         focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
                     id="exampleInput126"
-                    placeholder="비밀번호"
+                    placeholder="비밀번호(필수)"
                     onChange={pwHandler}
                   />
                 </div>
 
-              
                 <div className="form-group mb-6">
                   <input
                     type="password"
@@ -217,7 +294,8 @@ const specialLetter = uiPwd.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
         m-0
         focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
                     id="exampleInput126"
-                    placeholder="비밀번호 확인"
+                    placeholder="비밀번호 확인(필수)"
+                    onChange={pwCheckHandler}
                   />
                 </div>
                 <div className="form-group form-check text-center mb-6">
@@ -235,7 +313,7 @@ const specialLetter = uiPwd.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
                   </label>
                 </div>
                 <button
-                onClick={(e) => onSubmitHandler(e)}
+                  onClick={(e) => onSubmitHandler(e)}
                   type="submit"
                   className="
       w-full
@@ -258,17 +336,11 @@ const specialLetter = uiPwd.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
                 >
                   Sign up
                 </button>
-       
               </form>
             </div>
           </div>
-         
         </div>
       </section>
-
-    
-      
-    
     </div>
   );
 };
