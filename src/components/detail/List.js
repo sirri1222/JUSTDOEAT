@@ -172,7 +172,6 @@ const List = (props) => {
 
   return (
     <div>
-      해해해해
       <ul className="flex flex-col justify-between w-full my-auto">
         {storeList.map((item, idx) => {
           return <ListItem item={item} key={idx} />;
