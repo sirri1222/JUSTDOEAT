@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { NumberCheck } from "../NumberCheck";
 
 const order = () => {
-  
-
   const onRemove = () => {
     if (window.confirm("주문 메뉴를 모두 삭제하시겠습니까?")) {
       alert("삭제되었습니다.");
@@ -12,7 +10,7 @@ const order = () => {
       alert("취소합니다.");
     }
   };
- 
+
   return (
     <div className=" w-2.5/6 pt-6 pl-20 rounded-md">
       <div className="block rounded-lg shadow-lg bg-white text-white max-w-sm text-center">
@@ -69,7 +67,6 @@ const order = () => {
           </button>
         </Link>
       </div>
-      
     </div>
   );
 };

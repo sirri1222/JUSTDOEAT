@@ -1,14 +1,21 @@
 import React, { useState } from "react";
+// redux Patch 보내서 state 업데이트
+import { useDispatch } from "react-redux";
+import { addOrder, deleteOrder, clearOrder } from "../../redux/orderSlice";
+
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { NumberCheck } from "../NumberCheck";
 
-const DeliveryInfo = ({ setIsShowing, item }) => {
-  // console.log("주문창 item", item);
-  // 전체 제품 선택수
-  const [count, setCount] = useState(1);
+const DeliveryInfo = ({ setIsShowing, item, optionData }) => {
+  const dispatch = useDispatch();
+  // 옵션 목록
+  const [optionList, setOptionList] = useState(optionData);
   // 옵션가격 선택수
   const [optMoney, setOptMoney] = useState(0);
+
+  // 전체 제품 선택수
+  const [count, setCount] = useState(1);
   // 전체 합산 금액
   const [totalMoney, setTotalMoney] = useState(item.miPrice);
   // 제품 선택에 따른 총 가격 출력
@@ -17,6 +24,22 @@ const DeliveryInfo = ({ setIsShowing, item }) => {
     const goodCountMoney = item.miPrice * count;
     // 전체금액 =  제품 총 가격 + 옵션가격
     setTotalMoney(goodCountMoney + optMoney);
+    // Dispatch 보내서 state 를 변경
+    /*
+  {
+    제품명(orderName)  :~~~, 
+    옵션 (orderOption)     :[{옵션명:~~, 옵션가격:~~},{옵션명:~~, 옵션가격:~~}],
+    총가격(orderMoney): ~,
+    총개수(orderCount):~
+  }
+ */
+    const orderGood = {
+      orderName: item.miName,
+      orderOption: [],
+      orderMoney: totalMoney,
+      orderCount: count,
+    };
+    dispatch(addOrder(orderGood));
   }, [count, optMoney]);
 
   const hidePop = (e) => {
@@ -79,11 +102,11 @@ const DeliveryInfo = ({ setIsShowing, item }) => {
                 </li>
                 <li className="px-6 py-2 border-b my-3 border-gray-200 w-full">
                   <span className="font-semibold block ">추가선택</span>
-                  {/*  추가선택 체크박스 */}
+                  {/*  옵션 추가선택 체크박스 */}
                   <div className="block text-left mx-w-sm">
                     <ul>
-                      {item.option.map((optItem, index) => (
-                        <li key={index}>
+                      {optionList.map((optItem) => (
+                        <li key={optItem.moSeq}>
                           <label htmlFor={optItem.moName}>
                             <input
                               type="checkbox"

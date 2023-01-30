@@ -6,7 +6,7 @@ import StoreInfo from "./StoreInfo";
 import Oder from "./Order";
 import Pagination from "react-js-pagination";
 
-const ListMenu = () => {
+const ListMenu = (props) => {
   // 0은 List 메뉴
   // 1은 상세메뉴
   // 2는 정보메뉴
@@ -14,160 +14,48 @@ const ListMenu = () => {
 
   // 외부 서버 데이터 연동
   // useEffec 를 이용해서 최초에 데이터를 가지고 온다.
-  const [menuList, setMenuList] = useState([]);
+  const [storeMenuList, setStoreMenuList] = useState([]);
   const fetchData = async () => {
     try {
-      let menuData = await axios.get(
-        "http://192.168.0.156:9988/menu/list?page=0"
+      const storeMenuData = await axios.get(
+        `http://192.168.0.156:9988/menu/list?storeNo=${props.siSeq}`
       );
-      setMenuList(menuData.data.list);
+      // console.log(props.item);
+      // console.log(storeMenuData.data.list);
+      setStoreMenuList(storeMenuData.data.list);
     } catch (err) {
-      console.log("서버죽었다");
-      let temp = {
-        keyword: "",
-        totalCount: 4,
+      console.log("가게의 메뉴 목록 리스트 호출호출시 서버 죽음");
+      const optionData = {
         list: [
           {
-            category: [
-              {
-                menuCategory: {
-                  mcaName: "인기메뉴",
-                },
-              },
-            ],
-            miName: "후라이드치킨",
-            miAdditionalEx: "1",
-            miPrice: 15000,
-            miImg: "123",
-            option: [
-              {
-                moName: "무추가",
-                moPrice: 1500,
-              },
-              {
-                moName: "콜라추가",
-                moPrice: 1500,
-              },
-            ],
+            miSeq: 7,
+            miName: "크크크치킨",
+            miAdditionalEx:
+              "크럼블을 입혀! 크런치하고! 크리스피하다! 바삭 끝판왕 크크크치킨에 2가지 디핑소스 새콤한 크크크소스 & 달콤한 콘크림소스를 찍어 먹으면 바삭해서 ㅋㅋㅋ 맛있어서 ㅋㅋㅋ",
+            miPrice: 21900,
+            miImg: "크크크치킨.jpg",
+            miSiSeq: 2,
           },
           {
-            category: [
-              {
-                menuCategory: {
-                  mcaName: "인기메뉴",
-                },
-              },
-            ],
-            miName: "후라이드치킨",
-            miAdditionalEx: "1",
-            miPrice: 15000,
-            miImg: "123",
-            option: [
-              {
-                moName: "무추가",
-                moPrice: 1500,
-              },
-              {
-                moName: "콜라추가",
-                moPrice: 1500,
-              },
-            ],
+            miSeq: 10,
+            miName: "윙봉24세트",
+            miAdditionalEx: "맛있는 윙과 봉만 모았다!인기 메뉴 윙봉세트!",
+            miPrice: 20500,
+            miImg: "윙봉24세트.jpg",
+            miSiSeq: 2,
           },
           {
-            category: [
-              {
-                menuCategory: {
-                  mcaName: "인기메뉴",
-                },
-              },
-            ],
-            miName: "후라이드치킨",
-            miAdditionalEx: "1",
-            miPrice: 15000,
-            miImg: "123",
-            option: [
-              {
-                moName: "무추가",
-                moPrice: 1500,
-              },
-              {
-                moName: "콜라추가",
-                moPrice: 1500,
-              },
-            ],
-          },
-          {
-            category: [
-              {
-                menuCategory: {
-                  mcaName: "인기메뉴",
-                },
-              },
-            ],
-            miName: "후라이드치킨",
-            miAdditionalEx: "1",
-            miPrice: 15000,
-            miImg: "123",
-            option: [
-              {
-                moName: "무추가",
-                moPrice: 1500,
-              },
-              {
-                moName: "콜라추가",
-                moPrice: 1500,
-              },
-            ],
-          },
-          {
-            category: [
-              {
-                menuCategory: {
-                  mcaName: "인기메뉴",
-                },
-              },
-            ],
-            miName: "후라이드치킨",
-            miAdditionalEx: "1",
-            miPrice: 15000,
-            miImg: "123",
-            option: [
-              {
-                moName: "무추가",
-                moPrice: 1500,
-              },
-              {
-                moName: "콜라추가",
-                moPrice: 1500,
-              },
-            ],
-          },
-          {
-            category: [
-              {
-                menuCategory: {
-                  mcaName: "인기메뉴",
-                },
-              },
-            ],
-            miName: "후라이드치킨",
-            miAdditionalEx: "1",
-            miPrice: 15000,
-            miImg: "123",
-            option: [
-              {
-                moName: "무추가",
-                moPrice: 1500,
-              },
-              {
-                moName: "콜라추가",
-                moPrice: 1500,
-              },
-            ],
+            miSeq: 11,
+            miName: "순살 크크크치킨",
+            miAdditionalEx:
+              "크럼블을 입혀! 크런치하고! 크리스피하다! 바삭 끝판왕 크크크치킨에 2가지 디핑소스 새콤한 크크크소스 & 달콤한 콘크림소스를 찍어 먹으면 바삭해서 ㅋㅋㅋ 맛있어서 ㅋㅋㅋ",
+            miPrice: 22900,
+            miImg: "순살크크크치킨.jpg",
+            miSiSeq: 2,
           },
         ],
       };
-      setMenuList(temp.list);
+      setStoreMenuList(optionData.list);
     }
   };
   useEffect(() => {
@@ -223,7 +111,7 @@ const ListMenu = () => {
         </div>
 
         {/* 서버에서 가지고 온 목록을 출력한다. */}
-        {menuList.map((item, index) => (
+        {storeMenuList.map((item, index) => (
           <div key={index}>
             <div>
               {showType === 0 && <ListMenuMenu item={item} />}
@@ -232,11 +120,8 @@ const ListMenu = () => {
             </div>
           </div>
         ))}
-        
       </div>
 
-      
-      
       <Oder />
     </div>
   );
