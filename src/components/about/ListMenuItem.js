@@ -27,13 +27,13 @@ const ListMenuItem = (props) => {
   return (
     <div>
       <li onClick={openDeliveryInfo}>
-        <div className="flex justify-between h-40 border-dotted border-b border-gray-300">
+        <div className="flex justify-between h-40  border-dotted border-b border-gray-300">
           <img
             src={props.item.miImg}
-            className="scale-75 rounded-full w-40 shadow-lg"
+            className="scale-75 p-8 rounded-full  w-40 shadow-lg"
             alt={props.item.miName}
           ></img>
-          <div className="flex justify-center  flex-col py-4 w-3/4 ml-5 ">
+          <div className="flex justify-center  flex-col py-4 w-3/4 ml-10 ">
             <div className="flex flex-col justify-center">
               <span>★★★★☆4.8</span>
               <span>최소주문금액 {props.item.miPrice}원</span>
@@ -42,6 +42,7 @@ const ListMenuItem = (props) => {
               <span>배달시간 40~50분</span>
             </div>
           </div>
+          
         </div>
         {/* 팝업창 */}
         {isShowing && (
@@ -50,6 +51,7 @@ const ListMenuItem = (props) => {
           </div>
         )}
       </li>
+      
     </div>
   );
 };
