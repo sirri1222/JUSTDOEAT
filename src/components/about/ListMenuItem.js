@@ -1,8 +1,12 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import DeliveryInfo from "../modal/DeliveryInfo";
+import axios from "axios";
 
 const ListMenuItem = (props) => {
+  console.log(props);
+  // option Data 저장
+  const [optionData, setOptionData] = useState([]);
   const [isShowing, setIsShowing] = useState(false);
   const openDeliveryInfo = () => {
     setIsShowing(true);
@@ -10,7 +14,34 @@ const ListMenuItem = (props) => {
   useEffect(() => {
     console.log("isShowing", isShowing);
   }, [isShowing]);
-
+  const fetchData = async () => {
+    try {
+      const optionData = await axios.get(
+        "http://192.168.0.156:9988/menu/option?menuNo=" + props.item.siSeq
+      );
+      setOptionData(optionData.data.list);
+    } catch (err) {
+      console.log("옵션 정보 호출시 서버 죽음");
+      const optionData = {
+        list: [
+          {
+            moSeq: 1,
+            moName: "면 1인분 추가",
+            moPrice: 2000,
+          },
+          {
+            moSeq: 2,
+            moName: "공기밥추가",
+            moPrice: 1000,
+          },
+        ],
+      };
+      setOptionData(optionData.list);
+    }
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
   // 팝업창 css
   const popup = {
     position: "fixed",
@@ -25,33 +56,32 @@ const ListMenuItem = (props) => {
     alignItems: "center",
   };
   return (
-    <div>
-      <li onClick={openDeliveryInfo}>
-        <div className="flex justify-between h-40  border-dotted border-b border-gray-300">
-          <img
-            src={props.item.miImg}
-            className="scale-75 p-8 rounded-full  w-40 shadow-lg"
-            alt={props.item.miName}
-          ></img>
-          <div className="flex justify-center  flex-col py-4 w-3/4 ml-10 ">
-            <div className="flex flex-col justify-center">
-              <span>★★★★☆4.8</span>
-              <span>최소주문금액 {props.item.miPrice}원</span>
-              {/* 내용 협의 필요 */}
-              <span>{props.item.miAdditionalEx} 결제 신용카드, 현금, JPay</span>
-              <span>배달시간 40~50분</span>
-            </div>
+    <div onClick={openDeliveryInfo}>
+      <div className="flex justify-between h-40  border-dotted border-b border-gray-300">
+        <img
+          src={props.item.miImg}
+          className="scale-75 p-8 rounded-full  w-40 shadow-lg"
+          alt={props.item.miName}
+        ></img>
+        <div className="flex justify-center  flex-col py-4 w-3/4 ml-10 ">
+          <div className="flex flex-col justify-center">
+            <span>★★★★☆4.8</span>
+            <span>최소주문금액 {props.item.miPrice}원</span>
+            {/* 내용 협의 필요 */}
+            <span>{props.item.miAdditionalEx}</span>
           </div>
-          
         </div>
-        {/* 팝업창 */}
-        {isShowing && (
-          <div style={popup}>
-            <DeliveryInfo setIsShowing={setIsShowing} item={props.item} />
-          </div>
-        )}
-      </li>
-      
+      </div>
+      {/* 팝업창 */}
+      {isShowing && (
+        <div style={popup}>
+          <DeliveryInfo
+            setIsShowing={setIsShowing}
+            item={props.item}
+            optionData={optionData}
+          />
+        </div>
+      )}
     </div>
   );
 };

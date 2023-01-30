@@ -10,7 +10,7 @@ const DetailNav = ({ item }) => {
           <ol className="list-reset flex justify-start ">
             <li>
               <Link
-                to="/detail"
+                to="/detail/중식"
                 className="text-gray-600 mr-6  dark:text-white hover:underline text-lg font-semibold leading-snug hover:"
               >
                 중식
@@ -18,7 +18,7 @@ const DetailNav = ({ item }) => {
             </li>{" "}
             <li>
               <Link
-                to="/detail"
+                to="/detail/일식"
                 className="text-gray-600  text-lg font-semibold leading-snug mr-6  dark:text-white hover:underline "
               >
                 일식
@@ -26,7 +26,7 @@ const DetailNav = ({ item }) => {
             </li>
             <li>
               <Link
-                to="/detail"
+                to="/detail/분식"
                 className="text-gray-600 mr-6  dark:text-white hover:underline text-lg font-semibold leading-snug hover:"
               >
                 분식
@@ -34,7 +34,7 @@ const DetailNav = ({ item }) => {
             </li>
             <li>
               <Link
-                to="/detail"
+                to="/detail/한식"
                 className="text-gray-600  text-lg font-semibold leading-snug mr-6  dark:text-white hover:underline "
               >
                 한식
@@ -42,7 +42,7 @@ const DetailNav = ({ item }) => {
             </li>
             <li>
               <Link
-                to="/detail"
+                to="/detail/피자"
                 className="text-gray-600  text-lg font-semibold leading-snug mr-6  dark:text-white hover:underline hover:"
               >
                 피자
@@ -50,7 +50,7 @@ const DetailNav = ({ item }) => {
             </li>
             <li>
               <Link
-                to="/detail"
+                to="/detail/치킨"
                 className="text-gray-600 mr-6  dark:text-white hover:underline text-lg font-semibold leading-snug hover:"
               >
                 치킨
@@ -58,7 +58,7 @@ const DetailNav = ({ item }) => {
             </li>
             <li>
               <Link
-                to="/detail"
+                to="/detail/핫도그"
                 className="text-gray-600 mr-6  dark:text-white hover:underline text-lg font-semibold leading-snug hover:"
               >
                 핫도그
@@ -66,7 +66,7 @@ const DetailNav = ({ item }) => {
             </li>
             <li>
               <Link
-                to="/detail"
+                to="/detail/편의점"
                 className="text-gray-600 mr-6  dark:text-white hover:underline text-lg font-semibold leading-snug hover:"
               >
                 편의점
@@ -74,7 +74,7 @@ const DetailNav = ({ item }) => {
             </li>{" "}
             <li>
               <Link
-                to="/detail"
+                to="/detail/족발보쌈"
                 className="text-gray-600 mr-6  dark:text-white hover:underline text-lg font-semibold leading-snug hover:"
               >
                 족발보쌈
@@ -82,7 +82,7 @@ const DetailNav = ({ item }) => {
             </li>{" "}
             <li>
               <Link
-                to="/detail"
+                to="/detail/카페디저트"
                 className="text-gray-600 mr-6  dark:text-white hover:underline text-lg font-semibold leading-snug hover:"
               >
                 카페디저트
