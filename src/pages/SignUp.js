@@ -9,18 +9,27 @@ const Signup = () => {
 
   const [uiGen, setUiGender] = useState(1);
   const [uiId, setUiid] = useState("");
-  const [uiPhone, setUiPhon] = useState("");
+  const [uiPhone, setUiPhone] = useState("");
   const [uiName, setUiName] = useState("");
   const [usabledId, setUsableId] = useState("");
-
+const [uiBirth, setUiBirth] = useState("")
   const isCheckBoxClicked = () => {
     setUiGender(!uiGen);
   };
   const emailHandler = (event) => setuiEmail(event.target.value);
   const nameHandler = (event) => setUiName(event.target.value);
-  const phoneHandler = (event) => setUiPhon(event.target.value);
+  const phoneHandler = (event) => setUiPhone(event.target.value);
+    
+    
 
+ const autoHyphenPhone = uiPhone.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
+ const autoHyphenBirth = uiPhone.replace(/^(\d{4})(\d{2})(\d{2})$/, `$1-$2-$3`);
+  const GenHandler = (event) => {
+    setUiGender(uiGen + 1);
+  };
+  console.log(uiGen);
   const pwHandler = (event) => setUiPwd(event.target.value);
+  const uiBirthHandler = (event) => setUiBirth(event.target.value);
   const pwCheckHandler = (event) => setUiPwdCheck(event.target.value);
   const idHandler = (event) => setUiid(event.target.value);
   const onSubmitHandler = (event) => {
@@ -31,8 +40,7 @@ const Signup = () => {
     // 아이디의 길이는 4~12글자 사이
     // 비밀번호 특수문자 검사를 위한 정규식표현.
     const specialLetter = uiPwd.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
-    const regExp1 =
-      uiId.includes("/^[a-z][a-zd]{3,11}$/") && uiId.includes("/[0-9]/");
+   
 
     // 이메일 유효성 검사
     const isValidEmail = uiEmail.includes("@") && uiEmail.includes(".");
@@ -50,22 +58,18 @@ const Signup = () => {
     if (!specialLetter) {
       alert("비밀번호를 입력해 주세요.");
     }
-    if (!regExp1) {
-      alert(
-        "아이디는 영소문자로 시작하는 4~12글자이며, 숫자를 하나이상 포함하세요."
-      );
-    }
+ 
     if (uiPwd !== uiPwdCheck) {
       alert("비밀번호 확인이 일치하지 않습니다.");
     }
     const DuplicationAPI = async (uiId) => {
       let return_value;
       await instance
-        .post("http://192.168.0.156:9988/member/join", {
-          uiName,
-          uiId,
+        .post("http://192.168.0.156:9988/member/list?page=0", {
+       
           uiEmail,
-          uiPhone,
+          uiId
+         
         })
         .then((res) => {
           console.log(res);
@@ -76,7 +80,8 @@ const Signup = () => {
 
       return return_value;
     };
-    const DuplicationCheck = () => {
+    const DuplicationCheck = (e) => {
+      e.preventDefault();
       DuplicationAPI(uiId).then((res) => {
         console.log(res);
         if (res === false) {
@@ -97,12 +102,16 @@ const Signup = () => {
         uiId,
         uiEmail,
         uiPhone,
+        uiBirth,
+        uiGen,
+        uiPwd
+  
       })
       .then((res) => {
-        console.log(res);
+        console.log( "성공", res);
       })
       .catch((res) => {
-        console.log(res);
+        console.log("실패",res);
       });
   };
 
@@ -139,6 +148,7 @@ const Signup = () => {
                       aria-describedby="emailHelp123"
                       onChange={nameHandler}
                       placeholder="이름(필수)"
+                      value={uiName}
                     />
                     <div className="flex justify-center">
                       <div className="mx-9 my-auto form-check form-check-inline">
@@ -147,8 +157,8 @@ const Signup = () => {
                           className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                           type="checkbox"
                           id="inlineCheckbox1"
-                          value="option1"
-                          onChange={() => {}}
+                          value={uiGen}
+                          onChange={(event) => setUiGender(event.target.value)}
                         />
                         <label
                           className="form-check-label inline-block text-gray-800"
@@ -163,8 +173,8 @@ const Signup = () => {
                           className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                           type="checkbox"
                           id="inlineCheckbox2"
-                          value="option2"
-                          onChange={() => {}}
+                          value="2"
+                          onChange={GenHandler}
                         />
                         <label
                           className="form-check-label inline-block text-gray-800"
@@ -196,15 +206,18 @@ const Signup = () => {
                       id="exampleInput124"
                       aria-describedby="emailHelp124"
                       onChange={phoneHandler}
-                      placeholder="전화번호(필수)"
-                    />
+                      placeholder="(필수)전화번호 형식 010-0000-0000"
+                   value={uiPhone}
+                   />
                   </div>
                 </div>
 
                 <div className="relative form-group mb-6">
-                  <button className="absolute top-1.5 right-4">중복검사</button>
+                  <button 
+                
+                  className="absolute top-1.5 right-4">중복검사</button>
                   <input
-                    type="email"
+                    type="id"
                     className="form-control block
         w-full
         px-3
@@ -219,9 +232,10 @@ const Signup = () => {
         ease-in-out
         m-0
         focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
-                    id="exampleInput125"
-                    placeholder="아이디(필수)"
+                   
+                    placeholder="(필수)아이디"
                     onChange={idHandler}
+                    value={uiId}
                   />
                 </div>
 
@@ -243,8 +257,32 @@ const Signup = () => {
         m-0
         focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
                     id="exampleInput125"
-                    placeholder="이메일(선택)"
+                    placeholder="이메일(필수)"
                     onChange={emailHandler}
+                    value={uiEmail}
+                  />
+                </div>
+                <div className="form-group mb-6">
+                  <input
+                    type=""
+                    className="form-control block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
+                    id="exampleInput125"
+                    placeholder="(필수)생년월일 형식 yyyy-mm-dd "
+                    onChange={uiBirthHandler}
+                    value= {uiBirth}
                   />
                 </div>
                 <div className="form-group mb-6">
@@ -265,8 +303,9 @@ const Signup = () => {
         m-0
         focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
                     id="exampleInput126"
-                    placeholder="비밀번호(필수)"
+                    placeholder="(필수)비밀번호"
                     onChange={pwHandler}
+                    value={uiPwd}
                   />
                 </div>
 
@@ -288,7 +327,7 @@ const Signup = () => {
         m-0
         focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
                     id="exampleInput126"
-                    placeholder="비밀번호 확인(필수)"
+                    placeholder="(필수)비밀번호 확인"
                     onChange={pwCheckHandler}
                   />
                 </div>

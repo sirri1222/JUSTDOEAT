@@ -18,10 +18,10 @@ const Login = () => {
   const onSubmitHandler = (event) => {
     event.preventDefault();
     if (!id) {
-      alert("이메일 형식이 잘못되었습니다.");
+      alert("아이디가 잘못되었습니다.");
     }
     if (!pwd) {
-      alert("비밀번호 형식이 잘못되었습니다.");
+      alert("비밀번호가 잘못되었습니다.");
     }
     instance
       .post("http://192.168.0.156:9988/member/login", { id, pwd })
@@ -53,7 +53,7 @@ const Login = () => {
                     type="text"
                     className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
                     id="exampleFormControlInput2"
-                    placeholder="이메일"
+                    placeholder="아이디"
                     value={id}
                     onChange={IdHandler}
                   />

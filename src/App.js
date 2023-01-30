@@ -29,8 +29,8 @@ function App() {
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
       </Routes>
-      <div className="max-w-6xl mx-auto ">
-        <Routes>
+      <div className="max-w-6xl mx-auto h-[100vh] overflow-scroll ">
+        <Routes >
           <Route path="/about" element={<About />} />
           <Route path="/detail" element={<Detail />} />
           <Route path="/idpwfind" element={<IdPwFind />} />
