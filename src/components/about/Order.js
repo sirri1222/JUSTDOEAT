@@ -1,5 +1,4 @@
 import React from "react";
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { NumberCheck } from "../NumberCheck";
 
@@ -15,7 +14,7 @@ const order = () => {
   };
  
   return (
-    <div className=" w-2/6 pt-6 rounded-md">
+    <div className=" w-2.5/6 pt-6 pl-20 rounded-md">
       <div className="block rounded-lg shadow-lg bg-white text-white max-w-sm text-center">
         <div className=" flex justify-between  bg-red-500 ">
           <p className="p-4   "> 주문표 </p>
@@ -64,14 +63,13 @@ const order = () => {
             type="button"
             className=" w-full inline-block px-6 py-2.5
          bg-red-600 text-white font-medium text-xs leading-normal uppercase rounded shadow-md
-          hover:bg-red-700 hover:shadow-lg
-           focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0
-         active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out"
+         text-xs leading-tight uppercase rounded shadow-md hover:bg-black hover:shadow-lg focus:bg-black focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
           >
             장바구니로 이동하기
           </button>
         </Link>
       </div>
+      
     </div>
   );
 };

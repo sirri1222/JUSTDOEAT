@@ -4,6 +4,7 @@ import ListMenuMenu from "./ListMenuMenu";
 import ListReview from "./ListReview";
 import StoreInfo from "./StoreInfo";
 import Oder from "./Order";
+import Pagination from "react-js-pagination";
 
 const ListMenu = () => {
   // 0은 List 메뉴
@@ -214,7 +215,7 @@ const ListMenu = () => {
             <button
               onClick={() => setShowType(2)}
               type="button"
-              className="inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out"
+              className="inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:opacity-80 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out"
             >
               정 보
             </button>
@@ -231,7 +232,11 @@ const ListMenu = () => {
             </div>
           </div>
         ))}
+        
       </div>
+
+      
+      
       <Oder />
     </div>
   );
