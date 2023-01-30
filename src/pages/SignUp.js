@@ -8,6 +8,9 @@ const Signup = () => {
   const [uiPwdCheck, setUiPwdCheck] = useState("");
 
   const [uiGen, setUiGender] = useState(1);
+ 
+  
+
   const [uiId, setUiid] = useState("");
   const [uiPhone, setUiPhone] = useState("");
   const [uiName, setUiName] = useState("");
@@ -22,8 +25,8 @@ const [uiBirth, setUiBirth] = useState("")
     
     
 
- const autoHyphenPhone = uiPhone.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
- const autoHyphenBirth = uiPhone.replace(/^(\d{4})(\d{2})(\d{2})$/, `$1-$2-$3`);
+ const autoHyphenPhone = uiPhone.replace(/^(\d{3})(\d{4})(\d{4})$/, `$1-$2-$3`);
+ const autoHyphenBirth = uiBirth.replace(/^(\d{4})(\d{2})(\d{2})$/, `$1-$2-$3`);
   const GenHandler = (event) => {
     setUiGender(uiGen + 1);
   };
@@ -34,70 +37,57 @@ const [uiBirth, setUiBirth] = useState("")
   const idHandler = (event) => setUiid(event.target.value);
   const onSubmitHandler = (event) => {
     // 로그인 처리
-    // 1. 아이디검사
-    // 첫글자는 반드시 영소문자로 이루어지고,
-    // 숫자가 하나이상 포함되어야함.
-    // 아이디의 길이는 4~12글자 사이
-    // 비밀번호 특수문자 검사를 위한 정규식표현.
-    const specialLetter = uiPwd.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+    
    
 
     // 이메일 유효성 검사
     const isValidEmail = uiEmail.includes("@") && uiEmail.includes(".");
     event.preventDefault();
-    if (uiId.length === "") {
-      alert(" 필수 정보를 모두입력해 주세요.");
-    } else if (uiName === "") {
-      alert(" 필수 정보를 모두입력해 주세요.");
-    } else if (uiName === "") {
-      alert(" 필수 정보를 모두입력해 주세요.");
+    if (uiId === "") {
+      alert(" 필수 정보를 모두 입력해 주세요.");
+    } 
+     if (uiName === "") {
+      alert(" 필수 정보를 모두 입력해 주세요.");
+    } 
+    if (uiPhone === "") {
+      alert(" 필수 정보를 모두 입력해 주세요.");
+    }
+    if (uiEmail === "") {
+      alert(" 필수 정보를 모두 입력해 주세요.");
+    }
+    if (uiBirth === "") {
+      alert(" 필수 정보를 모두 입력해 주세요.");
+    }
+    if (uiPwd === "") {
+      alert(" 필수 정보를 모두 입력해 주세요.");
+    }
+    if (!autoHyphenBirth  ) {
+      alert(" 생년월일 형식이 잘못되었습니다. ");
+    }
+    if (!autoHyphenPhone) {
+      alert("전화번호 형식이 잘못되었습니다.");
     }
     if (!isValidEmail) {
       alert("이메일 형식이 잘못되었습니다.");
     }
-    if (!specialLetter) {
-      alert("비밀번호를 입력해 주세요.");
+    if (uiPwd.length < 6) {
+      alert("비밀번호는 6글자 이상 입력해 주세요.");
     }
- 
+    if (uiId.length < 5) {
+      alert("아이디는 5글자 이상 입력해 주세요.");
+    }
     if (uiPwd !== uiPwdCheck) {
       alert("비밀번호 확인이 일치하지 않습니다.");
     }
-    const DuplicationAPI = async (uiId) => {
-      let return_value;
-      await instance
-        .post("http://192.168.0.156:9988/member/list?page=0", {
-       
-          uiEmail,
-          uiId
-         
-        })
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((res) => {
-          console.log(res);
-        });
-
-      return return_value;
-    };
-    const DuplicationCheck = (e) => {
-      e.preventDefault();
-      DuplicationAPI(uiId).then((res) => {
-        console.log(res);
-        if (res === false) {
-          alert("사용 가능한 아이디입니다.");
-          setUsableId(res);
-        } else {
-          alert("중복된 아이디입니다. 다시 시도하세요.");
-          setUsableId(res);
-          setUiid("");
-        }
-      });
-    };
+    else{
+     
+    }
+  
+  
 
     // 데이터 api
     instance
-      .post("http://192.168.0.156:9988/member/join", {
+      .put("http://192.168.0.156:9988/member/join", {
         uiName,
         uiId,
         uiEmail,
@@ -113,8 +103,40 @@ const [uiBirth, setUiBirth] = useState("")
       .catch((res) => {
         console.log("실패",res);
       });
-  };
 
+      
+  };
+  const DuplicationAPI = async (uiId) => {
+    let return_value;
+    await instance
+      .get("http://192.168.0.156:9988/member/list?page=0", { 
+        uiId
+      }) 
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((res) => {
+        console.log(res);
+      });
+ 
+    return return_value;
+  };
+  const DuplicationCheck = (e) => {
+    e.preventDefault();
+    DuplicationAPI
+  
+    .then((res) => {
+      console.log(res);
+      if (res !== uiId) {
+        alert("사용 가능한 아이디입니다.");
+        setUsableId(res);
+      } else {
+        alert("중복된 아이디입니다. 다시 시도하세요.");
+        setUsableId(res);
+        setUiid("");
+      }
+    });
+  };
   // 클린함수(컴포넌트가 사라질때 마지막 실행함수)
 
   return (
@@ -157,7 +179,7 @@ const [uiBirth, setUiBirth] = useState("")
                           className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                           type="checkbox"
                           id="inlineCheckbox1"
-                          value={uiGen}
+                          value={1}
                           onChange={(event) => setUiGender(event.target.value)}
                         />
                         <label
@@ -173,7 +195,7 @@ const [uiBirth, setUiBirth] = useState("")
                           className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                           type="checkbox"
                           id="inlineCheckbox2"
-                          value="2"
+                          value={2}
                           onChange={GenHandler}
                         />
                         <label
@@ -214,8 +236,8 @@ const [uiBirth, setUiBirth] = useState("")
 
                 <div className="relative form-group mb-6">
                   <button 
-                
-                  className="absolute top-1.5 right-4">중복검사</button>
+                onClick={DuplicationCheck}
+                  className="absolute top-1.5 right-4 border px-3 border-black bg-black hover:opacity-60 text-white rounded-md ">중복검사</button>
                   <input
                     type="id"
                     className="form-control block

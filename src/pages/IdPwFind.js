@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 import Logo from "../components/Logo";
 
 const IdPwFind = () => {
+
+const idFind = ()=>{
+  alert("입력된 번호로 아이디를 전송했습니다.")
+
+}
+
   return (
     <div className=" block p-6 rounded-lg shadow-lg bg-white max-w-2xl mx-auto">
       <section className="h-screen">
@@ -50,34 +56,8 @@ const IdPwFind = () => {
                     htmlFor="exampleInputPassword1"
                     className="form-label inline-block mb-2 text-gray-700"
                   ></label>
-                  <input
-                    type="password"
-                    className="form-control block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
-                    id="exampleInputPassword1"
-                    placeholder="인증번호를 입력하세요."
-                    onChange={() => {}}
-                  />
-                  <button
-                    onClick={() => {
-                      alert("인증번호를 입력하세요");
-                    }}
-                    className="absolute right-1.5 top-1 px-3 py-2 text-xs font-medium text-center text-white bg-gray-700 rounded-lg hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
-                  >
-                    인증번호 받기
-                  </button>
+                 
+                
                 </div>
 
                 <div className="form-group mb-6">
@@ -117,6 +97,7 @@ const IdPwFind = () => {
 
                 <div>
                   <button
+                  onClick={idFind}
                     type="submit"
                     className="
       w-full

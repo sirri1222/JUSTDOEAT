@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Logo from '../components/Logo'
 
 const Password = () => {
   return (
@@ -7,7 +8,7 @@ const Password = () => {
       <div className="flex justify-center">
     <div className="rounded-lg shadow-lg bg-white max-w-4xl">
       <Link href="#!">
-        <img className="rounded-t-lg" src="/photo/JUSTDOEAT2.png" alt=""/>
+       <Logo/>
       </Link>
       <div className="p-6">
         <h5 className="text-gray-900 text-xl text-center font-medium mx-auto mb-10">   이메일로 임시 비밀번호가 전송되었습니다.</h5>

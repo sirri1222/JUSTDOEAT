@@ -3,7 +3,20 @@ import { useState } from "react";
 
 const Payment = () => {
   // 추후 각 항목별로 useState 를 만들어야 함.
+  const [address, setAddress] = useState("");
+  const [detailAddress, setDetailAddress] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [orderRequest, setOrderRequest] = useState("");
+  const [Coupon, setCoupon] = useState("");
+
   const [val, setVal] = useState("");
+
+  const addressHandler = (e) =>setAddress(e.target.value);
+  const detailAddressHandler = (e) =>setDetailAddress(e.target.value);
+  const phoneNumberHandler = (e) =>setPhoneNumber(e.target.value);
+  const orderRequestHandler = (e) =>setOrderRequest(e.target.value);
+  const CouponHandler = (e) =>setCoupon(e.target.value);
+  
   return (
     <div>
       {" "}
@@ -34,8 +47,8 @@ const Payment = () => {
     focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
               id="exampleInput125"
               placeholder="(필수)주소를 입력하세요"
-              value={val}
-              onChange={() => {}}
+              value={address}
+              onChange={addressHandler}
             />
           </div>
           <div className="form-group mb-6">
@@ -57,14 +70,14 @@ const Payment = () => {
     focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
               id="exampleInput126"
               placeholder="(필수)상세주소를 입력하세요"
-              value={val}
-              onChange={() => {}}
+              value={detailAddress}
+              onChange={detailAddressHandler}
             />
           </div>
           <label>전화번호</label>
           <div className="form-group mb-6">
             <input
-              type="(필수)전화번호를 입력하세요."
+              type="number"
               className="form-control block
     w-full
     px-3
@@ -80,9 +93,9 @@ const Payment = () => {
     m-0
     focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
               id="exampleInput126"
-              placeholder="Password"
-              value={val}
-              onChange={() => {}}
+              placeholder="휴대폰 번호를 입력하세요."
+              value={phoneNumber}
+              onChange={phoneNumberHandler}
             />
           </div>
 
@@ -92,7 +105,7 @@ const Payment = () => {
             </div>
 
             <input
-              type="password"
+             
               className="form-control block
     w-full
     px-3
@@ -109,8 +122,8 @@ const Payment = () => {
     focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
               id="exampleInput126"
               placeholder="요청사항을 입력하세요."
-              value={val}
-              onChange={() => {}}
+              value={orderRequest}
+              onChange={orderRequestHandler}
             />
           </div>
 
@@ -227,6 +240,19 @@ const Payment = () => {
               </div>
             </div>
           </div>
+
+          <div className="block p-2 bg-gray-200 max-w-2xl mx-auto">
+            {" "}
+            <p className="bg-gray-200">결제예정금액</p>
+          </div>
+
+          <p>총 주문금액</p>
+          <p>배달팁</p>
+
+          <div className="form-group mb-6">
+           
+          </div>
+        
           <label>할인방법 선택</label>
           <div className="form-group mb-6">
             <input
@@ -247,8 +273,8 @@ const Payment = () => {
     focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
               id="exampleInput125"
               placeholder="쿠폰 코드를 입력하세요."
-              value={val}
-              onChange={() => {}}
+              value={Coupon}
+              onChange={CouponHandler}
             />
           </div>
           <div className="form-group form-check text-center mb-6">
@@ -288,7 +314,7 @@ const Payment = () => {
   duration-150
   ease-in-out"
           >
-            결제하기
+           <span>29000원</span> 결제하기
           </button>
         </form>
       </div>

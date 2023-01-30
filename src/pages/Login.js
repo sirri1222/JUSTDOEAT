@@ -128,7 +128,7 @@ const Login = () => {
                 <div className="devide-y-1 my-10 text-center">
                   {" "}
                   <Link to="/signup">회원가입</Link> |{" "}
-                  <Link to="/idpwdfind">아이디/비밀번호 찿기</Link>
+                  <Link to="/idpwfind">아이디/비밀번호 찿기</Link>
                 </div>
               </form>
             </div>
