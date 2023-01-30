@@ -8,7 +8,7 @@ const ListReview = (props) => {
       <ul className="block rounded-lg shadow-lg  bg-white">
       <ReviewItem/>
       </ul>
-      <Pagination />
+     
     </div>
   );
 };

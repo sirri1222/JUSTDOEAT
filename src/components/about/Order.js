@@ -19,7 +19,7 @@ const order = () => {
 
           <button onClick={onRemove}>
             <img
-              src="photo/휴지통.png"
+              src="/photo/휴지통.png"
               className="scale-50 "
               alt="제품사진"
             ></img>
@@ -46,13 +46,14 @@ const order = () => {
             // onClick={hidePop}
           >
             <img
-              src="photo/sprite_1.png"
-              className=" scale-50"
+              src="/photo/sprite_1.png"
+              className="scale-50 opacity-100 "
               alt="제품사진"
             ></img>
           </button>
           <div className="pr-4 w-20">
-            <NumberCheck />
+            <NumberCheck 
+            className="display-none"/>
           </div>
         </div>
 

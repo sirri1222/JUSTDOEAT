@@ -60,7 +60,8 @@ const DeliveryInfo = ({ setIsShowing, item, optionData }) => {
   };
 
   return (
-    <div className="flex justify-center ">
+    <div className="flex justify-center  ">
+      
       <div className=" bg-white ">
         {/*  */}
         <div className="flex justify-between  content-center h-10 px-2 bg-gray-100">

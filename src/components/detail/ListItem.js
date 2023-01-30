@@ -10,7 +10,7 @@ const ListItem = ({ item }) => {
             <div className="flex w-full space-x-2 sm:space-x-4">
               <img
                 className="flex-shrink-0 object-cover w-20 h-20 dark:border-transparent rounded outline-none sm:w-32 sm:h-32 dark:bg-gray-500"
-                src="/photo/KFC_1.jpg"
+                src={`${item.storeInfo.siMainImg}`}
                 alt="Polaroid camera"
               />{" "}
             </div>
