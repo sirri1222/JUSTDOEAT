@@ -7,7 +7,7 @@ const ListItem = ({ item }) => {
       <Link to={`/about/${item.storeInfo.siSeq}`}>
         <div className="flex flex-col max-w-3xl border-b-2 p-6 mx-auto sm:p-10 dark:bg-gray-900 dark:text-gray-100">
           <div className="flex flex-col py-6 sm:flex-row sm:justify-between">
-            <div className="flex w-full space-x-2 sm:space-x-4">
+            <div className="flex w-1/2 space-x-2 sm:space-x-4">
               <img
                 className="flex-shrink-0 object-cover w-20 h-20 dark:border-transparent rounded outline-none sm:w-32 sm:h-32 dark:bg-gray-500"
                 src="/photo/KFC_1.jpg"
@@ -42,7 +42,7 @@ const ListItem = ({ item }) => {
               <div className="text-right">
                 <button
                   type="button"
-                  className="text-white mt-7 bg-gray-700 hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
+                  className="text-white mt-7 bg-rose-600 hover:bg-rose-700 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
                 >
                   선택하기
                 </button>

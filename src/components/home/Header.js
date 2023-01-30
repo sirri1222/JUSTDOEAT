@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div>
       <div
-        className="flex bg-black
+        className="flex bg-red-500
       "
       >
         <div className="navbar navbar-expand-sm py-1 relative flex items-center justify-between w-full ">
@@ -19,17 +19,22 @@ const Header = () => {
           <div className="flex">
             <input
               type="search"
-              className="  ml-20  px-10 py-1.5 text-base font-normal
+              className="  ml-20  px-10 py-1.5 mr-3 text-base font-normal
 
-       text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition
-       ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
+       text-gray-700 bg-white bg-clip-padding  border-solid
+        border-gray-300 rounded transition
+       ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-red-600 
+       focus:outline-none"
               placeholder="주소를 입력해주세요."
               aria-label="Search"
               aria-describedby="button-addon2"
               onChange={() => {}}
             />
             <button
-              className="btn px-6 py-2.5 bg-gray-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out flex items-center"
+              className="btn px-3 py-2 p bg-red-800 text-white font-medium text-xs 
+              leading-tight uppercase rounded shadow-md
+               hover:bg-red-900 hover:shadow-lg
+                focus:bg-gray-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out flex items-center"
               type="button"
               id="button-addon2"
             >
@@ -117,7 +122,7 @@ const Header = () => {
                 alt="장바구니"
               ></img>
 
-              <span className="text-white bg-red-700 absolute rounded-full text-xs -mt-2.5 ml-2 py-0 px-1.5">
+              <span className="text-white bg-red-700 absolute  rounded-full text-xs py-1 px-2">
                 1
               </span>
             </button>
