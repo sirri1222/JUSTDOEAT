@@ -61,33 +61,34 @@ const DeliveryInfo = ({ setIsShowing, item, optionData }) => {
 
   return (
     <div className="flex justify-center  ">
-      
       <div className=" bg-white ">
         {/*  */}
-        <div className="flex justify-between  content-center h-10 px-2 bg-gray-100">
-          <span className="p-8 pt-2  pb-6 font-semibold ">상세 메뉴</span>
+        <div className="flex justify-between  content-center h-12 px-2 bg-gray-100">
+          <span className="p-8 my-auto pt-3  pb-4 font-semibold ">
+            상세 메뉴
+          </span>
           <button
-            className="pr-3 pt-2 font-bold cursor-pointer  text-red-600 hover:text-bl  transition  mb-4"
+            className="pr-3 pt-3 font-bold cursor-pointer  text-red-600 hover:text-bl  transition  mb-4"
             onClick={hidePop}
           >
             X
           </button>
         </div>
         {/*  */}
-        <div className="overflow-y-scroll">
-          <img src="photo/KFC_2.jpg" alt="사진" className="mx-auto p-5 " />
-          <div className="bg-gray-100 ">
-            <h2 className="text-gray-900 pl-8 pt-6 text-xl font-semibold ">
+        <div>
+          <img src={item.miImg} alt="사진" className="mx-auto p-5 " />
+          <div className="bg-gray-100 overflow-y-scroll">
+            <h2 className="text-gray-900 pl-8 pt-5 text-xl font-semibold ">
               {item.miName}
             </h2>
             <div className="flex justify-center">
-              <ul className=" rounded-lg w-96 text-gray-900 mb-10">
-                <li className="px-6 flex justify-between my-3 py-2 border-b border-gray-200 w-full rounded-t-lg">
+              <ul className=" rounded-lg w-96 text-gray-900 mb-5">
+                <li className="px-6 flex pb-3 justify-between my-3 py-2 border-b border-gray-200 w-full rounded-t-lg">
                   <span className="font-semibold block ">가격</span>
                   <span> {item.miPrice}원</span>
                 </li>
                 <li className="px-6 py-2 border-b my-3 border-gray-200 w-full">
-                  <p className="font-semibold block ">메뉴</p>
+                  <p className="font-semibold block pb-3">메뉴</p>
                   <p className="flex justify-between">
                     {/* （징거버거＋스콜쳐버거베이직
                    <br />
@@ -102,12 +103,12 @@ const DeliveryInfo = ({ setIsShowing, item, optionData }) => {
                   </p>
                 </li>
                 <li className="px-6 py-2 border-b my-3 border-gray-200 w-full">
-                  <span className="font-semibold block ">추가선택</span>
+                  <span className="font-semibold block pb-3">추가선택</span>
                   {/*  옵션 추가선택 체크박스 */}
-                  <div className="block text-left mx-w-sm">
+                  <div className="block text-left mx-w-sm pb-3">
                     <ul>
                       {optionList.map((optItem) => (
-                        <li key={optItem.moSeq}>
+                        <li key={optItem.moSeq} className="pb-1">
                           <label htmlFor={optItem.moName}>
                             <input
                               type="checkbox"
@@ -124,7 +125,7 @@ const DeliveryInfo = ({ setIsShowing, item, optionData }) => {
                   </div>
                 </li>
 
-                <li className="px-6 flex justify-between  border-b border-gray-200 w-full rounded-t-lg">
+                <li className="px-6 flex justify-between pt-2">
                   <span className="font-semibold block ">총 합계</span>
                   <span> {totalMoney}원</span>
                 </li>
@@ -135,11 +136,11 @@ const DeliveryInfo = ({ setIsShowing, item, optionData }) => {
         {/*  */}
         <div
           className=" w-full  
-               bg-blue-300"
+              "
         >
           <button
             type="button"
-            className=" inline-block w-1/2 px-6 py-2.5 bg-black text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+            className=" inline-block w-1/2 px-6 py-2.5 bg-black text-white font-medium text-xs leading-tight uppercase  shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
           >
             주문표에 추가
           </button>
@@ -147,7 +148,7 @@ const DeliveryInfo = ({ setIsShowing, item, optionData }) => {
           <Link to="/buy">
             <button
               type="button"
-              className="  w-1/2 px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+              className="  w-1/2 px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase  shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
             >
               주문하기
             </button>
