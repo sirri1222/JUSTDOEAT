@@ -7,17 +7,33 @@ const DeliveryInfo = ({ setIsShowing, item }) => {
   // console.log("주문창 item", item);
   // 전체 제품 선택수
   const [count, setCount] = useState(1);
+  // 옵션가격 선택수
+  const [optMoney, setOptMoney] = useState(0);
   // 전체 합산 금액
   const [totalMoney, setTotalMoney] = useState(item.miPrice);
   // 제품 선택에 따른 총 가격 출력
   useEffect(() => {
-    setTotalMoney(item.miPrice * count);
-  }, [count]);
+    // 제품 총 갯수 가격
+    const goodCountMoney = item.miPrice * count;
+    // 전체금액 =  제품 총 가격 + 옵션가격
+    setTotalMoney(goodCountMoney + optMoney);
+  }, [count, optMoney]);
 
   const hidePop = (e) => {
     // 하단 으로 click 을 전달하지 않는다.
     e.stopPropagation();
     setIsShowing(false);
+  };
+  // 옵션 선택시 변경 사항 적용
+  const changeOption = (e) => {
+    // 체크 박스 클릭 대상
+    const target = e.target;
+    // 체크가 된경우라면 금액 그렇지 않으면 0원(3항연산)
+    let value = target.checked ? target.value : -target.value;
+    // 글자를 숫자로 변경함
+    value = parseInt(value);
+    // 옵션의 가격
+    setOptMoney(optMoney + value);
   };
 
   return (
@@ -63,41 +79,25 @@ const DeliveryInfo = ({ setIsShowing, item }) => {
                 </li>
                 <li className="px-6 py-2 border-b my-3 border-gray-200 w-full">
                   <span className="font-semibold block ">추가선택</span>
-                  {/* <!-- Required form plugin --> */}
-                  {/* <Link
-                   to="https://cdn.jsdelivr.net/npm/@tailwindcss/custom-forms@0.2.1/dist/custom-forms.css"
-                   rel="stylesheet"
-                  /> */}
-                  <div>
-                    {/* {item.option.map((optItem, index) => (
-                     <input type="checkbox" key={index}>
-                       <div className="form-check"></div>
-                       {optItem.moName} +{optItem.moPrice}
-                     </input>
-                   ))} */}
-                  </div>
-
-                  {/* 문제해결필요 */}
-                  <label className="block text-left mx-w-sm">
-                    <select
-                      className="form-multiselect block w-full mt-1"
-                      multiple
-                    >
+                  {/*  추가선택 체크박스 */}
+                  <div className="block text-left mx-w-sm">
+                    <ul>
                       {item.option.map((optItem, index) => (
-                        <option key={index}>
-                          <div className="form-check"></div>
-                          {optItem.moName} +{optItem.moPrice}
-                        </option>
+                        <li key={index}>
+                          <label htmlFor={optItem.moName}>
+                            <input
+                              type="checkbox"
+                              name={optItem.moName}
+                              value={optItem.moPrice}
+                              id={optItem.moName}
+                              onChange={changeOption}
+                            />
+                            {optItem.moName} +{optItem.moPrice}
+                          </label>
+                        </li>
                       ))}
-                      {/* <option>
-                       양상추 <span>+500</span>
-                     </option>
-                     <option>치킨 1개 +1000</option>
-                     <option>감자튀김 +1000</option>
-                     <option>콘슬로우 +1500</option>
-                     <option>콜라 +1200</option> */}
-                    </select>
-                  </label>
+                    </ul>
+                  </div>
                 </li>
 
                 <li className="px-6 flex justify-between  border-b border-gray-200 w-full rounded-t-lg">
