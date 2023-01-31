@@ -52,7 +52,7 @@ const order = () => {
             ></img>
           </button>
           <div className="my-5 pr-4 w-20">
-            <NumberCheck  />
+            <NumberCheck />
           </div>
         </div>
 
