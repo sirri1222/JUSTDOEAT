@@ -5,7 +5,8 @@ const ListItem = ({ item }) => {
   return (
     <li>
       <Link to={`/about/${item.storeInfo.siSeq}`}>
-        <div className="flex flex-col max-w-3xl border-b-2 p-6 mx-auto sm:p-10 dark:bg-gray-900 dark:text-gray-100">
+        <div className="flex flex-col max-w-3xl border-b-2 p-6 mx-auto sm:p-8
+         dark:bg-gray-900 dark:text-gray-100">
           <div className="flex flex-col py-6 sm:flex-row sm:justify-between">
             <div className="flex w-1/2 space-x-2 sm:space-x-4">
               <img
@@ -42,7 +43,7 @@ const ListItem = ({ item }) => {
               <div className="text-right">
                 <button
                   type="button"
-                  className="text-white mt-7 bg-rose-600 hover:bg-rose-700 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
+                  className="text-white mt-7 bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
                 >
                   선택하기
                 </button>
