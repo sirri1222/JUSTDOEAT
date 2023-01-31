@@ -18,11 +18,13 @@ const Login = () => {
   // 로그인 처리
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    if (!id) {
-      alert("아이디가 잘못되었습니다.");
+    
+  
+    if (id === "") {
+      alert("아이디를 입력해주세요.");
     }
-    if (!pwd) {
-      alert("비밀번호가 잘못되었습니다.");
+    if (pwd === "") {
+      alert("비밀번호를 입력해주세요.");
     }
     instance
       .post("http://192.168.0.156:9988/member/login", { id, pwd })
@@ -30,13 +32,14 @@ const Login = () => {
         // store 에 저장 처리 예정
         console.log("성공", res);
         navigate("/");
+        
       })
       .catch((err) => {
         // 서버가 반응이 없을 때
         console.log(err);
         // 서버가 죽었을 때 임시처리
         // 추후제거
-        navigate("/");
+       
       });
   };
 

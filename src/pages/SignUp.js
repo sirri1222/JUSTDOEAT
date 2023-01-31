@@ -15,9 +15,7 @@ const Signup = () => {
   const [uiBirth, setUiBirth] = useState("");
 
   //오류메시지 상태저장
-  const [nameMessage, setNameMessage] = useState(
-    "2글자 이상 5글자 미만으로 입력해주세요."
-  );
+  const [nameMessage, setNameMessage] = useState("");
   const [emailMessage, setEmailMessage] = useState("");
   const [phoneNumberMessage, setPhoneNumberMessage] = useState("");
   const [IdMessage, setIdMessage] = useState("");
@@ -72,12 +70,12 @@ const Signup = () => {
   const pwHandler = (event) => {
     setUiPwd(event.target.value);
 
-    if (!passwordRegex.test(event.target.value)) {
-      setPhoneNumberMessage(
+    if (passwordRegex.test(event.target.value) == false) {
+      setPasswordMessage(
         "숫자+영문자+특수문자 조합으로 8자리 이상 입력해주세요!"
       );
     } else {
-      setPhoneNumberMessage("올바른 비밀번호 형식입니다 :)");
+      setPasswordMessage("올바른 비밀번호 형식입니다 :)");
     }
   };
   // 비밀번호 확인
@@ -91,45 +89,49 @@ const Signup = () => {
       setPhoneNumberMessage("올바른 비밀번호 형식입니다 :)");
     }
   };
-  const autoHyphenPhone = uiPhone.replace(
-    /^(\d{2,3})(\d{3,4})(\d{4})$/,
-    `$1-$2-$3`
-  ); // 숫자그룹을 나눠 사이에 하이픈(-)추가
-  const autoHyphenBirth = uiBirth.replace(
-    /^(\d{4})(\d{2})(\d{2})$/,
-    `$1-$2-$3`
-  );
+  // 생년월일 유효성검사
+  const HyphenregExpBirth = /^(?:(19\d{2})|(18\d{2}))(\d{2})(\d{2})/;
+
+  const uiBirthHandler = (event) => {
+    setUiBirth(event.target.value);
+
+    if (!HyphenregExpBirth.test(event.target.value)) {
+      setBirthMessage(
+        "생년월일 형식이 틀렸습니다! -을 제외하고 입력해주세요 ㅜ_ㅜ"
+      );
+    } else {
+      setBirthMessage("올바른 생년월일 형식입니다 :)");
+    }
+  };
   const GenHandler = (event) => {
     setUiGender(uiGen + 1);
   };
   // console.log(uiGen);
-
-  const uiBirthHandler = (event) => setUiBirth(event.target.value);
 
   const idHandler = (event) => setUiid(event.target.value);
   const onSubmitHandler = (event) => {
     // 로그인 처리
 
     event.preventDefault();
-    // if (uiId === "") {
-    //   alert(" 필수 정보를 모두 입력해 주세요.");
-    // }
-    //  if (uiName === "") {
-    //   alert(" 필수 정보를 모두 입력해 주세요.");
-    // }
-    // if (uiPhone === "") {
-    //   alert(" 필수 정보를 모두 입력해 주세요.");
-    // }
-    // if (uiEmail === "") {
-    //   alert(" 필수 정보를 모두 입력해 주세요.");
-    // }
-    // if (uiBirth === "") {
-    //   alert(" 필수 정보를 모두 입력해 주세요.");
-    // }
-    // if (uiPwd === "") {
-    //   alert(" 필수 정보를 모두 입력해 주세요.");
-    // }
-    if (!autoHyphenBirth) {
+    if (uiId === "") {
+      alert(" 필수 정보를 모두 입력해 주세요.");
+    }
+     if (uiName === "") {
+      alert(" 필수 정보를 모두 입력해 주세요.");
+    }
+    if (uiPhone === "") {
+      alert(" 필수 정보를 모두 입력해 주세요.");
+    }
+    if (uiEmail === "") {
+      alert(" 필수 정보를 모두 입력해 주세요.");
+    }
+    if (uiBirth === "") {
+      alert(" 필수 정보를 모두 입력해 주세요.");
+    }
+    if (uiPwd === "") {
+      alert(" 필수 정보를 모두 입력해 주세요.");
+    }
+    if (!uiBirth) {
       alert(" 생년월일 형식이 잘못되었습니다. ");
     }
 
@@ -206,6 +208,11 @@ const Signup = () => {
                 <Logo></Logo>
                 <form>
                   <div className=" grid gap-4">
+                    {uiName.length > 0 && (
+                      <span className="font-semibold text-red-500">
+                        {nameMessage}
+                      </span>
+                    )}
                     <div className="form-group mb-3 flex ">
                       <input
                         type="text"
@@ -230,7 +237,7 @@ const Signup = () => {
                         placeholder="이름(필수)"
                         value={uiName}
                       />
-                      {uiName.length > 0 && <span>{nameMessage}</span>}
+
                       <div className="flex justify-center">
                         <div className="mx-9 my-auto form-check form-check-inline">
                           <input
@@ -268,6 +275,7 @@ const Signup = () => {
                         </div>
                       </div>
                     </div>
+
                     <div className="relative form-group mb-6 ">
                       <input
                         type="text"
@@ -381,10 +389,16 @@ const Signup = () => {
         m-0
         focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
                       id="birth"
-                      placeholder="(필수)생년월일 형식 yyyy-mm-dd "
+                      placeholder="(필수)생년월일 형식 yyyymmdd "
                       onChange={uiBirthHandler}
                       value={uiBirth}
+                      maxLength={8}
                     />
+                    {uiBirth.length > 0 && (
+                      <span className="text-red-500 font-semibold">
+                        {BirthMessage}
+                      </span>
+                    )}
                   </div>
                   <div className="form-group mb-6">
                     <input
@@ -438,7 +452,7 @@ const Signup = () => {
                     />
                     {uiPwdCheck.length > 0 && (
                       <span className="text-red-500 font-semibold">
-                        {passwordMessage}
+                        {passwordConfirmMessage}
                       </span>
                     )}
                   </div>
