@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div>
       <div
-        className="flex bg-gray-100
+        className="flex bg-white border-b-2 border-slate-100
       "
       >
         <div className="navbar navbar-expand-sm relative flex items-center justify-between w-full ">
@@ -19,8 +19,8 @@ const Header = () => {
           <div className="flex">
             <input
               type="search"
-              className="  ml-20  px-20  mr-3 text-base font-normal
-
+              className="  ml-20  px-20  mr-4 text font-normal
+              drop-shadow
         border-gray-300 rounded transition
        ease-in-out m-0 focus:text-gray-700 focus:bg-white
         focus:border-red-600 
@@ -31,10 +31,9 @@ const Header = () => {
               onChange={() => {}}
             />
             <button
-              className="btn px-3 py-2 p bg-red-800 text-white font-medium text-xs 
+              className="btn px-3 py-3 p bg-red-600 text-white font-medium text-xs 
               leading-tight uppercase rounded shadow-md
-               hover:bg-red-900 hover:shadow-lg
-                focus:bg-gray-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out flex items-center"
+               hover:bg-red-700 hover:shadow-lg"
               type="button"
               id="button-addon2"
             >
@@ -91,7 +90,7 @@ const Header = () => {
                 alt="장바구니"
               ></img>
 
-              <span className="text-white bg-red-700 absolute  rounded-full text-xs py-1 px-2">
+              <span className="text-white bg-red-600 absolute  rounded-full text-xs py-1 px-2">
                 1
               </span>
             </button>
