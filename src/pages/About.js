@@ -8,10 +8,11 @@ const About = () => {
   console.log("siSeq", siSeq);
   return (
     <Layout>
-    <div>
-      <DetailNav />
-      <ListMenu siSeq={siSeq} />
-    </div></Layout>
+      <div>
+        <DetailNav />
+        <ListMenu siSeq={siSeq} />
+      </div>
+    </Layout>
   );
 };
 

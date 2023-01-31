@@ -49,23 +49,24 @@ const Signup = () => {
     }
   };
   // 휴대폰번호 유효성검사
-  const autoHyphenregExpPhone = /^\d{3}-?\d{4}-?\d{4}$/;
-  console.log(autoHyphenregExpPhone.test(123546987456321));
+  const autoHyphenregExpPhone =
+    /^(?:(010\d{4})|(01[1|6|7|8|9]\d{3,4}))(\d{4})$/;
+  // console.log("검사", autoHyphenregExpPhone.test("01012345678"));
   // 휴대폰번호
   const phoneHandler = (event) => {
-    console.log(event.target.value);
-    setUiPhone(event.target.value);
-    if (autoHyphenregExpPhone.test(parseInt(event.target.value, )) === false) {
+    let value = event.target.value;
+    setUiPhone(value);
+    const resultTest = autoHyphenregExpPhone.test(value);
+    if (!resultTest) {
       setPhoneNumberMessage(
         "전화번호 형식이 틀렸습니다! -을 제외하고 입력해주세요 ㅜ_ㅜ"
       );
     } else {
-      setNameMessage("올바른 이름 형식입니다 :)");
+      setPhoneNumberMessage("올바른 전화번호 형식입니다 :)");
     }
   };
 
   //비밀번호 유효성검사
-
   const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
   // 비밀번호
   const pwHandler = (event) => {
@@ -101,7 +102,7 @@ const Signup = () => {
   const GenHandler = (event) => {
     setUiGender(uiGen + 1);
   };
-  console.log(uiGen);
+  // console.log(uiGen);
 
   const uiBirthHandler = (event) => setUiBirth(event.target.value);
 
@@ -196,18 +197,19 @@ const Signup = () => {
   // 클린함수(컴포넌트가 사라질때 마지막 실행함수)
 
   return (
-    <div className=" block p-6 rounded-lg shadow-lg bg-white max-w-2xl mx-auto">
-      <section className="h-screen">
-        <div className="px-3 mx-auto text-gray-800">
-          <div className="flex xl:justify-center lg:justify-between justify-center items-center g-6">
-            <div className="">
-              <Logo></Logo>
-              <form>
-                <div className=" grid gap-4">
-                  <div className="form-group mb-3 flex ">
-                    <input
-                      type="text"
-                      className="form-control
+    <Layout>
+      <div className=" block p-6 rounded-lg shadow-lg bg-white max-w-2xl mx-auto">
+        <section className="h-screen">
+          <div className="px-3 mx-auto text-gray-800">
+            <div className="flex xl:justify-center lg:justify-between justify-center items-center g-6">
+              <div className="">
+                <Logo></Logo>
+                <form>
+                  <div className=" grid gap-4">
+                    <div className="form-group mb-3 flex ">
+                      <input
+                        type="text"
+                        className="form-control
           block
           w-250
           px-3
@@ -222,52 +224,54 @@ const Signup = () => {
           ease-in-out
         
           focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
-                      id="exampleInput123"
-                      aria-describedby="emailHelp123"
-                      onChange={nameHandler}
-                      placeholder="이름(필수)"
-                      value={uiName}
-                    />
-                    {uiName.length > 0 && <span>{nameMessage}</span>}
-                    <div className="flex justify-center">
-                      <div className="mx-9 my-auto form-check form-check-inline">
-                        <input
-                          onClick={isCheckBoxClicked}
-                          className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                          type="checkbox"
-                          id="inlineCheckbox1"
-                          value={1}
-                          onChange={(event) => setUiGender(event.target.value)}
-                        />
-                        <label
-                          className="form-check-label inline-block text-gray-800"
-                          htmlFor="inlineCheckbox1"
-                        >
-                          남자
-                        </label>
-                      </div>
-                      <div className="form-check my-auto form-check-inline">
-                        <input
-                          onClick={isCheckBoxClicked}
-                          className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                          type="checkbox"
-                          id="inlineCheckbox2"
-                          value={2}
-                          onChange={GenHandler}
-                        />
-                        <label
-                          className="form-check-label inline-block text-gray-800"
-                          htmlFor="inlineCheckbox2"
-                        >
-                          여자
-                        </label>
+                        id="username"
+                        aria-describedby="emailHelp123"
+                        onChange={nameHandler}
+                        placeholder="이름(필수)"
+                        value={uiName}
+                      />
+                      {uiName.length > 0 && <span>{nameMessage}</span>}
+                      <div className="flex justify-center">
+                        <div className="mx-9 my-auto form-check form-check-inline">
+                          <input
+                            onClick={isCheckBoxClicked}
+                            className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                            type="checkbox"
+                            id="male"
+                            value={1}
+                            onChange={(event) =>
+                              setUiGender(event.target.value)
+                            }
+                          />
+                          <label
+                            className="form-check-label inline-block text-gray-800"
+                            htmlFor="male"
+                          >
+                            남자
+                          </label>
+                        </div>
+                        <div className="form-check my-auto form-check-inline">
+                          <input
+                            onClick={isCheckBoxClicked}
+                            className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                            type="checkbox"
+                            id="female"
+                            value={2}
+                            onChange={GenHandler}
+                          />
+                          <label
+                            className="form-check-label inline-block text-gray-800"
+                            htmlFor="female"
+                          >
+                            여자
+                          </label>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="relative form-group mb-6 ">
-                    <input
-                      type="text"
-                      className=" form-control
+                    <div className="relative form-group mb-6 ">
+                      <input
+                        type="text"
+                        className=" form-control
           block
           w-full
           px-3
@@ -282,180 +286,181 @@ const Signup = () => {
           ease-in-out
           m-0
           focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
-                      id="exampleInput124"
-                      aria-describedby="emailHelp124"
-                      onChange={phoneHandler}
-                      placeholder="(필수)전화번호 형식(-제외)"
-                      value={uiPhone}
+                        id="phone"
+                        aria-describedby="emailHelp124"
+                        onChange={phoneHandler}
+                        maxLength={11}
+                        placeholder="(필수)전화번호 형식(-제외)"
+                        value={uiPhone}
+                      />
+                      {uiPhone.length > 0 && (
+                        <span className="text-red-500 font-semibold">
+                          {phoneNumberMessage}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="relative form-group mb-6">
+                    <button
+                      onClick={DuplicationCheck}
+                      className="absolute top-1.5 right-4 border px-3 border-black bg-black hover:opacity-60 text-white rounded-md "
+                    >
+                      중복검사
+                    </button>
+                    <input
+                      type="id"
+                      className="form-control block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
+                      placeholder="(필수)아이디"
+                      onChange={idHandler}
+                      value={uiId}
                     />
-                    {uiPhone.length > 0 && (
+                    {uiId.length > 0 && (
                       <span className="text-red-500 font-semibold">
-                        {phoneNumberMessage}
+                        {IdMessage}
                       </span>
                     )}
                   </div>
-                </div>
 
-                <div className="relative form-group mb-6">
+                  <div className="form-group mb-6">
+                    <input
+                      type="email"
+                      className="form-control block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
+                      id="email"
+                      placeholder="이메일(필수)"
+                      onChange={emailHandler}
+                      value={uiEmail}
+                    />
+                    {uiEmail.length > 0 && (
+                      <span className="text-red-500 font-semibold">
+                        {emailMessage}
+                      </span>
+                    )}
+                  </div>
+                  <div className="form-group mb-6">
+                    <input
+                      type=""
+                      className="form-control block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
+                      id="birth"
+                      placeholder="(필수)생년월일 형식 yyyy-mm-dd "
+                      onChange={uiBirthHandler}
+                      value={uiBirth}
+                    />
+                  </div>
+                  <div className="form-group mb-6">
+                    <input
+                      type="password"
+                      className="form-control block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
+                      id="pw"
+                      placeholder="(필수)비밀번호"
+                      onChange={pwHandler}
+                      value={uiPwd}
+                    />
+                    {uiPwd.length > 0 && (
+                      <span className="text-red-500 font-semibold">
+                        {passwordMessage}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="form-group mb-6">
+                    <input
+                      type="password"
+                      className="form-control block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
+                      id="pw2"
+                      placeholder="(필수)비밀번호 확인"
+                      onChange={pwCheckHandler}
+                    />
+                    {uiPwdCheck.length > 0 && (
+                      <span className="text-red-500 font-semibold">
+                        {passwordMessage}
+                      </span>
+                    )}
+                  </div>
+                  <div className="form-group form-check text-center mb-6">
+                    <input
+                      type="checkbox"
+                      className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-gray-600 checked:border-gray-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain mr-2 cursor-pointer"
+                      id="agree"
+                      checked
+                      onChange={() => {}}
+                    />
+                    <label
+                      className="form-check-label inline-block text-gray-800"
+                      htmlFor="exampleCheck25"
+                    >
+                      개인정보 수집에 동의합니다
+                    </label>
+                  </div>
                   <button
-                    onClick={DuplicationCheck}
-                    className="absolute top-1.5 right-4 border px-3 border-black bg-black hover:opacity-60 text-white rounded-md "
-                  >
-                    중복검사
-                  </button>
-                  <input
-                    type="id"
-                    className="form-control block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
-                    placeholder="(필수)아이디"
-                    onChange={idHandler}
-                    value={uiId}
-                  />
-                  {uiId.length > 0 && (
-                    <span className="text-red-500 font-semibold">
-                      {IdMessage}
-                    </span>
-                  )}
-                </div>
-
-                <div className="form-group mb-6">
-                  <input
-                    type="email"
-                    className="form-control block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
-                    id="exampleInput125"
-                    placeholder="이메일(필수)"
-                    onChange={emailHandler}
-                    value={uiEmail}
-                  />
-                  {uiEmail.length > 0 && (
-                    <span className="text-red-500 font-semibold">
-                      {emailMessage}
-                    </span>
-                  )}
-                </div>
-                <div className="form-group mb-6">
-                  <input
-                    type=""
-                    className="form-control block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
-                    id="exampleInput125"
-                    placeholder="(필수)생년월일 형식 yyyy-mm-dd "
-                    onChange={uiBirthHandler}
-                    value={uiBirth}
-                  />
-                </div>
-                <div className="form-group mb-6">
-                  <input
-                    type="password"
-                    className="form-control block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
-                    id="exampleInput126"
-                    placeholder="(필수)비밀번호"
-                    onChange={pwHandler}
-                    value={uiPwd}
-                  />
-                  {uiPwd.length > 0 && (
-                    <span className="text-red-500 font-semibold">
-                      {passwordMessage}
-                    </span>
-                  )}
-                </div>
-
-                <div className="form-group mb-6">
-                  <input
-                    type="password"
-                    className="form-control block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
-                    id="exampleInput126"
-                    placeholder="(필수)비밀번호 확인"
-                    onChange={pwCheckHandler}
-                  />
-                  {uiPwdCheck.length > 0 && (
-                    <span className="text-red-500 font-semibold">
-                      {passwordMessage}
-                    </span>
-                  )}
-                </div>
-                <div className="form-group form-check text-center mb-6">
-                  <input
-                    type="checkbox"
-                    className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-gray-600 checked:border-gray-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain mr-2 cursor-pointer"
-                    id="exampleCheck25"
-                    checked
-                    onChange={() => {}}
-                  />
-                  <label
-                    className="form-check-label inline-block text-gray-800"
-                    htmlFor="exampleCheck25"
-                  >
-                    개인정보 수집에 동의합니다
-                  </label>
-                </div>
-                <button
-                  onClick={(e) => onSubmitHandler(e)}
-                  type="submit"
-                  className="
+                    onClick={(e) => onSubmitHandler(e)}
+                    type="submit"
+                    className="
       w-full
       px-6
       py-2.5
@@ -473,15 +478,16 @@ const Signup = () => {
       transition
       duration-150
       ease-in-out"
-                >
-                  Sign up
-                </button>
-              </form>
+                  >
+                    Sign up
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
+    </Layout>
   );
 };
 export default Signup;

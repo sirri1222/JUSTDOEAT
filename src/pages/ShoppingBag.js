@@ -5,10 +5,11 @@ import Layout from "../components/layout/Layout";
 
 const ShoppingBag = () => {
   return (
-   
-    <div>
-      <ShoppingBasket />
-    </div>
+    <Layout>
+      <div>
+        <ShoppingBasket />
+      </div>
+    </Layout>
   );
 };
 

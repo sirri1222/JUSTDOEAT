@@ -8,14 +8,16 @@ import Layout from "../components/layout/Layout";
 const Detail = () => {
   let { cate } = useParams();
   return (
-  
-    <div>
-      <DetailNav />
+    <Layout>
       <div>
-        {/* 한식, 일식 등의 글자가 전달 된다. */}
-        <List cate={cate} />
+        <DetailNav />
+        <div>
+          {/* 한식, 일식 등의 글자가 전달 된다. */}
+          <List cate={cate} />
+        </div>
       </div>
-    </div>)
+    </Layout>
+  );
 };
 
 export default Detail;

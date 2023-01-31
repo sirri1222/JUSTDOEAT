@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
 
-const Layout = () => {
+const Layout = (props) => {
   return (
-    <div className="max-w-6xl mx-auto h-[100vh] overflow-scroll "> 
-    {/* 내용 */}
+    <div className="max-w-6xl mx-auto overflow-scroll ">
+      {/* 내용 */}
+      {props.children}
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
