@@ -12,9 +12,9 @@ const order = () => {
   };
 
   return (
-    <div className=" w-2.5/6 pt-6 pl-20 rounded-md">
+    <div className=" w-2/5 pt-6 pl-20 rounded-md">
       <div className="block rounded-lg shadow-lg bg-white text-white max-w-sm text-center">
-        <div className=" flex justify-between  bg-red-500 ">
+        <div className=" flex justify-between  bg-black ">
           <p className="p-4   "> 주문표 </p>
 
           <button onClick={onRemove}>
@@ -26,34 +26,38 @@ const order = () => {
           </button>
         </div>
         <div className="p-2">
-          <h5 className="text-gray-900 text-xl font-medium mb-2">
+          <span className="flex mt-5 text-gray-900 text-md">
+            주문표에 추가메뉴
+          </span>
+          <div className="flex items-center justify-between ">
+            <div className="flex items-center justify-between ">
+              <button
+                onClick={onRemove}
+                className=""
+                // onClick={hidePop}
+              >
+                <img
+                  src="/photo/sprite_1.png"
+                  className="scale-50 opacity-100 "
+                  alt="삭제"
+                ></img>
+              </button>
+              <span className="text-gray-900 text-sm ">21,200원</span>
+            </div>
+            <div className="my-5 pr-4 w-20 ">
+              <NumberCheck />
+            </div>
+          </div>
+          <span className="py-3 px-6 text-gray-900 text-md font-medium ">
             주문표에 담긴 메뉴가 없습니다.
-          </h5>
+          </span>
 
-          <div className="py-3 px-6 border-t flex justify-between border-gray-300 text-gray-600">
+          <span className="py-3 px-6 border-t flex justify-between border-gray-300 text-gray-600">
             배달요금 <span>3,000원</span>
-          </div>
-          <div className="py-3 px-6 border-t border-b flex justify-between border-gray-300 text-gray-600">
+          </span>
+          <span className="py-3 px-6 border-t border-b flex justify-between border-gray-300 text-gray-600">
             총 합계 <span>21,200원</span>
-          </div>
-        </div>
-
-        <div className="flex items-center justify-between ">
-          {" "}
-          <button
-            onClick={onRemove}
-            className=""
-            // onClick={hidePop}
-          >
-            <img
-              src="/photo/sprite_1.png"
-              className="scale-50 opacity-100 "
-              alt="제품사진"
-            ></img>
-          </button>
-          <div className="my-5 pr-4 w-20">
-            <NumberCheck />
-          </div>
+          </span>
         </div>
 
         <Link to="/shoppingbag">

@@ -4,14 +4,14 @@ import ListMenuMenu from "./ListMenuMenu";
 import ListReview from "./ListReview";
 import StoreInfo from "./StoreInfo";
 import Oder from "./Order";
-import Pagination from "react-js-pagination";
+import ListItem from "../detail/ListItem";
 
 const ListMenu = (props) => {
   // 0은 List 메뉴
   // 1은 상세메뉴
   // 2는 정보메뉴
   const [showType, setShowType] = useState(0);
-
+  const [storeList, setStoreList] = useState([]);
   // 외부 서버 데이터 연동
   // useEffec 를 이용해서 최초에 데이터를 가지고 온다.
   const [storeMenuList, setStoreMenuList] = useState([]);
@@ -69,8 +69,11 @@ const ListMenu = (props) => {
     >
       <div className="w-4/6 m-5">
         <div className="flex justify-between h-40 shadow-md">
+          {storeList.map((item, idx) => {
+            return <ListItem item={item} key={idx} />;
+          })}
           <img
-            src="photo/KFC_1.jpg"
+            src="/photo/KFC_1.jpg"
             className="scale-75 ..."
             alt="이미지"
           ></img>
@@ -83,6 +86,7 @@ const ListMenu = (props) => {
             </div>
           </div>
         </div>
+       
         {/* 가게 메뉴 리뷰 정보 */}
         <div>
           <div className="flex justify-around m-5">

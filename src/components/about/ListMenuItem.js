@@ -66,7 +66,7 @@ const ListMenuItem = (props) => {
         <div className="flex justify-center  flex-col py-4 w-3/4 ml-10 ">
           <div className="flex flex-col justify-center">
             <h2> {props.item.miName} </h2>
-            <span>★★★★☆4.8</span>
+            {/* <span>★★★★☆4.8</span> */}
             <span>최소주문금액 {props.item.miPrice}원</span>
             {/* 내용 협의 필요 */}
             <span>{props.item.miAdditionalEx}</span>
