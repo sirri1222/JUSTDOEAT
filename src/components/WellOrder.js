@@ -4,11 +4,12 @@ const WellOrder = () => {
   return (
     <div>
       <div className="flex">
-        <div className="mb-1 ml-20">
+        <div className="ml-30">
           <select
             className="form-select 
      
         w-full
+        mr-1
         px-3
         py-1.5
         text-base
@@ -20,7 +21,7 @@ const WellOrder = () => {
         transition
         ease-in-out
         m-0
-        focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
+        focus:text-gray-600 focus:bg-white focus:border-gray-400 focus:outline-none"
             aria-label="Default select example"
           >
             <option value="0">기본 정렬순</option>

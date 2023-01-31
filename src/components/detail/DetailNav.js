@@ -10,24 +10,25 @@ const DetailNav = ({ item }) => {
           <ol className="list-reset flex justify-start ">
             <li>
               <Link
-                to="/detail/중식"
-                className="text-gray-600 mr-6  dark:text-white hover:underline text-lg font-semibold leading-snug hover:"
+                to="/detail/중국집"
+                className=" text-gray-600 mr-6  whitespace-nowrap
+                 dark:text-white hover:underline text-base font-semibold leading-snug hover:"
               >
-                중식
+                중국집
               </Link>
             </li>{" "}
             <li>
               <Link
-                to="/detail/일식"
-                className="text-gray-600  text-lg font-semibold leading-snug mr-6  dark:text-white hover:underline "
+                to="/detail/일식돈까스"
+                className="text-gray-600 whitespace-nowrap text-base font-semibold leading-snug mr-6  dark:text-white hover:underline "
               >
-                일식
+                일식/돈까스
               </Link>
             </li>
             <li>
               <Link
                 to="/detail/분식"
-                className="text-gray-600 mr-6  dark:text-white hover:underline text-lg font-semibold leading-snug hover:"
+                className="text-gray-600 mr-6 whitespace-nowrap dark:text-white hover:underline text-base font-semibold leading-snug hover:"
               >
                 분식
               </Link>
@@ -35,57 +36,66 @@ const DetailNav = ({ item }) => {
             <li>
               <Link
                 to="/detail/한식"
-                className="text-gray-600  text-lg font-semibold leading-snug mr-6  dark:text-white hover:underline "
+                className="text-gray-600 whitespace-nowrap text-base font-semibold leading-snug mr-6  dark:text-white hover:underline "
               >
                 한식
               </Link>
             </li>
             <li>
               <Link
-                to="/detail/피자"
-                className="text-gray-600  text-lg font-semibold leading-snug mr-6  dark:text-white hover:underline hover:"
-              >
-                피자
-              </Link>
-            </li>
-            <li>
-              <Link
                 to="/detail/치킨"
-                className="text-gray-600 mr-6  dark:text-white hover:underline text-lg font-semibold leading-snug hover:"
+                className="text-gray-600 mr-6  dark:text-white hover:underline whitespace-nowrap text-base font-semibold leading-snug hover:"
               >
                 치킨
               </Link>
             </li>
             <li>
               <Link
-                to="/detail/핫도그"
-                className="text-gray-600 mr-6  dark:text-white hover:underline text-lg font-semibold leading-snug hover:"
+                to="/detail/피자양식"
+                className="text-gray-600  text-base font-semibold leading-snug mr-6 whitespace-nowrap dark:text-white hover:underline hover:"
               >
-                핫도그
+                피자/양식
+              </Link>
+            </li>
+            
+            <li>
+              <Link
+                to="/detail/프랜차이즈"
+                className="text-gray-600 mr-6  dark:text-white hover:underline whitespace-nowrap text-base font-semibold leading-snug hover:"
+              >
+                프랜차이즈
               </Link>
             </li>
             <li>
               <Link
-                to="/detail/편의점"
-                className="text-gray-600 mr-6  dark:text-white hover:underline text-lg font-semibold leading-snug hover:"
+                to="/detail/편의점마트"
+                className="text-gray-600 mr-6  dark:text-white hover:underline whitespace-nowrap text-base font-semibold leading-snug hover:"
               >
-                편의점
+                편의점/마트
               </Link>
             </li>{" "}
             <li>
               <Link
                 to="/detail/족발보쌈"
-                className="text-gray-600 mr-6  dark:text-white hover:underline text-lg font-semibold leading-snug hover:"
+                className="text-gray-600 mr-6  dark:text-white hover:underline whitespace-nowrap text-base font-semibold leading-snug hover:"
               >
-                족발보쌈
+                족발/보쌈
               </Link>
             </li>{" "}
             <li>
               <Link
                 to="/detail/카페디저트"
-                className="text-gray-600 mr-6  dark:text-white hover:underline text-lg font-semibold leading-snug hover:"
+                className="text-gray-600 mr-6  dark:text-white hover:underline whitespace-nowrap text-base font-semibold leading-snug hover:"
               >
-                카페디저트
+                카페/디저트
+              </Link>
+            </li>{" "}
+            <li>
+              <Link
+                to="/detail/야식"
+                className="text-gray-600 mr-6  dark:text-white hover:underline whitespace-nowrap text-base font-semibold leading-snug hover:"
+              >
+                야식
               </Link>
             </li>{" "}
           </ol>
