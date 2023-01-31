@@ -5,13 +5,13 @@ const Header = () => {
   return (
     <div>
       <div
-        className="flex bg-red-500
+        className="flex bg-gray-100
       "
       >
-        <div className="navbar navbar-expand-sm py-1 relative flex items-center justify-between w-full ">
+        <div className="navbar navbar-expand-sm relative flex items-center justify-between w-full ">
           <Link to="/home">
             <img
-              className=" ml-10 w-20 m-6 "
+              className=" ml-10 w-20 m-3 "
               src="/photo/jdelogo-s.png"
               alt="로고"
             ></img>
@@ -19,11 +19,11 @@ const Header = () => {
           <div className="flex">
             <input
               type="search"
-              className="  ml-20  px-10 py-1.5 mr-3 text-base font-normal
+              className="  ml-20  px-20  mr-3 text-base font-normal
 
-       text-gray-700 bg-white bg-clip-padding  border-solid
         border-gray-300 rounded transition
-       ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-red-600 
+       ease-in-out m-0 focus:text-gray-700 focus:bg-white
+        focus:border-red-600 
        focus:outline-none"
               placeholder="주소를 입력해주세요."
               aria-label="Search"
@@ -64,7 +64,6 @@ const Header = () => {
              rounded-l
              px-6
              py-2.5
-             bg-gray-900
              text-white
              font-medium
              text-xs
@@ -76,49 +75,19 @@ const Header = () => {
              ease-in-out"
             >
               <img
-                className="absolute top-9 left-5 w-11"
-                src="/photo/infouser.png"
+                className="absolute top-5 left-5 w-11"
+                src="/photo/bsk_info.png"
                 alt="로그인"
               ></img>
             </Link>
-            {/* <Link
-              to="/signup"
-              className="rounded-l px-6 py-2.5 bg-gray-900  text-white font-medium text-xs
-             leading-tight
-             uppercase
-             hover:bg-gray-700
-             focus:bg-gray-700 focus:outline-none focus:ring-0
-             active:bg-gray-800
-             transition
-             duration-150
-             ease-in-out"
-            >
-              signup
-            </Link> */}
           </div>
 
           {/* <!-- Icon --> */}
           <Link to="/shoppingbag">
             <button className="text-gray-500 mr-4">
-              {/* <svg
-                aria-hidden="true"
-                focusable="false"
-                data-prefix="fas"
-                data-icon="shopping-cart"
-                className="w-4"
-                role="img"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 576 512"
-              >
-                <path
-                  fill="currentColor"
-                  d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"
-                ></path>
-              </svg> */}
-
               <img
-                className="absolute top-9 right-1 w-11"
-                src="/photo/basket.png"
+                className="absolute top-5 right-1 w-11"
+                src="/photo/bak_red.png"
                 alt="장바구니"
               ></img>
 
