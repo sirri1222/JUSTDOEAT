@@ -40,8 +40,9 @@ const Login = () => {
   };
 
   return (
-    <div className=" block p-6 rounded-lg shadow-lg bg-white max-w-2xl mx-auto">
-      <section className=" h-screen">
+    
+  <div className=" block p-6 rounded-lg shadow-lg bg-white max-w-2xl mx-auto">
+     <section className=" h-screen">
         <div className="px-3 mx-auto text-gray-800">
           <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap g-6">
             <div>

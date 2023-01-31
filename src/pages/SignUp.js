@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import instance from "../api/axios";
 import Logo from "../components/Logo";
-
+import Layout from "../components/layout/Layout";
 const Signup = () => {
  
 
@@ -18,70 +18,115 @@ const [uiBirth, setUiBirth] = useState("")
 
 
   //오류메시지 상태저장
-  const [nameMessage, setNameMessage] = useState.toString('')
+  const [nameMessage, setNameMessage] = useState('2글자 이상 5글자 미만으로 입력해주세요.')
   const [emailMessage, setEmailMessage] = useState('')
+  const [phoneNumberMessage, setPhoneNumberMessage] = useState('')
+  const [IdMessage, setIdMessage] = useState('')
+  const [BirthMessage, setBirthMessage] = useState('')
   const [passwordMessage, setPasswordMessage] = useState('')
   const [passwordConfirmMessage, setPasswordConfirmMessage] = useState('')
   
   const isCheckBoxClicked = () => {
     setUiGender(!uiGen);
   };
-  const emailHandler = (event) => setuiEmail(event.target.value);
+   // 이메일 유효성 검사
+   const isValidEmail = uiEmail.includes("@") && uiEmail.includes(".");
+  // 이메일
+  const emailHandler = (event) =>{
+    setuiEmail(event.target.value)
+    if(!isValidEmail) {
+      setEmailMessage('이메일 형식이 틀렸어요! 다시 확인해주세요 ㅜ ㅜ')
+   
+    } else {
+      setEmailMessage('올바른 이메일 형식이에요 : )')
+    
+    }} ;
+//  이름
   const nameHandler = (event) => {
     setUiName(event.target.value)
-    if (uiName.length < 2 || uiName.length > 5) {
-      setNameMessage('2글자 이상 5글자 미만으로 입력해주세요.')
-      setUiName(false)
+    if (uiName.length < 1 || uiName.length > 5) {
+      setNameMessage()
+     
     } else {
       setNameMessage('올바른 이름 형식입니다 :)')
-      setUiName(true)
+     
     }};
-  const phoneHandler = (event) => setUiPhone(event.target.value);
+    // 휴대폰번호 유효성검사
+     const regExpPhone =/^\d{3}-?\d{4}-?\d{4}$/;
+   
     
     
 
- const autoHyphenPhone = uiPhone.replace(/^(\d{3})(\d{4})(\d{4})$/, `$1-$2-$3`);
+  // 휴대폰번호
+    const phoneHandler = (event) => {
+      setUiPhone(event.target.value)
+   
+    }
+      
+    
+    //비밀번호 유효성검사
+    
+    const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/
+// 비밀번호
+  const pwHandler = (event) =>{ setUiPwd(event.target.value)
+    
+    if (!uiPwd.test(passwordRegex(event.target.value)) ) {
+      setPhoneNumberMessage('숫자+영문자+특수문자 조합으로 8자리 이상 입력해주세요!')
+     
+    } else {
+     
+      setPhoneNumberMessage('올바른 비밀번호 형식입니다 :)')
+     
+    };}
+  // 비밀번호 확인
+  const pwCheckHandler = (event) => {setUiPwdCheck(event.target.value); 
+    if (uiPwd !== uiPwdCheck) {
+      setPhoneNumberMessage('비밀번호와 확인이 일치하지 않아요! 다시 확인해주세요 ㅜ ㅜ')
+     
+    } else {
+     
+      setPhoneNumberMessage('올바른 비밀번호 형식입니다 :)')
+     
+    };}
+const autoHyphenPhone =  uiPhone.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`); // 숫자그룹을 나눠 사이에 하이픈(-)추가 
  const autoHyphenBirth = uiBirth.replace(/^(\d{4})(\d{2})(\d{2})$/, `$1-$2-$3`);
   const GenHandler = (event) => {
     setUiGender(uiGen + 1);
   };
   console.log(uiGen);
-  const pwHandler = (event) => setUiPwd(event.target.value);
+ 
   const uiBirthHandler = (event) => setUiBirth(event.target.value);
-  const pwCheckHandler = (event) => setUiPwdCheck(event.target.value);
+
   const idHandler = (event) => setUiid(event.target.value);
   const onSubmitHandler = (event) => {
     // 로그인 처리
     
    
 
-    // 이메일 유효성 검사
-    const isValidEmail = uiEmail.includes("@") && uiEmail.includes(".");
+   
     event.preventDefault();
-    if (uiId === "") {
-      alert(" 필수 정보를 모두 입력해 주세요.");
-    } 
-     if (uiName === "") {
-      alert(" 필수 정보를 모두 입력해 주세요.");
-    } 
-    if (uiPhone === "") {
-      alert(" 필수 정보를 모두 입력해 주세요.");
-    }
-    if (uiEmail === "") {
-      alert(" 필수 정보를 모두 입력해 주세요.");
-    }
-    if (uiBirth === "") {
-      alert(" 필수 정보를 모두 입력해 주세요.");
-    }
-    if (uiPwd === "") {
-      alert(" 필수 정보를 모두 입력해 주세요.");
-    }
+    // if (uiId === "") {
+    //   alert(" 필수 정보를 모두 입력해 주세요.");
+    // } 
+    //  if (uiName === "") {
+    //   alert(" 필수 정보를 모두 입력해 주세요.");
+    // } 
+    // if (uiPhone === "") {
+    //   alert(" 필수 정보를 모두 입력해 주세요.");
+    // }
+    // if (uiEmail === "") {
+    //   alert(" 필수 정보를 모두 입력해 주세요.");
+    // }
+    // if (uiBirth === "") {
+    //   alert(" 필수 정보를 모두 입력해 주세요.");
+    // }
+    // if (uiPwd === "") {
+    //   alert(" 필수 정보를 모두 입력해 주세요.");
+    // }
     if (!autoHyphenBirth  ) {
       alert(" 생년월일 형식이 잘못되었습니다. ");
     }
-    if (!autoHyphenPhone) {
-      alert("전화번호 형식이 잘못되었습니다.");
-    }
+  
     if (!isValidEmail) {
       alert("이메일 형식이 잘못되었습니다.");
     }
@@ -187,7 +232,7 @@ const [uiBirth, setUiBirth] = useState("")
                       placeholder="이름(필수)"
                       value={uiName}
                     />
-                    {uiName.length > 0 && <span className={`message ${uiName ? 'success' : 'error'}`}>{nameMessage}</span>}
+                    {uiName.length > 0 && <span>{nameMessage}</span>}
                     <div className="flex justify-center">
                       <div className="mx-9 my-auto form-check form-check-inline">
                         <input
@@ -247,6 +292,7 @@ const [uiBirth, setUiBirth] = useState("")
                       placeholder="(필수)전화번호 형식 010-0000-0000"
                    value={uiPhone}
                    />
+                     {uiPhone.length > 0 && <span className="text-red-500 font-semibold">{phoneNumberMessage}</span>}
                   </div>
                 </div>
 
@@ -275,6 +321,7 @@ const [uiBirth, setUiBirth] = useState("")
                     onChange={idHandler}
                     value={uiId}
                   />
+                    {uiId.length > 0 && <span className="text-red-500 font-semibold">{IdMessage}</span>}
                 </div>
 
                 <div className="form-group mb-6">
@@ -299,6 +346,7 @@ const [uiBirth, setUiBirth] = useState("")
                     onChange={emailHandler}
                     value={uiEmail}
                   />
+                  {uiEmail.length > 0 && <span className="text-red-500 font-semibold">{emailMessage}</span>}
                 </div>
                 <div className="form-group mb-6">
                   <input
@@ -345,6 +393,7 @@ const [uiBirth, setUiBirth] = useState("")
                     onChange={pwHandler}
                     value={uiPwd}
                   />
+                    {uiPwd.length > 0 && <span className="text-red-500 font-semibold">{passwordMessage}</span>}
                 </div>
 
                 <div className="form-group mb-6">
@@ -368,6 +417,7 @@ const [uiBirth, setUiBirth] = useState("")
                     placeholder="(필수)비밀번호 확인"
                     onChange={pwCheckHandler}
                   />
+                   {uiPwdCheck.length > 0 && <span className="text-red-500 font-semibold">{passwordMessage}</span>}
                 </div>
                 <div className="form-group form-check text-center mb-6">
                   <input

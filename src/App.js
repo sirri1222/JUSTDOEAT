@@ -27,9 +27,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
-      </Routes>
-      <div className="max-w-6xl mx-auto h-[100vh] overflow-scroll ">
-        <Routes>
+      
           <Route path="/about/:siSeq" element={<About />} />
           <Route path="/detail/:cate" element={<Detail />} />
           <Route path="/idpwfind" element={<IdPwFind />} />
@@ -39,7 +37,7 @@ function App() {
           <Route path="/shoppingbag" element={<ShoppingBag />} />
           <Route path="/buy" element={<Buy />} />
         </Routes>
-      </div>
+     
       <Footer />
     </Router>
   );
