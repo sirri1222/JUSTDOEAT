@@ -8,7 +8,7 @@ import "swiper/css/scrollbar";
 
 const HeaderBottom = () => {
   return (
-    <div className=" ">
+    <div className="">
       <div className="">
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
@@ -38,12 +38,10 @@ const HeaderBottom = () => {
               alt="제품사진"
             ></img>
           </SwiperSlide>
-          <SwiperSlide className="h-full">
+          <SwiperSlide>
             <img
-
               src="photo/banner9.jpg"
               className="w-full"
-
               alt="제품사진"
             ></img>
           </SwiperSlide>
