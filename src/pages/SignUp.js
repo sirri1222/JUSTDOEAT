@@ -3,24 +3,39 @@ import instance from "../api/axios";
 import Logo from "../components/Logo";
 
 const Signup = () => {
-  const [uiEmail, setuiEmail] = useState("");
-  const [uiPwd, setUiPwd] = useState("");
-  const [uiPwdCheck, setUiPwdCheck] = useState("");
+ 
 
   const [uiGen, setUiGender] = useState(1);
  
-  
-
+ const [uiEmail, setuiEmail] = useState("");
+  const [uiPwd, setUiPwd] = useState("");
+  const [uiPwdCheck, setUiPwdCheck] = useState("");
   const [uiId, setUiid] = useState("");
   const [uiPhone, setUiPhone] = useState("");
   const [uiName, setUiName] = useState("");
   const [usabledId, setUsableId] = useState("");
 const [uiBirth, setUiBirth] = useState("")
+
+
+  //오류메시지 상태저장
+  const [nameMessage, setNameMessage] = useState.toString('')
+  const [emailMessage, setEmailMessage] = useState('')
+  const [passwordMessage, setPasswordMessage] = useState('')
+  const [passwordConfirmMessage, setPasswordConfirmMessage] = useState('')
+  
   const isCheckBoxClicked = () => {
     setUiGender(!uiGen);
   };
   const emailHandler = (event) => setuiEmail(event.target.value);
-  const nameHandler = (event) => setUiName(event.target.value);
+  const nameHandler = (event) => {
+    setUiName(event.target.value)
+    if (uiName.length < 2 || uiName.length > 5) {
+      setNameMessage('2글자 이상 5글자 미만으로 입력해주세요.')
+      setUiName(false)
+    } else {
+      setNameMessage('올바른 이름 형식입니다 :)')
+      setUiName(true)
+    }};
   const phoneHandler = (event) => setUiPhone(event.target.value);
     
     
@@ -172,6 +187,7 @@ const [uiBirth, setUiBirth] = useState("")
                       placeholder="이름(필수)"
                       value={uiName}
                     />
+                    {uiName.length > 0 && <span className={`message ${uiName ? 'success' : 'error'}`}>{nameMessage}</span>}
                     <div className="flex justify-center">
                       <div className="mx-9 my-auto form-check form-check-inline">
                         <input
