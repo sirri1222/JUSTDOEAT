@@ -3,114 +3,119 @@ import instance from "../api/axios";
 import Logo from "../components/Logo";
 import Layout from "../components/layout/Layout";
 const Signup = () => {
- 
-
   const [uiGen, setUiGender] = useState(1);
- 
- const [uiEmail, setuiEmail] = useState("");
+
+  const [uiEmail, setuiEmail] = useState("");
   const [uiPwd, setUiPwd] = useState("");
   const [uiPwdCheck, setUiPwdCheck] = useState("");
   const [uiId, setUiid] = useState("");
   const [uiPhone, setUiPhone] = useState("");
   const [uiName, setUiName] = useState("");
   const [usabledId, setUsableId] = useState("");
-const [uiBirth, setUiBirth] = useState("")
-
+  const [uiBirth, setUiBirth] = useState("");
 
   //오류메시지 상태저장
-  const [nameMessage, setNameMessage] = useState('2글자 이상 5글자 미만으로 입력해주세요.')
-  const [emailMessage, setEmailMessage] = useState('')
-  const [phoneNumberMessage, setPhoneNumberMessage] = useState('')
-  const [IdMessage, setIdMessage] = useState('')
-  const [BirthMessage, setBirthMessage] = useState('')
-  const [passwordMessage, setPasswordMessage] = useState('')
-  const [passwordConfirmMessage, setPasswordConfirmMessage] = useState('')
-  
+  const [nameMessage, setNameMessage] = useState(
+    "2글자 이상 5글자 미만으로 입력해주세요."
+  );
+  const [emailMessage, setEmailMessage] = useState("");
+  const [phoneNumberMessage, setPhoneNumberMessage] = useState("");
+  const [IdMessage, setIdMessage] = useState("");
+  const [BirthMessage, setBirthMessage] = useState("");
+  const [passwordMessage, setPasswordMessage] = useState("");
+  const [passwordConfirmMessage, setPasswordConfirmMessage] = useState("");
+
   const isCheckBoxClicked = () => {
     setUiGender(!uiGen);
   };
-   // 이메일 유효성 검사
-   const isValidEmail = uiEmail.includes("@") && uiEmail.includes(".");
+  // 이메일 유효성 검사
+  const isValidEmail = uiEmail.includes("@") && uiEmail.includes(".");
   // 이메일
-  const emailHandler = (event) =>{
-    setuiEmail(event.target.value)
-    if(!isValidEmail) {
-      setEmailMessage('이메일 형식이 틀렸어요! 다시 확인해주세요 ㅜ ㅜ')
-   
+  const emailHandler = (event) => {
+    setuiEmail(event.target.value);
+    if (!isValidEmail) {
+      setEmailMessage("이메일 형식이 틀렸어요! 다시 확인해주세요 ㅜ ㅜ");
     } else {
-      setEmailMessage('올바른 이메일 형식이에요 : )')
-    
-    }} ;
-//  이름
-  const nameHandler = (event) => {
-    setUiName(event.target.value)
-    if (uiName.length < 1 || uiName.length > 5) {
-      setNameMessage()
-     
-    } else {
-      setNameMessage('올바른 이름 형식입니다 :)')
-     
-    }};
-    // 휴대폰번호 유효성검사
-     const regExpPhone =/^\d{3}-?\d{4}-?\d{4}$/;
-   
-    
-    
-
-  // 휴대폰번호
-    const phoneHandler = (event) => {
-      setUiPhone(event.target.value)
-   
+      setEmailMessage("올바른 이메일 형식이에요 : )");
     }
-      
-    
-    //비밀번호 유효성검사
-    
-    const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/
-// 비밀번호
-  const pwHandler = (event) =>{ setUiPwd(event.target.value)
-    
-    if (!uiPwd.test(passwordRegex(event.target.value)) ) {
-      setPhoneNumberMessage('숫자+영문자+특수문자 조합으로 8자리 이상 입력해주세요!')
-     
+  };
+  //  이름
+  const nameHandler = (event) => {
+    setUiName(event.target.value);
+    if (uiName.length < 1 || uiName.length > 5) {
+      setNameMessage();
     } else {
-     
-      setPhoneNumberMessage('올바른 비밀번호 형식입니다 :)')
-     
-    };}
+      setNameMessage("올바른 이름 형식입니다 :)");
+    }
+  };
+  // 휴대폰번호 유효성검사
+  const autoHyphenregExpPhone = /^\d{3}-?\d{4}-?\d{4}$/;
+  console.log(autoHyphenregExpPhone.test(123546987456321));
+  // 휴대폰번호
+  const phoneHandler = (event) => {
+    console.log(event.target.value);
+    setUiPhone(event.target.value);
+    if (autoHyphenregExpPhone.test(parseInt(event.target.value, )) === false) {
+      setPhoneNumberMessage(
+        "전화번호 형식이 틀렸습니다! -을 제외하고 입력해주세요 ㅜ_ㅜ"
+      );
+    } else {
+      setNameMessage("올바른 이름 형식입니다 :)");
+    }
+  };
+
+  //비밀번호 유효성검사
+
+  const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
+  // 비밀번호
+  const pwHandler = (event) => {
+    setUiPwd(event.target.value);
+
+    if (!passwordRegex.test(event.target.value)) {
+      setPhoneNumberMessage(
+        "숫자+영문자+특수문자 조합으로 8자리 이상 입력해주세요!"
+      );
+    } else {
+      setPhoneNumberMessage("올바른 비밀번호 형식입니다 :)");
+    }
+  };
   // 비밀번호 확인
-  const pwCheckHandler = (event) => {setUiPwdCheck(event.target.value); 
+  const pwCheckHandler = (event) => {
+    setUiPwdCheck(event.target.value);
     if (uiPwd !== uiPwdCheck) {
-      setPhoneNumberMessage('비밀번호와 확인이 일치하지 않아요! 다시 확인해주세요 ㅜ ㅜ')
-     
+      setPhoneNumberMessage(
+        "비밀번호와 확인이 일치하지 않아요! 다시 확인해주세요 ㅜ ㅜ"
+      );
     } else {
-     
-      setPhoneNumberMessage('올바른 비밀번호 형식입니다 :)')
-     
-    };}
-const autoHyphenPhone =  uiPhone.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`); // 숫자그룹을 나눠 사이에 하이픈(-)추가 
- const autoHyphenBirth = uiBirth.replace(/^(\d{4})(\d{2})(\d{2})$/, `$1-$2-$3`);
+      setPhoneNumberMessage("올바른 비밀번호 형식입니다 :)");
+    }
+  };
+  const autoHyphenPhone = uiPhone.replace(
+    /^(\d{2,3})(\d{3,4})(\d{4})$/,
+    `$1-$2-$3`
+  ); // 숫자그룹을 나눠 사이에 하이픈(-)추가
+  const autoHyphenBirth = uiBirth.replace(
+    /^(\d{4})(\d{2})(\d{2})$/,
+    `$1-$2-$3`
+  );
   const GenHandler = (event) => {
     setUiGender(uiGen + 1);
   };
   console.log(uiGen);
- 
+
   const uiBirthHandler = (event) => setUiBirth(event.target.value);
 
   const idHandler = (event) => setUiid(event.target.value);
   const onSubmitHandler = (event) => {
     // 로그인 처리
-    
-   
 
-   
     event.preventDefault();
     // if (uiId === "") {
     //   alert(" 필수 정보를 모두 입력해 주세요.");
-    // } 
+    // }
     //  if (uiName === "") {
     //   alert(" 필수 정보를 모두 입력해 주세요.");
-    // } 
+    // }
     // if (uiPhone === "") {
     //   alert(" 필수 정보를 모두 입력해 주세요.");
     // }
@@ -123,10 +128,10 @@ const autoHyphenPhone =  uiPhone.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$
     // if (uiPwd === "") {
     //   alert(" 필수 정보를 모두 입력해 주세요.");
     // }
-    if (!autoHyphenBirth  ) {
+    if (!autoHyphenBirth) {
       alert(" 생년월일 형식이 잘못되었습니다. ");
     }
-  
+
     if (!isValidEmail) {
       alert("이메일 형식이 잘못되었습니다.");
     }
@@ -138,12 +143,8 @@ const autoHyphenPhone =  uiPhone.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$
     }
     if (uiPwd !== uiPwdCheck) {
       alert("비밀번호 확인이 일치하지 않습니다.");
+    } else {
     }
-    else{
-     
-    }
-  
-  
 
     // 데이터 api
     instance
@@ -154,38 +155,33 @@ const autoHyphenPhone =  uiPhone.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$
         uiPhone,
         uiBirth,
         uiGen,
-        uiPwd
-  
+        uiPwd,
       })
       .then((res) => {
-        console.log( "성공", res);
+        console.log("성공", res);
       })
       .catch((res) => {
-        console.log("실패",res);
+        console.log("실패", res);
       });
-
-      
   };
   const DuplicationAPI = async (uiId) => {
     let return_value;
     await instance
-      .get("http://192.168.0.156:9988/member/list?page=0", { 
-        uiId
-      }) 
+      .get("http://192.168.0.156:9988/member/list?page=0", {
+        uiId,
+      })
       .then((res) => {
         console.log(res);
       })
       .catch((res) => {
         console.log(res);
       });
- 
+
     return return_value;
   };
   const DuplicationCheck = (e) => {
     e.preventDefault();
-    DuplicationAPI
-  
-    .then((res) => {
+    DuplicationAPI.then((res) => {
       console.log(res);
       if (res !== uiId) {
         alert("사용 가능한 아이디입니다.");
@@ -289,17 +285,24 @@ const autoHyphenPhone =  uiPhone.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$
                       id="exampleInput124"
                       aria-describedby="emailHelp124"
                       onChange={phoneHandler}
-                      placeholder="(필수)전화번호 형식 010-0000-0000"
-                   value={uiPhone}
-                   />
-                     {uiPhone.length > 0 && <span className="text-red-500 font-semibold">{phoneNumberMessage}</span>}
+                      placeholder="(필수)전화번호 형식(-제외)"
+                      value={uiPhone}
+                    />
+                    {uiPhone.length > 0 && (
+                      <span className="text-red-500 font-semibold">
+                        {phoneNumberMessage}
+                      </span>
+                    )}
                   </div>
                 </div>
 
                 <div className="relative form-group mb-6">
-                  <button 
-                onClick={DuplicationCheck}
-                  className="absolute top-1.5 right-4 border px-3 border-black bg-black hover:opacity-60 text-white rounded-md ">중복검사</button>
+                  <button
+                    onClick={DuplicationCheck}
+                    className="absolute top-1.5 right-4 border px-3 border-black bg-black hover:opacity-60 text-white rounded-md "
+                  >
+                    중복검사
+                  </button>
                   <input
                     type="id"
                     className="form-control block
@@ -316,12 +319,15 @@ const autoHyphenPhone =  uiPhone.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$
         ease-in-out
         m-0
         focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
-                   
                     placeholder="(필수)아이디"
                     onChange={idHandler}
                     value={uiId}
                   />
-                    {uiId.length > 0 && <span className="text-red-500 font-semibold">{IdMessage}</span>}
+                  {uiId.length > 0 && (
+                    <span className="text-red-500 font-semibold">
+                      {IdMessage}
+                    </span>
+                  )}
                 </div>
 
                 <div className="form-group mb-6">
@@ -346,7 +352,11 @@ const autoHyphenPhone =  uiPhone.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$
                     onChange={emailHandler}
                     value={uiEmail}
                   />
-                  {uiEmail.length > 0 && <span className="text-red-500 font-semibold">{emailMessage}</span>}
+                  {uiEmail.length > 0 && (
+                    <span className="text-red-500 font-semibold">
+                      {emailMessage}
+                    </span>
+                  )}
                 </div>
                 <div className="form-group mb-6">
                   <input
@@ -368,7 +378,7 @@ const autoHyphenPhone =  uiPhone.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$
                     id="exampleInput125"
                     placeholder="(필수)생년월일 형식 yyyy-mm-dd "
                     onChange={uiBirthHandler}
-                    value= {uiBirth}
+                    value={uiBirth}
                   />
                 </div>
                 <div className="form-group mb-6">
@@ -393,7 +403,11 @@ const autoHyphenPhone =  uiPhone.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$
                     onChange={pwHandler}
                     value={uiPwd}
                   />
-                    {uiPwd.length > 0 && <span className="text-red-500 font-semibold">{passwordMessage}</span>}
+                  {uiPwd.length > 0 && (
+                    <span className="text-red-500 font-semibold">
+                      {passwordMessage}
+                    </span>
+                  )}
                 </div>
 
                 <div className="form-group mb-6">
@@ -417,7 +431,11 @@ const autoHyphenPhone =  uiPhone.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$
                     placeholder="(필수)비밀번호 확인"
                     onChange={pwCheckHandler}
                   />
-                   {uiPwdCheck.length > 0 && <span className="text-red-500 font-semibold">{passwordMessage}</span>}
+                  {uiPwdCheck.length > 0 && (
+                    <span className="text-red-500 font-semibold">
+                      {passwordMessage}
+                    </span>
+                  )}
                 </div>
                 <div className="form-group form-check text-center mb-6">
                   <input
