@@ -51,9 +51,8 @@ const order = () => {
               alt="제품사진"
             ></img>
           </button>
-          <div className="pr-4 w-20">
-            <NumberCheck 
-            className="display-none"/>
+          <div className="my-5 pr-4 w-20">
+            <NumberCheck />
           </div>
         </div>
 
