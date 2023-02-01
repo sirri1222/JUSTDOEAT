@@ -1,13 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { NumberCheck } from "../NumberCheck";
 
-const order = () => {
+// redux Patch 보내서 state 업데이트
+import { useDispatch, useSelector } from "react-redux";
+import { clearOrder } from "../../redux/orderSlice";
+import OrderList from "./OrderList";
+
+const Order = () => {
+  const dispatch = useDispatch();
+  const orderGood = useSelector((state) => {
+    return state.order.orderGood;
+  });
+  console.log("주문서 ORder : ", orderGood);
+
   const onRemove = () => {
     if (window.confirm("주문 메뉴를 모두 삭제하시겠습니까?")) {
-      alert("삭제되었습니다.");
-    } else {
-      alert("취소합니다.");
+      dispatch(clearOrder());
     }
   };
 
@@ -26,31 +34,15 @@ const order = () => {
           </button>
         </div>
         <div className="p-2">
-          <span className="flex mt-5 text-gray-900 text-md">
-            주문표에 추가메뉴
-          </span>
-          <div className="flex items-center justify-between ">
-            <div className="flex items-center justify-between ">
-              <button
-                onClick={onRemove}
-                className=""
-                // onClick={hidePop}
-              >
-                <img
-                  src="/photo/sprite_1.png"
-                  className="scale-50 opacity-100 "
-                  alt="삭제"
-                ></img>
-              </button>
-              <span className="text-gray-900 text-sm ">21,200원</span>
-            </div>
-            <div className="my-5 pr-4 w-20 ">
-              <NumberCheck />
-            </div>
-          </div>
-          <span className="py-3 px-6 text-gray-900 text-md font-medium ">
-            주문표에 담긴 메뉴가 없습니다.
-          </span>
+          {orderGood.length > 0 ? (
+            orderGood.map((item, index) => (
+              <OrderList key={index} item={item} />
+            ))
+          ) : (
+            <span className="py-3 px-6 text-gray-900 text-md font-medium ">
+              주문표에 담긴 메뉴가 없습니다.
+            </span>
+          )}
 
           <span className="py-3 px-6 border-t flex justify-between border-gray-300 text-gray-600">
             배달요금 <span>3,000원</span>
@@ -75,4 +67,4 @@ const order = () => {
   );
 };
 
-export default order;
+export default Order;

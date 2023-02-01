@@ -4,9 +4,11 @@ const ListItem = ({ item }) => {
   console.log(item);
   return (
     <li>
-      <Link to={`/about/${item.storeInfo.siSeq}`}>
-        <div className="flex flex-col max-w-3xl border-b-2 p-6 mx-auto sm:p-8
-         dark:bg-gray-900 dark:text-gray-100">
+      <Link to={`/about/${item.storeInfo.siSeq}`} state={item}>
+        <div
+          className="flex flex-col max-w-3xl border-b-2 p-6 mx-auto sm:p-8
+         dark:bg-gray-900 dark:text-gray-100"
+        >
           <div className="flex flex-col py-6 sm:flex-row sm:justify-between">
             <div className="flex w-1/2 space-x-2 sm:space-x-4">
               <img

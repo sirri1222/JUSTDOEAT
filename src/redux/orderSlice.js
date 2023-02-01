@@ -13,17 +13,21 @@ const orderSlice = createSlice({
   initialState: initialState,
   reducers: {
     addOrder: (state, action) => {
-      console.log("addOrder");
-      console.log(action.payload);
-      state.orderGood = action.payload;
+      // console.log("addOrder", action.payload);
+      state.orderGood = [...state.orderGood, action.payload];
+      // state.orderGood = action.payload;
+      // console.log("state.orderGood", state.orderGood);
     },
     deleteOrder: (state, action) => {
-      console.log("deleteOrder");
-      state.value = state.value - action.payload;
+      // console.log("deleteOrder", action.payload);
+      const copyArr = [...state.orderGood];
+      state.orderGood = copyArr.filter(
+        (item) => item.orderName !== action.payload.orderName
+      );
     },
     clearOrder: (state, action) => {
-      console.log("clearOrder");
-      state.value = state.value - action.payload;
+      // console.log("clearOrder");
+      state.orderGood = [];
     },
   },
 });

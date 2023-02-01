@@ -18,45 +18,71 @@ const DeliveryInfo = ({ setIsShowing, item, optionData }) => {
   const [count, setCount] = useState(1);
   // 전체 합산 금액
   const [totalMoney, setTotalMoney] = useState(item.miPrice);
-  // 제품 선택에 따른 총 가격 출력
-  useEffect(() => {
-    // 제품 총 갯수 가격
-    const goodCountMoney = item.miPrice * count;
-    // 전체금액 =  제품 총 가격 + 옵션가격
-    setTotalMoney(goodCountMoney + optMoney);
-    // Dispatch 보내서 state 를 변경
-    /*
-  {
-    제품명(orderName)  :~~~, 
-    옵션 (orderOption)     :[{옵션명:~~, 옵션가격:~~},{옵션명:~~, 옵션가격:~~}],
-    총가격(orderMoney): ~,
-    총개수(orderCount):~
-  }
- */
-    const orderGood = {
-      orderName: item.miName,
-      orderOption: [],
-      orderMoney: totalMoney,
-      orderCount: count,
-    };
-    dispatch(addOrder(orderGood));
-  }, [count, optMoney]);
 
   const hidePop = (e) => {
     // 하단 으로 click 을 전달하지 않는다.
     e.stopPropagation();
     setIsShowing(false);
   };
+
   // 옵션 선택시 변경 사항 적용
+  const initOptionVal = {};
+  const [optionVal, setOptionVal] = useState(initOptionVal);
+
   const changeOption = (e) => {
     // 체크 박스 클릭 대상
     const target = e.target;
+    // 체크상태 파악 후 정리
+    const checkState = target.checked;
+
     // 체크가 된경우라면 금액 그렇지 않으면 0원(3항연산)
-    let value = target.checked ? target.value : -target.value;
+    let money = checkState ? target.value : -target.value;
     // 글자를 숫자로 변경함
-    value = parseInt(value);
+    money = parseInt(money);
     // 옵션의 가격
-    setOptMoney(optMoney + value);
+    setOptMoney(optMoney + money);
+
+    const { name, value } = e.target;
+    if (checkState) {
+      // 옵션을 체크한 경우 처리
+      setOptionVal({ ...optionVal, [name]: parseInt(value) });
+    } else {
+      // 옵션을 해제한 경우 처리
+      const copyOption = { ...optionVal };
+      for (let p in copyOption) {
+        if (p === name) {
+          // console.log("같은 속성 찾음", p);
+          delete copyOption[p];
+        }
+      }
+      setOptionVal(copyOption);
+    }
+  };
+
+  // 제품 선택에 따른 총 가격 출력
+  const [orderGood, setOrderGood] = useState({});
+  useEffect(() => {
+    // 제품 총 갯수 가격
+    const goodCountMoney = item.miPrice * count;
+    // 전체금액 =  제품 총 가격 + 옵션가격
+    setTotalMoney(goodCountMoney + optMoney);
+    // Dispatch 보내서 state 를 변경
+    // console.log("option 내용", optionVal);
+    setOrderGood({
+      orderName: item.miName,
+      orderCount: count,
+      orderMoney: totalMoney,
+      orderOption: optionVal,
+    });
+  }, [count, optMoney, totalMoney, optionVal]);
+
+  // 주문표에 추가
+  const handlerAddOrder = (e) => {
+    // 하단 으로 click 을 전달하지 않는다.
+    e.stopPropagation();
+    console.log("주문표에 추가 : ", orderGood);
+    dispatch(addOrder(orderGood));
+    setIsShowing(false);
   };
 
   return (
@@ -89,18 +115,18 @@ const DeliveryInfo = ({ setIsShowing, item, optionData }) => {
                 </li>
                 <li className="px-6 py-2 border-b my-3 border-gray-200 w-full">
                   <p className="font-semibold block pb-3">메뉴</p>
-                  <p className="flex justify-between">
+                  <div className="flex justify-between">
                     {/* （징거버거＋스콜쳐버거베이직
                    <br />
                    ＋텐더6＋케이준후라이（M）
                    <br />
                    ＋콜라（M）2） */}
                     {item.miAdditionalEx}
-                    <span className="my-auto w-20">
+                    <div className="my-auto w-20">
                       {/* 해결 필요 */}
                       <NumberCheck setCount={setCount} />
-                    </span>
-                  </p>
+                    </div>
+                  </div>
                 </li>
                 <li className="px-6 py-2 border-b my-3 border-gray-200 w-full">
                   <span className="font-semibold block pb-3">추가선택</span>
@@ -141,6 +167,7 @@ const DeliveryInfo = ({ setIsShowing, item, optionData }) => {
           <button
             type="button"
             className=" inline-block w-1/2 px-6 py-2.5 bg-black text-white font-medium text-xs leading-tight uppercase  shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+            onClick={handlerAddOrder}
           >
             주문표에 추가
           </button>

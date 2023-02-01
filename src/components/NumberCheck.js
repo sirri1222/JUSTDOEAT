@@ -1,20 +1,22 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 
 export const NumberCheck = ({ setCount }) => {
   let [num, setUpNum] = useState(1);
 
   const Plus = () => {
-    setUpNum((num) => num + 1);
+    setUpNum(++num);
     setCount(num);
   };
   const Minus = () => {
     if (num < 2) {
       return;
     }
-    setUpNum((num) => num - 1);
+    setUpNum(--num);
     setCount(num);
   };
   const countHandler = () => {};
+
   return (
     <div>
       <div className="flex flex-row h-10 w-full rounded-lg relative bg-transparent mt-1">

@@ -3,10 +3,12 @@ import React, { useEffect, useState } from "react";
 import ListMenuMenu from "./ListMenuMenu";
 import ListReview from "./ListReview";
 import StoreInfo from "./StoreInfo";
-import Oder from "./Order";
+import Order from "./Order";
 import ListItem from "../detail/ListItem";
 
 const ListMenu = (props) => {
+  // console.log("가게정보 : ", props.storeInfo);
+  const storeInfo = props.storeInfo;
   // 0은 List 메뉴
   // 1은 상세메뉴
   // 2는 정보메뉴
@@ -86,7 +88,7 @@ const ListMenu = (props) => {
             </div>
           </div>
         </div>
-       
+
         {/* 가게 메뉴 리뷰 정보 */}
         <div>
           <div className="flex justify-around m-5">
@@ -126,7 +128,7 @@ const ListMenu = (props) => {
         ))}
       </div>
 
-      <Oder />
+      <Order />
     </div>
   );
 };
