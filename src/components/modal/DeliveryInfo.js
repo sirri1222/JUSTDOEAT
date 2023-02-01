@@ -107,6 +107,7 @@ const DeliveryInfo = ({ setIsShowing, item, optionData }) => {
             <h2 className="text-gray-900 pl-8 pt-5 text-xl font-semibold ">
               {item.miName}
             </h2>
+
             <div className="flex justify-center">
               <ul className=" rounded-lg w-96 text-gray-900 mb-5">
                 <li className="px-6 flex pb-3 justify-between my-3 py-2 border-b border-gray-200 w-full rounded-t-lg">

@@ -32,16 +32,16 @@ const ListMenu = (props) => {
       const storeReviewData = await axios.get(
         `http://192.168.0.156:9988/review/list?storeNo=${props.siSeq}`
       );
-      // console.log("가게 리뷰", storeReviewData);
+      console.log("가게 리뷰", storeReviewData);
       setStoreReviewList(storeReviewData.data.list);
       // 가게 상세 정보.
       const storeInformationData = await axios.get(
         `http://192.168.0.156:9988/store/detail?storeNo=${props.siSeq}`
       );
-      // console.log("가게 상세", storeInformationData);
+      console.log("가게 상세", storeInformationData);
       setStoreInfromation(storeInformationData.data.list);
     } catch (err) {
-      console.log("가게의 메뉴 목록 리스트 호출호출시 서버 죽음");
+      // console.log("가게의 메뉴 목록 리스트 호출호출시 서버 죽음");
     }
   };
   useEffect(() => {
