@@ -33,24 +33,26 @@ const Order = () => {
             ></img>
           </button>
         </div>
-        <div className="p-2">
-          {orderGood.length > 0 ? (
-            orderGood.map((item, index) => (
-              <OrderList key={index} item={item} />
-            ))
-          ) : (
-            <span className="py-3 px-6 text-gray-900 text-md font-medium ">
-              주문표에 담긴 메뉴가 없습니다.
-            </span>
-          )}
-
-          <span className="py-3 px-6 border-t flex justify-between border-gray-300 text-gray-600">
-            배달요금 <span>3,000원</span>
-          </span>
-          <span className="py-3 px-6 border-t border-b flex justify-between border-gray-300 text-gray-600">
-            총 합계 <span>21,200원</span>
-          </span>
+        <div className=" bg-gray-50 ">
+          <div className="px-4 py-3 text-gray-600">
+            {orderGood.length > 0 ? (
+              orderGood.map((item, index) => (
+                <OrderList key={index} item={item} />
+              ))
+            ) : (
+              <span className="py-3 px-6 text-gray-900 text-sm font-medium ">
+                주문표에 담긴 메뉴가 없습니다.
+              </span>
+            )}
+          </div>
         </div>
+        <span className="py-3 px-6 border-t flex justify-between text-gray-600">
+          배달요금 <span>3,000원</span>
+        </span>
+
+        <span className="py-3 px-6 border-t border-b flex justify-between text-red-500">
+          총 합계 <span>21,200원</span>
+        </span>
 
         <Link to="/shoppingbag">
           <button
