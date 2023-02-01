@@ -5,7 +5,7 @@ import Layout from "../components/layout/Layout";
 
 const About = () => {
   let { siSeq } = useParams();
-  console.log("siSeq", siSeq);
+  // console.log("siSeq", siSeq);
   const location = useLocation();
   const storeInfo = location.state;
   return (

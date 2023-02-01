@@ -11,7 +11,7 @@ const Order = () => {
   const orderGood = useSelector((state) => {
     return state.order.orderGood;
   });
-  console.log("주문서 ORder : ", orderGood);
+  // console.log("주문서 ORder : ", orderGood);
 
   const onRemove = () => {
     if (window.confirm("주문 메뉴를 모두 삭제하시겠습니까?")) {
