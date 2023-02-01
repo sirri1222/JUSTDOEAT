@@ -1,14 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../components/Logo";
 import Layout from "../components/layout/Layout";
 import { useState } from "react";
 import instance from "../api/axios";
 
 const IdPwFind = () => {
-  const [uiEmail, setuiEmail] = useState("");
-  const [uiId, setUiid] = useState("");
-  const [uiName, setUiName] = useState("");
+  const navigate = useNavigate();
+  const [uiEmail, setuiEmail] = useState("admin003@naver.com");
+  const [uiId, setUiid] = useState("admin003");
+  const [uiName, setUiName] = useState("관리자3");
   // 이메일 유효성 검사
   const isValidEmail = uiEmail.includes("@") && uiEmail.includes(".");
   const emailHandler = (event) => {
@@ -29,29 +30,40 @@ const IdPwFind = () => {
 
   //오류메시지 상태저장
   const [emailMessage, setEmailMessage] = useState("");
-  const IdSubmitClick = () => {
+  const IdSubmitClick = (e) => {
+    e.preventDefault();
 
-  
     instance
       .put("http://192.168.0.156:9988/member/findid", { uiEmail, uiName })
       .then((res) => {
         console.log("성공", res);
-       
+        if ((res.status = "200")) {
+          return alert(res.data.msg);
+        }
       })
       .catch((err) => {
         console.log(err);
+        if ((err.status !== 200)) {
+          return alert(err.response.data.msg);
+        }
       });
   };
-  const PwSubmitClick = () => {
+  const PwSubmitClick = (e) => {
+    e.preventDefault();
     instance
       .put("http://192.168.0.156:9988/member/findpw", { uiId, uiEmail, uiName })
-      .then((res) => { 
-       
+      .then((res) => {
         console.log("성공", res);
-         if(res.status = "200"){ return alert(res.data.msg)}
+        if ((res.status = "200")) {
+          return alert(res.data.msg);
+        }
+      
       })
       .catch((err) => {
         console.log(err);
+        if ((err.status !== 200)) {
+          return alert(err.response.data.msg);
+        }
       });
   };
 
@@ -180,13 +192,11 @@ const IdPwFind = () => {
       ease-in-out"
                     >
                       ID찾기
-                    </button>
-                   
-                      {" "}
-                      <button
-                        onClick={PwSubmitClick}
-                        type="submit"
-                        className="
+                    </button>{" "}
+                    <button
+                      onClick={PwSubmitClick}
+                      type="submit"
+                      className="
        mt-5
       w-full
       px-6
@@ -205,10 +215,9 @@ const IdPwFind = () => {
       transition
       duration-150
       ease-in-out"
-                      >
-                        PW찾기
-                      </button>
-                  
+                    >
+                      PW찾기
+                    </button>
                   </div>
                 </form>
               </div>

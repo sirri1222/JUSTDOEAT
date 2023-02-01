@@ -241,14 +241,8 @@ const Payment = () => {
             </div>
           </div>
 
-          <div className="block p-2 bg-gray-200 max-w-2xl mx-auto">
-            {" "}
-            <p className="bg-gray-200">결제예정금액</p>
-          </div>
-
-          <p>총 주문금액</p>
-          <p>배달팁</p>
-
+         
+        
           <div className="form-group mb-6">
            
           </div>
@@ -277,6 +271,17 @@ const Payment = () => {
               onChange={CouponHandler}
             />
           </div>
+          <div className="block p-2 bg-gray-200 max-w-2xl mx-auto">
+            {" "}
+            <p className="bg-gray-200">결제예정금액</p> 
+            
+
+          </div>
+         
+ <p className="my-3 flex justify-between">총 주문금액 <span>1111</span></p>
+          <p className="flex border-spacing-0.5 justify-between  border-b-2">배달팁 <span>1111</span></p>
+                   
+ <p className="my-8 flex justify-between ">결제금액 <span>1111</span></p>
           <div className="form-group form-check text-center mb-6">
             <input
               type="checkbox"

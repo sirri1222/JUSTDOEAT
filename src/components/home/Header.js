@@ -57,7 +57,7 @@ const Header = () => {
         </div>
         <div className="flex items-center  relative mr-10">
           <div className="flex items-center  justify-end mx-8">
-            <Link
+           { <Link
               to="/login"
               className="
              rounded-l
@@ -78,7 +78,7 @@ const Header = () => {
                 src="/photo/bsk_info.png"
                 alt="로그인"
               ></img>
-            </Link>
+            </Link>}
           </div>
 
           {/* <!-- Icon --> */}

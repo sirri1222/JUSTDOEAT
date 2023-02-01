@@ -31,6 +31,7 @@ const Login = () => {
       .then((res) => {
         // store 에 저장 처리 예정
         console.log("성공", res);
+        if(res.status = true){alert(res.data.msg)}
         navigate("/");
         
       })

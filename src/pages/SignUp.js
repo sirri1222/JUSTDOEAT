@@ -90,7 +90,7 @@ const Signup = () => {
     }
   };
   // 생년월일 유효성검사
-  const HyphenregExpBirth = /^(?:(19\d{2})|(18\d{2}))(\d{2})(\d{2})/;
+  const HyphenregExpBirth = /^(?:(19\d{2})|(18\d{2}))-(\d{2})-(\d{2})/;
 
   const uiBirthHandler = (event) => {
     setUiBirth(event.target.value);
@@ -478,7 +478,7 @@ const Signup = () => {
       w-full
       px-6
       py-2.5
-      bg-gray-600
+      bg-red-600
       text-white
       font-medium
       text-xs
