@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div>
-      <div
-        className="flex bg-white border-b-2 border-slate-100
-      "
-      >
-        <div className="navbar navbar-expand-sm relative flex items-center justify-between w-full ">
+      <div className="flex bg-white border-b-2 border-slate-100">
+        <div
+          className="navbar navbar-expand-sm relative 
+        flex items-center justify-between w-full "
+        >
           <Link to="/home">
             <img
               className=" ml-10 w-20 m-3 "
@@ -55,46 +55,28 @@ const Header = () => {
             </button>
           </div>
         </div>
-        <div className="flex items-center  relative mr-10">
-          <div className="flex items-center  justify-end mx-8">
-           { <Link
-              to="/login"
-              className="
-             rounded-l
-             px-6
-             py-2.5
-             text-white
-             font-medium
-             text-xs
-             leading-tight
-             uppercase
-           
-             transition
-             duration-150
-             ease-in-out"
-            >
-              <img
-                className="absolute top-5 left-5 w-11"
-                src="/photo/bsk_info.png"
-                alt="로그인"
-              ></img>
-            </Link>}
+
+        <div className="flex items-center relative ml-5 mr-10 gap-1">
+          <div className="flex items-center w-28 ">
+            <Link to="/login" className="  ">
+              <img className="" src="/photo/loginicon.png" alt="로그인"></img>
+            </Link>
           </div>
 
-          {/* <!-- Icon --> */}
-          <Link to="/shoppingbag">
-            <button className="text-gray-500 mr-4">
-              <img
-                className="absolute top-5 right-1 w-11"
-                src="/photo/bak_red.png"
-                alt="장바구니"
-              ></img>
+          <div className="flex items-center w-10  ">
+            <Link to="/shoppingbag">
+              <button className="text-gray-500 ">
+                <img className="" src="/photo/bskicon.png" alt="장바구니"></img>
 
-              <span className="text-white bg-red-600 absolute  rounded-full text-xs py-1 px-2">
-                1
-              </span>
-            </button>
-          </Link>
+                <span
+                  className="text-white bg-red-600 absolute rounded-full 
+                text-xs top-10  py-1 px-2"
+                >
+                  1
+                </span>
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

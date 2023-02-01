@@ -9,7 +9,7 @@ import "swiper/css/scrollbar";
 const HeaderBottom = () => {
   return (
     <div className="">
-      <div className="">
+      <div className="max-w-1180px">
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={0}
@@ -25,7 +25,7 @@ const HeaderBottom = () => {
           loopAdditionalSlides={1}
         >
           <SwiperSlide>
-            <img
+            <img 
               src="photo/banner7.jpg"
               className="w-full "
               alt="제품사진"
