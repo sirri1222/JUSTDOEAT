@@ -32,7 +32,7 @@ const ListItem = ({ item }) => {
                   <span className="text-sm">
                     <span className="font-bold ">최소주문금액 </span>{" "}
                     {/* 최소금액 출력 결정 필요 */}
-                    {item.storeInfo.discountInfo[0].diMinPrice}원
+                    {item.storeInfo.siMinPrice}원
                   </span>
                   <span className="text-sm">결제 신용카드, 현금,JPay</span>
                   <span className="text-sm">

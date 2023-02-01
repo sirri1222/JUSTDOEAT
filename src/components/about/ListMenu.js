@@ -7,8 +7,9 @@ import Order from "./Order";
 import ListItem from "../detail/ListItem";
 
 const ListMenu = (props) => {
-  // console.log("가게정보 : ", props.storeInfo);
-  const storeInfo = props.storeInfo;
+  console.log("가게정보 : ", props.storeInfo);
+  const storeInfo = props.storeInfo.storeInfo;
+  const storeDetail = props.storeInfo.storeInfo;
   // 0은 List 메뉴
   // 1은 상세메뉴
   // 2는 정보메뉴
@@ -74,17 +75,18 @@ const ListMenu = (props) => {
           {storeList.map((item, idx) => {
             return <ListItem item={item} key={idx} />;
           })}
-          <img
-            src="/photo/KFC_1.jpg"
+           <img
+            src={`${storeInfo.siMainImg}`}
             className="scale-75 ..."
             alt="이미지"
           ></img>
           <div className="flex justify-center  flex-col py-4 w-3/4 ml-5 ">
             <div className="flex justify-center flex-col ">
               <span>★★★★☆4.8</span>
-              <span>최소주문금액 11,000원</span>
+              <span>최소주문금액 {storeInfo.siMinPrice}원</span>
               <span>결제 신용카드, 현금,JPay</span>
-              <span>배달시간 40~50분</span>
+              <span>배달시간 {storeInfo.siMinDeliveryTime}~
+                    {storeInfo.siMaxDeliveryTime}{" "}</span>
             </div>
           </div>
         </div>
