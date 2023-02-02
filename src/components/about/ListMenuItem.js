@@ -4,7 +4,7 @@ import DeliveryInfo from "../modal/DeliveryInfo";
 import axios from "axios";
 
 const ListMenuItem = (props) => {
-  console.log(props);
+  // console.log(props);
   // option Data 저장
   const [optionData, setOptionData] = useState([]);
   const [isShowing, setIsShowing] = useState(false);
@@ -12,31 +12,31 @@ const ListMenuItem = (props) => {
     setIsShowing(true);
   };
   useEffect(() => {
-    console.log("isShowing", isShowing);
+    // console.log("isShowing", isShowing);
   }, [isShowing]);
   const fetchData = async () => {
     try {
       const optionData = await axios.get(
-        "http://192.168.0.156:9988/menu/option?menuNo=" + props.item.siSeq
+        "http://192.168.0.156:9988/menu/option?menuNo=" + props.item.miSeq
       );
       setOptionData(optionData.data.list);
     } catch (err) {
       console.log("옵션 정보 호출시 서버 죽음");
-      const optionData = {
-        list: [
-          {
-            moSeq: 1,
-            moName: "면 1인분 추가",
-            moPrice: 2000,
-          },
-          {
-            moSeq: 2,
-            moName: "공기밥추가",
-            moPrice: 1000,
-          },
-        ],
-      };
-      setOptionData(optionData.list);
+      // const optionData = {
+      //   list: [
+      //     {
+      //       moSeq: 1,
+      //       moName: "면 1인분 추가",
+      //       moPrice: 2000,
+      //     },
+      //     {
+      //       moSeq: 2,
+      //       moName: "공기밥추가",
+      //       moPrice: 1000,
+      //     },
+      //   ],
+      // };
+      // setOptionData(optionData.list);
     }
   };
   useEffect(() => {
