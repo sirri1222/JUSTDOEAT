@@ -103,8 +103,8 @@ const DeliveryInfo = ({ setIsShowing, item, optionData }) => {
         {/*  */}
         <div>
           <img src={item.miImg} alt="사진" className="mx-auto p-5 " />
-          <div className="bg-gray-100 overflow-y-scroll">
-            <h2 className="text-gray-900 pl-8 pt-5 text-xl font-semibold ">
+          <div className="verflow-y-scroll">
+            <h2 className="text-gray-900 pl-8 pt-2 text-xl font-semibold ">
               {item.miName}
             </h2>
 
@@ -114,9 +114,9 @@ const DeliveryInfo = ({ setIsShowing, item, optionData }) => {
                   <span className="font-semibold block ">가격</span>
                   <span> {item.miPrice}원</span>
                 </li>
-                <li className="px-6 py-2 border-b my-3 border-gray-200 w-full">
+                <li className="px-6 py-1 border-b my-3 border-gray-200 w-full">
                   <p className="font-semibold block pb-3">메뉴</p>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between text-xs">
                     {/* （징거버거＋스콜쳐버거베이직
                    <br />
                    ＋텐더6＋케이준후라이（M）
@@ -129,13 +129,13 @@ const DeliveryInfo = ({ setIsShowing, item, optionData }) => {
                     </div>
                   </div>
                 </li>
-                <li className="px-6 py-2 border-b my-3 border-gray-200 w-full">
+                <li className="px-6 py-1 border-b my-3 border-gray-200 w-full">
                   <span className="font-semibold block pb-3">추가선택</span>
                   {/*  옵션 추가선택 체크박스 */}
                   <div className="block text-left mx-w-sm pb-3">
                     <ul>
                       {optionList.map((optItem) => (
-                        <li key={optItem.moSeq} className="pb-1">
+                        <li key={optItem.moSeq} className="pb-1 ">
                           <label htmlFor={optItem.moName}>
                             <input
                               type="checkbox"
@@ -144,7 +144,8 @@ const DeliveryInfo = ({ setIsShowing, item, optionData }) => {
                               id={optItem.moName}
                               onChange={changeOption}
                             />
-                            {optItem.moName} +{optItem.moPrice}
+                            <span className=" px-2">
+                            {optItem.moName} + {optItem.moPrice}</span>
                           </label>
                         </li>
                       ))}
@@ -152,8 +153,8 @@ const DeliveryInfo = ({ setIsShowing, item, optionData }) => {
                   </div>
                 </li>
 
-                <li className="px-6 flex justify-between pt-2">
-                  <span className="font-semibold block ">총 합계</span>
+                <li className="px-6 flex justify-between pt-2 text-red-500">
+                  <span className="font-semibold block">총 합계</span>
                   <span> {totalMoney}원</span>
                 </li>
               </ul>

@@ -32,13 +32,13 @@ const ListMenu = (props) => {
       const storeReviewData = await axios.get(
         `http://192.168.0.156:9988/review/list?storeNo=${props.siSeq}`
       );
-      console.log("가게 리뷰", storeReviewData);
+      // console.log("가게 리뷰", storeReviewData);
       setStoreReviewList(storeReviewData.data.list);
       // 가게 상세 정보.
       const storeInformationData = await axios.get(
         `http://192.168.0.156:9988/store/detail?storeNo=${props.siSeq}`
       );
-      console.log("가게 상세", storeInformationData);
+      // console.log("가게 상세", storeInformationData);
       setStoreInfromation(storeInformationData.data.list);
     } catch (err) {
       // console.log("가게의 메뉴 목록 리스트 호출호출시 서버 죽음");
@@ -60,12 +60,101 @@ const ListMenu = (props) => {
           })}
           <img
             src={`${storeInfo.siMainImg}`}
-            className="scale-75 ..."
+            className="scale-75 shadow-md"
             alt="이미지"
           ></img>
           <div className="flex justify-center  flex-col py-4 w-3/4 ml-5 ">
             <div className="flex justify-center flex-col ">
-              <span>★★★★☆4.8</span>
+              <span className="flex  ">
+                총점  4.8
+                <ul class="flex  mt-0.5 scale-75">
+                  <li>
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      data-prefix="fas"
+                      data-icon="star"
+                      class="w-4 text-yellow-500 mr-1"
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 576 512"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                      ></path>
+                    </svg>
+                  </li>
+                  <li>
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      data-prefix="fas"
+                      data-icon="star"
+                      class="w-4 text-yellow-500 mr-1"
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 576 512"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                      ></path>
+                    </svg>
+                  </li>
+                  <li>
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      data-prefix="fas"
+                      data-icon="star"
+                      class="w-4 text-yellow-500 mr-1"
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 576 512"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                      ></path>
+                    </svg>
+                  </li>
+                  <li>
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      data-prefix="far"
+                      data-icon="star"
+                      class="w-4 text-yellow-500 mr-1"
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 576 512"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                      ></path>
+                    </svg>
+                  </li>
+                  <li>
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      data-prefix="far"
+                      data-icon="star"
+                      class="w-4 text-yellow-500"
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 576 512"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                      ></path>
+                    </svg>
+                  </li>
+                </ul>
+              </span>
               <span>최소주문금액 {storeInfo.siMinPrice}원</span>
               <span>결제 신용카드, 현금,JPay</span>
               <span>
@@ -78,7 +167,7 @@ const ListMenu = (props) => {
 
         {/* 가게 메뉴 리뷰 정보 */}
         <div>
-          <div className="flex justify-around m-5">
+          <div className="flex py-5 justify-around m-5">
             <button
               onClick={() => setShowType(0)}
               type="button"
