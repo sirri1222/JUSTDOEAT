@@ -4,25 +4,26 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div>
-      <footer className=" text-center pb-2 bg-zinc-800 text-zinc-400">
+      <footer className=" text-center pb-2 bg-red-600 text-white">
         <div className=" px-6 pt-6">
           <div className=" text-center p-4 ">
-            대구광역시 중구 동성로 12 둘리빌딩 5층
+          서울시 서초구 서초대로38길 12 마제스타시티 타워2 17층
             <br />
-            사업자등록번호 : 000-00-00000 / 주식회사 JUST DO EAT / 대표자 :
-            홍길동
+            사업자등록번호 : 211-88-68802 / 주식회사 JUST DO EAT / 대표자 :
+            서성원
             <br />
-            TEL : 053)000-0000 월~금 09:00~12:00, 13:00~17:00 공휴일 제외 / FAX : 053)000-0000
+            고객만족센터 1661-5270(유료) 24시간, 연중무휴
             <div className=" text-whitehite mt-5">
               
               ⓒ 2023 JUST DO EAT All Rights Reserved.
             </div>
           </div>
-          <div className="flex justify-center mb-6  bg-zinc-800">
+          <div className="flex justify-center mb-6  bg-red-600">
             <Link
               to="/home"
               type="button"
-              className="rounded-full border-2 border-zinc-400 text-zinc-400 leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1"
+              className="rounded-full border-2 border-white text-white leading-normal uppercase
+               hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1"
             >
               <svg
                 aria-hidden="true"
@@ -44,7 +45,7 @@ const Footer = () => {
             <Link
               to="/home"
               type="button"
-              className="rounded-full border-2 border-zinc-400 text-zinc-400 leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1"
+              className="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1"
             >
               <svg
                 aria-hidden="true"
@@ -66,7 +67,7 @@ const Footer = () => {
             <Link
               to="/home"
               type="button"
-              className="rounded-full border-2 border-zinc-400 text-zinc-400 leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1"
+              className="rounded-full border-2 border-white text-white   leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1"
             >
               <svg
                 aria-hidden="true"
