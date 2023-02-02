@@ -3,16 +3,33 @@ import instance from "../api/axios";
 import Logo from "../components/Logo";
 import Layout from "../components/layout/Layout";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
+import { useEffect } from "react";
 
 const Signup = () => {
-  const [uiGen, setUiGender] = useState(1);
+  const naviagte = useNavigate();
+  // 이름
+  const [uiName, setUiName] = useState("");
 
+  // 아이디 중복체크
+  const [uiIdCheck, setUIdCheck] = useState(false);
+  const [uiId, setUiid] = useState("");
+
+  // 전화번호 중복 체크
+  const [uiPhone, setUiPhone] = useState("");
+  const [uiPhoneCheck, setUiPhoneCheck] = useState(false);
+
+  // 이메일 중복체크
   const [uiEmail, setuiEmail] = useState("");
+  const [uiEmailCheck, setUiEmailCheck] = useState(false);
+  // 성별체크
+  const [uiGenF, setUiGenF] = useState(false); // 여성
+  const [uiGenM, setUiGenM] = useState(true); // 남성
+  const [uiGen, setUiGen] = useState(1); // 남성 1, 여성 2, 선택 0
+
+  // 비밀번호
   const [uiPwd, setUiPwd] = useState("");
   const [uiPwdCheck, setUiPwdCheck] = useState("");
-  const [uiId, setUiid] = useState("");
-  const [uiPhone, setUiPhone] = useState("");
-  const [uiName, setUiName] = useState("");
 
   const [uiBirth, setUiBirth] = useState("");
 
@@ -25,9 +42,19 @@ const Signup = () => {
   const [passwordMessage, setPasswordMessage] = useState("");
   const [passwordConfirmMessage, setPasswordConfirmMessage] = useState("");
 
-  const isCheckBoxClicked = () => {
-    setUiGender(!uiGen);
+  const isCheckBoxClicked = (e) => {
+    const { value } = e.target;
+    setUiGen(parseInt(value));
   };
+  useEffect(() => {
+    if (uiGen === 1) {
+      setUiGenF(false);
+      setUiGenM(true);
+    } else {
+      setUiGenF(true);
+      setUiGenM(false);
+    }
+  }, [uiGen]);
   // 하이픈 넣기
   //   const phone = (number)=>{
   //     let number = number
@@ -81,8 +108,7 @@ const Signup = () => {
   // 비밀번호
   const pwHandler = (event) => {
     setUiPwd(event.target.value);
-
-    if (passwordRegex.test(event.target.value) == false) {
+    if (passwordRegex.test(event.target.value) === false) {
       setPasswordMessage(
         "숫자+영문자+특수문자 조합으로 8자리 이상 입력해주세요!"
       );
@@ -101,6 +127,17 @@ const Signup = () => {
       setPasswordConfirmMessage("올바른 비밀번호 형식입니다 :)");
     }
   };
+
+  useEffect(() => {
+    if (uiPwd !== uiPwdCheck) {
+      setPasswordConfirmMessage(
+        "비밀번호와 확인이 일치하지 않아요! 다시 확인해주세요 ㅜ ㅜ"
+      );
+    } else {
+      setPasswordConfirmMessage("올바른 비밀번호 형식입니다 :)");
+    }
+  }, [uiPwd, uiPwdCheck]);
+
   // 생년월일 유효성검사
   const HyphenregExpBirth = /^(?:(19\d{2})|(18\d{2}))-(\d{2})-(\d{2})/;
 
@@ -115,50 +152,58 @@ const Signup = () => {
       setBirthMessage("올바른 생년월일 형식입니다 :)");
     }
   };
-  const GenHandler = (event) => {
-    setUiGender(uiGen + 1);
-  };
-  // console.log(uiGen);
 
   const idHandler = (event) => setUiid(event.target.value);
   const onSubmitHandler = (event) => {
     // 로그인 처리
-
     event.preventDefault();
-    if (uiId === "") {
-      alert(" 필수 정보를 모두 입력해 주세요.");
-    }
     if (uiName === "") {
-      alert(" 필수 정보를 모두 입력해 주세요.");
+      return alert("이름을 입력해 주세요.");
     }
     if (uiPhone === "") {
-      alert(" 필수 정보를 모두 입력해 주세요.");
+      return alert("전화번호를 모두 입력해 주세요.");
     }
-    if (uiEmail === "") {
-      alert(" 필수 정보를 모두 입력해 주세요.");
+    if (uiPhoneCheck === false) {
+      return alert("전화번호 중복 검사를 해 주세요.");
     }
-    if (uiBirth === "") {
-      alert(" 필수 정보를 모두 입력해 주세요.");
-    }
-    if (uiPwd === "") {
-      alert(" 필수 정보를 모두 입력해 주세요.");
-    }
-    if (!uiBirth) {
-      alert(" 생년월일 형식이 잘못되었습니다. ");
-    }
-
-    if (!isValidEmail) {
-      alert("이메일 형식이 잘못되었습니다.");
-    }
-    if (uiPwd.length < 6) {
-      alert("비밀번호는 6글자 이상 입력해 주세요.");
+    if (uiId === "") {
+      return alert("아이디를 입력해 주세요.");
     }
     if (uiId.length < 5) {
-      alert("아이디는 5글자 이상 입력해 주세요.");
+      return alert("아이디는 5글자 이상 입력해 주세요.");
     }
+    if (uiIdCheck === false) {
+      return alert("아이디 중복검사를 입력해 주세요.");
+    }
+    if (uiEmail === "") {
+      return alert("이메일을 입력해 주세요.");
+    }
+    if (!isValidEmail) {
+      return alert("이메일 형식이 잘못되었습니다.");
+    }
+    if (uiEmailCheck === false) {
+      return alert("이메일 중복검사를 입력해 주세요.");
+    }
+    if (uiBirth === "") {
+      return alert("생년월일을 모두 입력해 주세요.");
+    }
+    if (!uiBirth) {
+      return alert(" 생년월일 형식이 잘못되었습니다. ");
+    }
+    if (uiPwd === "") {
+      return alert("비밀번호를 모두 입력해 주세요.");
+    }
+    if (uiPwd.length < 6) {
+      return alert("비밀번호는 6글자 이상 입력해 주세요.");
+    }
+    if (passwordRegex.test(uiPwd) === false) {
+      return alert(
+        "비밀번호는 숫자+영문자+특수문자 조합으로 8자리 이상 입력해주세요!"
+      );
+    }
+
     if (uiPwd !== uiPwdCheck) {
-      alert("비밀번호 확인이 일치하지 않습니다.");
-    } else {
+      return alert("비밀번호 확인이 일치하지 않습니다.");
     }
 
     // 데이터 api
@@ -174,11 +219,14 @@ const Signup = () => {
       })
       .then((res) => {
         console.log("성공", res);
+        // 로그인 페이지로 이동
+        naviagte("/login");
       })
       .catch((res) => {
         console.log("실패", res);
       });
   };
+  // 아이디 중복 체크
   const DuplicationIdAPI = (e) => {
     e.preventDefault();
     instance
@@ -188,8 +236,10 @@ const Signup = () => {
       .then((res) => {
         console.log(res);
         if (res.data.status === true) {
+          setUIdCheck(true);
           return alert(res.data.msg);
         } else {
+          setUIdCheck(false);
           return alert(res.data.msg);
         }
       })
@@ -198,6 +248,8 @@ const Signup = () => {
         alert(err.data.msg);
       });
   };
+
+  // 이메일 중복 체크
   const DuplicationEmailAPI = (e) => {
     e.preventDefault();
     instance
@@ -206,14 +258,20 @@ const Signup = () => {
       })
       .then((res) => {
         console.log(res);
-
-        return alert(res.data.msg);
+        if (res.data.status === true) {
+          setUiEmailCheck(true);
+          return alert(res.data.msg);
+        } else {
+          setUiEmailCheck(false);
+          return alert(res.data.msg);
+        }
       })
       .catch((err) => {
         console.log(err);
         alert(err.data.msg);
       });
   };
+  // 전화번호 중복체크
   const DuplicationPhoneAPI = (e) => {
     e.preventDefault();
     instance
@@ -223,8 +281,10 @@ const Signup = () => {
       .then((res) => {
         console.log(res);
         if (res.data.status === true) {
+          setUiPhoneCheck(true);
           return alert(res.data.msg);
         } else {
+          setUiPhoneCheck(false);
           return alert(res.data.msg);
         }
       })
@@ -274,14 +334,15 @@ const Signup = () => {
                       <div className="flex justify-center">
                         <div className="mx-9 my-auto form-check form-check-inline">
                           <input
-                            onClick={isCheckBoxClicked}
+                            onChange={isCheckBoxClicked}
                             className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                             type="checkbox"
                             id="male"
                             value={1}
-                            onChange={(event) =>
-                              setUiGender(event.target.value)
-                            }
+                            checked={uiGenM}
+                            // onChange={(event) =>
+                            //   setUiGender(event.target.value)
+                            // }
                           />
                           <label
                             className="form-check-label inline-block text-gray-800"
@@ -292,12 +353,13 @@ const Signup = () => {
                         </div>
                         <div className="form-check my-auto form-check-inline">
                           <input
-                            onClick={isCheckBoxClicked}
+                            onChange={isCheckBoxClicked}
                             className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
                             type="checkbox"
                             id="female"
                             value={2}
-                            onChange={GenHandler}
+                            checked={uiGenF}
+                            // onChange={GenHandler}
                           />
                           <label
                             className="form-check-label inline-block text-gray-800"
@@ -466,6 +528,7 @@ const Signup = () => {
                       placeholder="(필수)비밀번호"
                       onChange={pwHandler}
                       value={uiPwd}
+                      maxLength={16}
                     />
                     {uiPwd.length > 0 && (
                       <span className="text-red-500 text-xs opacity-80 font-semibold">
@@ -494,6 +557,7 @@ const Signup = () => {
                       id="pw2"
                       placeholder="(필수)비밀번호 확인"
                       onChange={pwCheckHandler}
+                      maxLength={16}
                     />
                     {uiPwdCheck.length > 0 && (
                       <span className="text-red-500 text-xs opacity-80 font-semibold">

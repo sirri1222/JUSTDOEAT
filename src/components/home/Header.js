@@ -3,28 +3,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { loginUser, clearUser } from "../../redux/userSlice";
 
-
-
-
-
 const Header = () => {
- // 3. userSlice 에 저장해 둔 user 정보 읽기
+  // 3. userSlice 에 저장해 둔 user 정보 읽기
   //    useSlector( 함수 전달)
   const user = useSelector((state) => state.user);
+  console.log("사용자 로그인 정보 ", user);
   const dispatch = useDispatch();
- 
-
-  // 
+  //
   const login = () => {
-    dispatch(loginUser())
-  }
-    // 5. 로그아웃 기능
-    const logout = () => {
-     
-      dispatch(clearUser());
-    };
-    const navigate = useNavigate(); 
-
+    // dispatch(loginUser());
+  };
+  // 5. 로그아웃 기능
+  const logout = () => {
+    dispatch(clearUser());
+    navigate("/home");
+    alert("로그아웃 되었습니다.");
+  };
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -82,15 +77,18 @@ const Header = () => {
 
         <div className="flex items-center relative ml-5 mr-10 gap-1">
           <div className="flex items-center w-28 ">
-        
-        
-          {user.id === "" ? 
-              <Link to="/login" >
-              <img onClick={login} className="" src="/photo/loginicon.png" alt="로그인"></img>
-            </Link> : <Link to="/home" >
-              <img  onClick={logout}  className="" src="/photo/logouticon.png" alt="로그아웃"></img>
-            </Link>  }
-         
+            {user.id === "" ? (
+              <Link to="/login">
+                <img className="" src="/photo/loginicon.png" alt="로그인"></img>
+              </Link>
+            ) : (
+              <img
+                onClick={logout}
+                src="/photo/logouticon.png"
+                alt="로그아웃"
+                className="cursor-pointer"
+              ></img>
+            )}
           </div>
 
           <div className="flex items-center w-10 mt-1 ">
