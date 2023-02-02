@@ -54,16 +54,16 @@ const ListMenu = (props) => {
       style={{ margin: "0 auto" }}
     >
       <div className="w-4/6 m-5">
-        <div className="flex justify-between h-40 shadow-md rounded-3xl">
+        <div className="flex justify-between  h-40 shadow-md rounded-3xl">
           {storeList.map((item, idx) => {
             return <ListItem item={item} key={idx} />;
           })}
           <img
             src={`${storeInfo.siMainImg}`}
-            className="scale-75 shadow-md rounded-3xl"
+            className="scale-75 mr-6 shadow-md rounded-3xl"
             alt="이미지"
           ></img>
-          <div className="flex justify-center  flex-col py-4 w-3/4 ml-5 ">
+          <div className="flex justify-center  flex-col py-4 w-3/4 ml-7 ">
             <div className="flex justify-center flex-col ">
               <span className="flex  ">
                 총점 4.8
