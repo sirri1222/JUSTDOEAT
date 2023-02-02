@@ -22,21 +22,6 @@ const ListMenuItem = (props) => {
       setOptionData(optionData.data.list);
     } catch (err) {
       console.log("옵션 정보 호출시 서버 죽음");
-      // const optionData = {
-      //   list: [
-      //     {
-      //       moSeq: 1,
-      //       moName: "면 1인분 추가",
-      //       moPrice: 2000,
-      //     },
-      //     {
-      //       moSeq: 2,
-      //       moName: "공기밥추가",
-      //       moPrice: 1000,
-      //     },
-      //   ],
-      // };
-      // setOptionData(optionData.list);
     }
   };
   useEffect(() => {
@@ -60,17 +45,19 @@ const ListMenuItem = (props) => {
       <div className="flex justify-between h-40  border-dotted border-b border-gray-300">
         <img
           src={props.item.miImg}
-          className="scale-75    shadow-lg"
+          className="scale-75  rounded-3xl  shadow-md"
+          // flex-shrink-0 object-contain w-40 h-40 border
+          //       dark:border-transparent rounded-3xl
+          //       outline-none  dark:bg-gray-500"
           alt={props.item.miName}
         ></img>
-        <div className="flex justify-center  flex-col py-4 w-3/4 ml-10 ">
+        <div className="flex justify-center  flex-col py-4 w-3/4 ml-20 ">
           <div className="flex flex-col justify-center">
-            <h2 className="font-bold"> {props.item.miName} </h2>
-            <span className="text-xs my-2">{props.item.miAdditionalEx}</span>
+            <h2 className="font-bold "> {props.item.miName} </h2>
+            <span className="text-xs my-2 ">{props.item.miAdditionalEx}</span>
             {/* <span>★★★★☆4.8</span> */}
-            <span className="text-red-500">금액 {props.item.miPrice}원</span>
+            <span className="text-red-500 ">금액 {props.item.miPrice}원</span>
             {/* 내용 협의 필요 */}
-            
           </div>
         </div>
       </div>

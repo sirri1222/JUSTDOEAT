@@ -116,20 +116,16 @@ const DeliveryInfo = ({ setIsShowing, item, optionData }) => {
                 </li>
                 <li className="px-6 py-1 border-b my-3 border-gray-200 w-full">
                   <p className="font-semibold block pb-3">메뉴</p>
-                  <div className="flex justify-between text-xs">
-                    {/* （징거버거＋스콜쳐버거베이직
-                   <br />
-                   ＋텐더6＋케이준후라이（M）
-                   <br />
-                   ＋콜라（M）2） */}
-                    {item.miAdditionalEx}
-                    <div className="my-auto w-20">
+                  <div className="flex justify-between mb-4">
+                  <span className=" text-xs  mr-3">
+                    {item.miAdditionalEx}</span>
+                    <div className="my-auto w-16  text-xs ml-5">
                       {/* 해결 필요 */}
                       <NumberCheck setCount={setCount} />
                     </div>
                   </div>
                 </li>
-                <li className="px-6 py-1 border-b my-3 border-gray-200 w-full">
+                <li className="px-6 py-1 my-3 border-b  border-gray-200 w-full">
                   <span className="font-semibold block pb-3">추가선택</span>
                   {/*  옵션 추가선택 체크박스 */}
                   <div className="block text-left mx-w-sm pb-3">
