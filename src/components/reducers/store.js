@@ -1,11 +1,24 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { useDispatch } from "react-redux";
 import userSlice from "./userSlice";
 
-const store = configureStore({
+ const reducers = combineReducers({
 
-  reducer:{
-    user: userSlice.reducer,
-  },
-});
+ user: userSlice.reducer,
+
+ });
+ const persistConfig = {
+  key: "root",
+  // storage,
+  storage: storageSession,
+  whitelist: ["user"],
+}; 
+const presistedReducer = persistReducer(persistConfig, reducers);
+
+const store = configureStore({
+  // reducer: {
+  //   user: userSlice.reducer,
+  // },
+  reducer: presistedReducer, })
 
 export default store;

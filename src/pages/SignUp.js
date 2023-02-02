@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import instance from "../api/axios";
 import Logo from "../components/Logo";
 import Layout from "../components/layout/Layout";
+import { useSelector } from "react-redux";
+
 const Signup = () => {
   const [uiGen, setUiGender] = useState(1);
 
@@ -11,7 +13,7 @@ const Signup = () => {
   const [uiId, setUiid] = useState("");
   const [uiPhone, setUiPhone] = useState("");
   const [uiName, setUiName] = useState("");
-  const [usabledId, setUsableId] = useState("");
+
   const [uiBirth, setUiBirth] = useState("");
 
   //오류메시지 상태저장
@@ -26,6 +28,16 @@ const Signup = () => {
   const isCheckBoxClicked = () => {
     setUiGender(!uiGen);
   };
+  // 하이픈 넣기
+  //   const phone = (number)=>{
+  //     let number = number
+  //   .replace(/ /g, '') // 공백이 들어있다면 지워주고
+  //   .replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
+  //   setUiPhone(number);
+
+  // };
+
+  const user = useSelector((state) => state.user);
   // 이메일 유효성 검사
   const isValidEmail = uiEmail.includes("@") && uiEmail.includes(".");
   // 이메일
@@ -82,11 +94,11 @@ const Signup = () => {
   const pwCheckHandler = (event) => {
     setUiPwdCheck(event.target.value);
     if (uiPwd !== uiPwdCheck) {
-      setPhoneNumberMessage(
+      setPasswordConfirmMessage(
         "비밀번호와 확인이 일치하지 않아요! 다시 확인해주세요 ㅜ ㅜ"
       );
     } else {
-      setPhoneNumberMessage("올바른 비밀번호 형식입니다 :)");
+      setPasswordConfirmMessage("올바른 비밀번호 형식입니다 :)");
     }
   };
   // 생년월일 유효성검사
@@ -116,7 +128,7 @@ const Signup = () => {
     if (uiId === "") {
       alert(" 필수 정보를 모두 입력해 주세요.");
     }
-     if (uiName === "") {
+    if (uiName === "") {
       alert(" 필수 정보를 모두 입력해 주세요.");
     }
     if (uiPhone === "") {
@@ -167,35 +179,61 @@ const Signup = () => {
         console.log("실패", res);
       });
   };
-  const DuplicationAPI = async (uiId) => {
-    let return_value;
-    await instance
-      .get("http://192.168.0.156:9988/member/list?page=0", {
+  const DuplicationIdAPI = (e) => {
+    e.preventDefault();
+    instance
+      .put("http://192.168.0.156:9988/member/idCheck", {
         uiId,
       })
       .then((res) => {
         console.log(res);
+        if (res.data.status === true) {
+          return alert(res.data.msg);
+        } else {
+          return alert(res.data.msg);
+        }
       })
-      .catch((res) => {
-        console.log(res);
+      .catch((err) => {
+        console.log(err);
+        alert(err.data.msg);
       });
-
-    return return_value;
   };
-  const DuplicationCheck = (e) => {
+  const DuplicationEmailAPI = (e) => {
     e.preventDefault();
-    DuplicationAPI.then((res) => {
-      console.log(res);
-      if (res !== uiId) {
-        alert("사용 가능한 아이디입니다.");
-        setUsableId(res);
-      } else {
-        alert("중복된 아이디입니다. 다시 시도하세요.");
-        setUsableId(res);
-        setUiid("");
-      }
-    });
+    instance
+      .put("http://192.168.0.156:9988/member/emailCheck", {
+        uiEmail,
+      })
+      .then((res) => {
+        console.log(res);
+
+        return alert(res.data.msg);
+      })
+      .catch((err) => {
+        console.log(err);
+        alert(err.data.msg);
+      });
   };
+  const DuplicationPhoneAPI = (e) => {
+    e.preventDefault();
+    instance
+      .put("http://192.168.0.156:9988/member/phoneCheck", {
+        uiPhone,
+      })
+      .then((res) => {
+        console.log(res);
+        if (res.data.status === true) {
+          return alert(res.data.msg);
+        } else {
+          return alert(res.data.msg);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        alert(err.data.msg);
+      });
+  };
+
   // 클린함수(컴포넌트가 사라질때 마지막 실행함수)
 
   return (
@@ -208,11 +246,6 @@ const Signup = () => {
                 <Logo></Logo>
                 <form>
                   <div className=" grid gap-4">
-                    {uiName.length > 0 && (
-                      <span className="font-semibold text-red-500">
-                        {nameMessage}
-                      </span>
-                    )}
                     <div className="form-group mb-3 flex ">
                       <input
                         type="text"
@@ -277,6 +310,12 @@ const Signup = () => {
                     </div>
 
                     <div className="relative form-group mb-6 ">
+                      <button
+                        onClick={DuplicationPhoneAPI}
+                        className="absolute top-1.5 right-4 border-2 px-3 border-black  hover:opacity-60 font-semibold rounded-md "
+                      >
+                        중복검사
+                      </button>
                       <input
                         type="text"
                         className=" form-control
@@ -302,7 +341,7 @@ const Signup = () => {
                         value={uiPhone}
                       />
                       {uiPhone.length > 0 && (
-                        <span className="text-red-500 font-semibold">
+                        <span className="text-red-500 text-xs opacity-70 font-semibold">
                           {phoneNumberMessage}
                         </span>
                       )}
@@ -311,8 +350,8 @@ const Signup = () => {
 
                   <div className="relative form-group mb-6">
                     <button
-                      onClick={DuplicationCheck}
-                      className="absolute top-1.5 right-4 border px-3 border-black bg-black hover:opacity-60 text-white rounded-md "
+                      onClick={DuplicationIdAPI}
+                      className="absolute top-1.5 right-4 border-2 font-semibold px-3 border-black hover:opacity-60 rounded-md "
                     >
                       중복검사
                     </button>
@@ -337,13 +376,19 @@ const Signup = () => {
                       value={uiId}
                     />
                     {uiId.length > 0 && (
-                      <span className="text-red-500 font-semibold">
+                      <span className="text-red-500 text-xs opacity-80 font-semibold">
                         {IdMessage}
                       </span>
                     )}
                   </div>
 
-                  <div className="form-group mb-6">
+                  <div className="relative form-group mb-6">
+                    <button
+                      onClick={DuplicationEmailAPI}
+                      className="absolute top-1.5 right-4 border-2 px-3 border-black  hover:opacity-60 text-black font-semibold rounded-md "
+                    >
+                      중복검사
+                    </button>
                     <input
                       type="email"
                       className="form-control block
@@ -366,7 +411,7 @@ const Signup = () => {
                       value={uiEmail}
                     />
                     {uiEmail.length > 0 && (
-                      <span className="text-red-500 font-semibold">
+                      <span className="text-red-500 text-xs opacity-80 font-semibold">
                         {emailMessage}
                       </span>
                     )}
@@ -392,10 +437,10 @@ const Signup = () => {
                       placeholder="(필수)생년월일 형식 yyyymmdd "
                       onChange={uiBirthHandler}
                       value={uiBirth}
-                      maxLength={8}
+                      maxLength={10}
                     />
                     {uiBirth.length > 0 && (
-                      <span className="text-red-500 font-semibold">
+                      <span className="text-red-500 text-xs opacity-80 font-semibold">
                         {BirthMessage}
                       </span>
                     )}
@@ -423,7 +468,7 @@ const Signup = () => {
                       value={uiPwd}
                     />
                     {uiPwd.length > 0 && (
-                      <span className="text-red-500 font-semibold">
+                      <span className="text-red-500 text-xs opacity-80 font-semibold">
                         {passwordMessage}
                       </span>
                     )}
@@ -451,7 +496,7 @@ const Signup = () => {
                       onChange={pwCheckHandler}
                     />
                     {uiPwdCheck.length > 0 && (
-                      <span className="text-red-500 font-semibold">
+                      <span className="text-red-500 text-xs opacity-80 font-semibold">
                         {passwordConfirmMessage}
                       </span>
                     )}

@@ -4,22 +4,22 @@ import { Link, useNavigate } from "react-router-dom";
 import Logo from "../components/Logo.js";
 import instance from "../api/axios";
 import Layout from "../components/layout/Layout";
+import { useDispatch, useSelector } from "react-redux";
+import { userActions } from "../components/reducers/userSlice.js";
 
 const Login = () => {
+ 
+  const dispatch = useDispatch();
   const [id, setId] = useState("");
   const [pwd, setPwd] = useState("");
-  const [uerInfo, setUserInfo] = useState({
-    Id: "",
-    pwd: "",
-  });
+
   const IdHandler = (event) => setId(event.target.value);
   const pwdHandler = (event) => setPwd(event.target.value);
   const navigate = useNavigate();
   // 로그인 처리
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    
-  
+
     if (id === "") {
       alert("아이디를 입력해주세요.");
     }
@@ -28,19 +28,31 @@ const Login = () => {
     }
     instance
       .post("http://192.168.0.156:9988/member/login", { id, pwd })
+      
       .then((res) => {
+      
         // store 에 저장 처리 예정
-        console.log("성공", res);
-        if(res.status = true){alert(res.data.msg)}
-        navigate("/");
+        console.log("성공", res); 
+    
+        if (res.status === 400) {
+          alert("비어있는 내용입니다.");
+        } else if (res.status === 401) {
+          alert("존재하지 않는 id입니다.");
+        } else if (res.status === 402) {
+          alert("비밀번호가 일치하지 않습니다.");
+        } 
+         
         
+      
+        alert(res.data.msg);
+        navigate("/home" );
       })
       .catch((err) => {
         // 서버가 반응이 없을 때
         console.log(err);
+
         // 서버가 죽었을 때 임시처리
         // 추후제거
-       
       });
   };
 

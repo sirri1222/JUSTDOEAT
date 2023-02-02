@@ -1,7 +1,27 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+
+
+
+
 
 const Header = () => {
+ // 3. userSlice 에 저장해 둔 user 정보 읽기
+  //    useSlector( 함수 전달)
+ 
+  const user= useSelector((state)=>{state.user})
+    // 5. 로그아웃 기능
+    const navigate = useNavigate(); 
+    const logOutFn = () => {
+  // firebase 로그아웃 
+  
+ 
+  // 이동
+  navigate("/login")
+  
+    };
+
   return (
     <div>
       <div className="flex bg-white border-b-2 border-slate-100">
@@ -58,14 +78,22 @@ const Header = () => {
 
         <div className="flex items-center relative ml-5 mr-10 gap-1">
           <div className="flex items-center w-28 ">
-            <Link to="/login" className="  ">
+        
+{/*         
+          {user=== "" ? 
+              <Link to="/login" >
+              <img className="" src="/photo/loginicon.png" alt="로그인"></img>
+            </Link> : <Link to="/home" >
+              <img  onClick={() => {logOutFn()}}  className="" src="/photo/logouticon.png" alt="로그아웃"></img>
+            </Link>  } */}
+            <Link to="/login" >
               <img className="" src="/photo/loginicon.png" alt="로그인"></img>
             </Link>
           </div>
 
-          <div className="flex items-center w-10  ">
+          <div className="flex items-center w-10 mt-1 ">
             <Link to="/shoppingbag">
-              <button className="text-gray-500 ">
+              <button className="text-gray-500  ">
                 <img className="" src="/photo/bskicon.png" alt="장바구니"></img>
 
                 <span

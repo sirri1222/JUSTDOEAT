@@ -37,7 +37,7 @@ const IdPwFind = () => {
       .put("http://192.168.0.156:9988/member/findid", { uiEmail, uiName })
       .then((res) => {
         console.log("성공", res);
-        if ((res.status = "200")) {
+        if (res.status = "200") {
           return alert(res.data.msg);
         }
       })

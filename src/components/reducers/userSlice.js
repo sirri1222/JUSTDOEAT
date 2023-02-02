@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { useDispatch } from "react-redux";
 
 const initialState = {
 
@@ -21,6 +22,7 @@ const userSlice = createSlice({
 
     // 로그인 되면 user 스토어 업데이트,
     loginUser: (state, action)=>{
+      console.log(action.payload)
       state.uiId =action.payload.uiId;
       state.uiPwd =action.payload.uiPwd;
       state.uiName =action.payload.uiName;
@@ -47,5 +49,5 @@ const userSlice = createSlice({
 })
 
 // 비구조화
-export const{ loginUser, clearUser}= userSlice.actions;
+export const userActions = userSlice.actions;
 export default userSlice;
