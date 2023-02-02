@@ -5,7 +5,9 @@ import Logo from "../components/Logo.js";
 import instance from "../api/axios";
 import Layout from "../components/layout/Layout";
 import { useDispatch, useSelector } from "react-redux";
-import { userActions } from "../components/reducers/userSlice.js";
+import { loginUser } from "../redux/userSlice.js";
+
+
 
 const Login = () => {
  
@@ -32,7 +34,7 @@ const Login = () => {
       .then((res) => {
       
         // store 에 저장 처리 예정
-        console.log("성공", res); 
+       console.log("성공", res); 
     
         if (res.status === 400) {
           alert("비어있는 내용입니다.");
@@ -40,8 +42,10 @@ const Login = () => {
           alert("존재하지 않는 id입니다.");
         } else if (res.status === 402) {
           alert("비밀번호가 일치하지 않습니다.");
-        } 
-         
+        } else{
+          dispatch(loginUser({id, pwd}))
+        }
+          
         
       
         alert(res.data.msg);

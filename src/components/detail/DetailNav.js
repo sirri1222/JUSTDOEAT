@@ -1,102 +1,131 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { span } from "react-router-dom";
 import WellOrder from "../WellOrder";
+import { useNavigate } from "react-router-dom";
+// redux Patch 보내서 state 업데이트
+import { useDispatch } from "react-redux";
+import { cateUpdate } from "../../redux/cateSliced";
 
 const DetailNav = ({ item }) => {
+  const dispatch = useDispatch();
+  const changeCate = (_cate) => {
+    dispatch(cateUpdate({ cate: _cate }));
+  };
   return (
     <div>
       <nav className="bg-gray-80 flex px-5 justify-between items-center rounded-md w-full p-3">
         <div className="flex">
           <ol className="list-reset flex justify-start ">
             <li>
-              <Link
-                to="/detail/중국집"
-                className=" text-gray-600 mr-6  whitespace-nowrap
+              <span
+                onClick={() => {
+                  changeCate("중국집");
+                }}
+                className="cursor-pointer text-gray-600 mr-6  whitespace-nowrap
                  dark:text-white hover:underline text-base font-semibold leading-snug hover:"
               >
                 중국집
-              </Link>
+              </span>
             </li>{" "}
             <li>
-              <Link
-                to="/detail/일식돈까스"
-                className="text-gray-600 whitespace-nowrap text-base font-semibold leading-snug mr-6  dark:text-white hover:underline "
+              <span
+                onClick={() => {
+                  changeCate("일식/돈까스");
+                }}
+                className="cursor-pointer text-gray-600 whitespace-nowrap text-base font-semibold leading-snug mr-6  dark:text-white hover:underline "
               >
                 일식/돈까스
-              </Link>
+              </span>
             </li>
             <li>
-              <Link
-                to="/detail/분식"
-                className="text-gray-600 mr-6 whitespace-nowrap dark:text-white hover:underline text-base font-semibold leading-snug hover:"
+              <span
+                onClick={() => {
+                  changeCate("분식");
+                }}
+                className="cursor-pointer text-gray-600 mr-6 whitespace-nowrap dark:text-white hover:underline text-base font-semibold leading-snug hover:"
               >
                 분식
-              </Link>
+              </span>
             </li>
             <li>
-              <Link
-                to="/detail/한식"
-                className="text-gray-600 whitespace-nowrap text-base font-semibold leading-snug mr-6  dark:text-white hover:underline "
+              <span
+                onClick={() => {
+                  changeCate("한식");
+                }}
+                className="cursor-pointer text-gray-600 whitespace-nowrap text-base font-semibold leading-snug mr-6  dark:text-white hover:underline "
               >
                 한식
-              </Link>
+              </span>
             </li>
             <li>
-              <Link
-                to="/detail/치킨"
-                className="text-gray-600 mr-6  dark:text-white hover:underline whitespace-nowrap text-base font-semibold leading-snug hover:"
+              <span
+                onClick={() => {
+                  changeCate("치킨");
+                }}
+                className="cursor-pointer text-gray-600 mr-6  dark:text-white hover:underline whitespace-nowrap text-base font-semibold leading-snug hover:"
               >
                 치킨
-              </Link>
+              </span>
             </li>
             <li>
-              <Link
-                to="/detail/피자양식"
-                className="text-gray-600  text-base font-semibold leading-snug mr-6 whitespace-nowrap dark:text-white hover:underline hover:"
+              <span
+                onClick={() => {
+                  changeCate("피자/양식");
+                }}
+                className="cursor-pointer text-gray-600  text-base font-semibold leading-snug mr-6 whitespace-nowrap dark:text-white hover:underline hover:"
               >
                 피자/양식
-              </Link>
+              </span>
             </li>
-            
             <li>
-              <Link
-                to="/detail/프랜차이즈"
-                className="text-gray-600 mr-6  dark:text-white hover:underline whitespace-nowrap text-base font-semibold leading-snug hover:"
+              <span
+                onClick={() => {
+                  changeCate("프랜차이즈");
+                }}
+                className="cursor-pointer text-gray-600 mr-6  dark:text-white hover:underline whitespace-nowrap text-base font-semibold leading-snug hover:"
               >
                 프랜차이즈
-              </Link>
+              </span>
             </li>
             <li>
-              <Link
-                to="/detail/편의점마트"
-                className="text-gray-600 mr-6  dark:text-white hover:underline whitespace-nowrap text-base font-semibold leading-snug hover:"
+              <span
+                onClick={() => {
+                  changeCate("편의점/마트");
+                }}
+                className="cursor-pointer text-gray-600 mr-6  dark:text-white hover:underline whitespace-nowrap text-base font-semibold leading-snug hover:"
               >
                 편의점/마트
-              </Link>
+              </span>
             </li>{" "}
             <li>
-              <Link
-                to="/detail/족발보쌈"
-                className="text-gray-600 mr-6  dark:text-white hover:underline whitespace-nowrap text-base font-semibold leading-snug hover:"
+              <span
+                onClick={() => {
+                  changeCate("족발/보쌈");
+                }}
+                className="cursor-pointer text-gray-600 mr-6  dark:text-white hover:underline whitespace-nowrap text-base font-semibold leading-snug hover:"
               >
                 족발/보쌈
-              </Link>
+              </span>
             </li>{" "}
             <li>
-              <Link
-                to="/detail/카페디저트"
-                className="text-gray-600 mr-6  dark:text-white hover:underline whitespace-nowrap text-base font-semibold leading-snug hover:"
+              <span
+                onClick={() => {
+                  changeCate("카페/디저트");
+                }}
+                className="cursor-pointer text-gray-600 mr-6  dark:text-white hover:underline whitespace-nowrap text-base font-semibold leading-snug hover:"
               >
                 카페/디저트
-              </Link>
+              </span>
             </li>{" "}
             <li>
-              <Link
-                to="/detail/야식"
-                className="text-gray-600 mr-6  dark:text-white hover:underline whitespace-nowrap text-base font-semibold leading-snug hover:"
+              <span
+                onClick={() => {
+                  changeCate("야식");
+                }}
+                className="cursor-pointer text-gray-600 mr-6  dark:text-white hover:underline whitespace-nowrap text-base font-semibold leading-snug hover:"
               >
                 야식
-              </Link>
+              </span>
             </li>{" "}
           </ol>
         </div>

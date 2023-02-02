@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const ListItem = ({ item }) => {
-  console.log(item);
+  // console.log(item);
   return (
     <li>
       <Link to={`/about/${item.storeInfo.siSeq}`} state={item}>

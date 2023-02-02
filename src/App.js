@@ -19,6 +19,7 @@ import Password from "./pages/Password";
 import Buy from "./pages/Buy";
 
 import ShoppingBag from "./pages/ShoppingBag";
+import DetailNav from "./components/detail/DetailNav";
 
 function App() {
   return (
@@ -27,9 +28,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
-
         <Route path="/about/:siSeq" element={<About />} />
-        <Route path="/detail/:cate" element={<Detail />} />
+        <Route path="/detail" element={<Detail />} />
         <Route path="/idpwfind" element={<IdPwFind />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
