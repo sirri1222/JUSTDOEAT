@@ -13,7 +13,8 @@ const DetailNav = ({ item }) => {
   };
   return (
     <div>
-      <nav className="bg-gray-80 flex px-5 justify-between items-center rounded-md w-full p-3">
+      <nav className="bg-gray-80 flex px-5 justify-between items-center 
+      rounded-md w-full p-3 border-b ">
         <div className="flex">
           <ol className="list-reset flex justify-start ">
             <li>

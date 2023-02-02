@@ -60,16 +60,17 @@ const ListMenuItem = (props) => {
       <div className="flex justify-between h-40  border-dotted border-b border-gray-300">
         <img
           src={props.item.miImg}
-          className="scale-75    w-40 shadow-lg"
+          className="scale-75    shadow-lg"
           alt={props.item.miName}
         ></img>
         <div className="flex justify-center  flex-col py-4 w-3/4 ml-10 ">
           <div className="flex flex-col justify-center">
-            <h2> {props.item.miName} </h2>
+            <h2 className="font-bold"> {props.item.miName} </h2>
+            <span className="text-xs my-2">{props.item.miAdditionalEx}</span>
             {/* <span>★★★★☆4.8</span> */}
-            <span>최소주문금액 {props.item.miPrice}원</span>
+            <span className="text-red-500">금액 {props.item.miPrice}원</span>
             {/* 내용 협의 필요 */}
-            <span>{props.item.miAdditionalEx}</span>
+            
           </div>
         </div>
       </div>

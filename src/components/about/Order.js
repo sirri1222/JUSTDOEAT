@@ -23,7 +23,7 @@ const Order = () => {
     <div className=" w-2/5 pt-6 pl-20 rounded-md">
       <div className="block rounded-lg shadow-lg bg-white text-white max-w-sm text-center">
         <div className=" flex justify-between  bg-black ">
-          <p className="p-4   "> 주문표 </p>
+          <p className="p-4"> 주문표 </p>
 
           <button onClick={onRemove}>
             <img

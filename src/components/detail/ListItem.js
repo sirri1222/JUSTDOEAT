@@ -6,37 +6,45 @@ const ListItem = ({ item }) => {
     <li>
       <Link to={`/about/${item.storeInfo.siSeq}`} state={item}>
         <div
-          className="flex flex-col max-w-3xl border-b-2 p-6 mx-auto sm:p-8
+          className="flex flex-col max-w-3xl border-b-2 p-6 mx-auto sm:p-4
          dark:bg-gray-900 dark:text-gray-100"
         >
-          <div className="flex flex-col py-6 sm:flex-row sm:justify-between">
+          <div className="flex flex-col py-3 sm:flex-row sm:justify-between">
             <div className="flex w-1/2 space-x-2 sm:space-x-4">
               <img
-                className="flex-shrink-0 object-cover w-20 h-20 dark:border-transparent rounded outline-none sm:w-32 sm:h-32 dark:bg-gray-500"
+                className="flex-shrink-0 object-contain w-40 h-40 border
+                dark:border-transparent rounded-3xl
+                outline-none  dark:bg-gray-500"
                 src={`${item.storeInfo.siMainImg}`}
                 alt="Polaroid camera"
               />{" "}
             </div>
-            <div className="flex justify-between w-full my-auto ">
+            <div className="flex justify-between w-full my-auto">
               <div className="space-y-3">
                 <h3 className="text-xl font-extrabold leading-snug">
                   {item.storeInfo.siName}
                 </h3>
                 <div className="flex flex-col ">
                   <span className="text-sm  ">
-                    <span className="font-bold ">open </span>
+                    <span className="font-bold ">Open : </span>{" "}
+                    {item.sdOpenTime} /
                     {/* {item.storeDetail.sdOpenTime} -{" "} */}
-                    <span className="font-bold ">close </span>
+                    <span className="font-bold "> Close : </span>{" "}
+                    {item.sdCloseTime} 
                     {/* {item.storeDetail.sdCloseTime}{" "} */}
                   </span>
                   <span className="text-sm">
-                    <span className="font-bold ">최소주문금액 </span>{" "}
-                    {/* 최소금액 출력 결정 필요 */}
+                    <span className="font-bold ">최소주문금액 : </span>{" "}
                     {item.storeInfo.siMinPrice}원
                   </span>
-                  <span className="text-sm">결제 신용카드, 현금,JPay</span>
                   <span className="text-sm">
-                    배달시간 {item.storeInfo.siMinDeliveryTime}~
+                    <span className="font-bold ">결제 : </span>{" "}
+                    {item.storeInfo.sdPayment}
+                  </span>
+                  <span></span>
+                  <span className="text-sm">
+                    <span className="font-bold ">배달시간 : </span>{" "}
+                    {item.storeInfo.siMinDeliveryTime} ~{" "}
                     {item.storeInfo.siMaxDeliveryTime}{" "}
                   </span>
                 </div>

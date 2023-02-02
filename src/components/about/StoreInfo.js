@@ -10,17 +10,7 @@ const StoreInfo = ({ item }) => {
             className=" scale-75 "
             alt="사장님 알림"
           ></img>
-          <p className="text-xs ml-4">
-            {/* * 딜리버리 주문에 따라 발생되는 고객 부담 배달비는 배달 대행사에
-            지급됩니다.
-            <br />
-            * KFC 배달 가격은 매장 가격과 동일합니다.
-            <br />
-            * 치킨은 다양한 부위로 매장에서 제공되는 점 양해 바랍니다.
-            <br />* 배송환경 및 매장상황 등의 사유로 예상 배달시간보다 배달이
-            다소 지연될 수 있습니다. */}
-            {item.sdAlarmContent}
-          </p>
+          <p className="text-xs ml-4">{item.sdAlarmContent}</p>
         </div>
       </div>
       <div className=" bg-white border-b-2 border-gray-200 p-2">
