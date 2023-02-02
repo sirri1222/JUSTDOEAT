@@ -1,12 +1,14 @@
 import React from "react";
-import Pagination from "../Pagination";
 import ReviewItem from "./ReviewItem";
 
-const ListReview = (props) => {
+const ListReview = ({item}) => {
   return (
     <div className="w-l" style={{ margin: "0 auto" }}>
       <ul className="block rounded-lg shadow-lg  bg-white">
-        <ReviewItem />
+        {item.map(
+          review=> <ReviewItem review={review} />
+        )}
+        {/* <ReviewItem item={item} /> */}
       </ul>
     </div>
   );

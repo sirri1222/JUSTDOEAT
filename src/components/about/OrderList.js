@@ -20,11 +20,9 @@ const OrderList = ({ item }) => {
     dispatch(deleteOrder(item));
   };
   return (
-    <div >
-      <div className="flex mt-5 text-bold text-gray-900 font-bold ">
-        {item.orderName}
-      </div>
-      <div className="flex mt-5 text-gray-900 text-md">
+    <div>
+      <div className="flex mt-5 text-gray-900 font-bold ">{item.orderName}</div>
+      <div className="flex mt-5 text-gray-900 text-xs">
         <ul>
           {orderArr.map((item, index) => (
             <li key={index}>{item}</li>
@@ -45,7 +43,7 @@ const OrderList = ({ item }) => {
             alt="삭제"
           ></img>
         </button>
-        <span className="text-gray-900 text-sm ">{item.orderMoney}원</span>
+        <span className="text-gray-900 text-sm">{item.orderMoney}원</span>
       </div>
     </div>
   );
