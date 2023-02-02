@@ -1,3 +1,4 @@
+
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -28,7 +29,7 @@ const Header = () => {
 
   return (
     <div>
-      <div className="flex bg-white border-b-2 border-slate-100">
+      <div className="flex px-10 bg-white border-b-2 border-slate-100">
         <div
           className="navbar navbar-expand-sm relative 
         flex items-center justify-between w-full "
@@ -93,7 +94,7 @@ const Header = () => {
          
           </div>
 
-          <div className="flex items-center w-10 mt-1 ">
+          <div className="flex items-center w-11 mt-1 ">
             <Link to="/shoppingbag">
               <button className="text-gray-500  ">
                 <img className="" src="/photo/bskicon.png" alt="장바구니"></img>
@@ -102,7 +103,7 @@ const Header = () => {
                   className="text-white bg-red-600 absolute rounded-full 
                 text-xs top-10  py-1 px-2"
                 >
-                  1
+                  0
                 </span>
               </button>
             </Link>
@@ -114,3 +115,4 @@ const Header = () => {
 };
 
 export default Header;
+
