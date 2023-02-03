@@ -1,15 +1,15 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Logo from "../components/Logo";
+import Logo from "../components/util/Logo";
 import Layout from "../components/layout/Layout";
 import { useState } from "react";
 import instance from "../api/axios";
 
 const IdPwFind = () => {
   const navigate = useNavigate();
-  const [uiEmail, setuiEmail] = useState("admin003@naver.com");
-  const [uiId, setUiid] = useState("admin003");
-  const [uiName, setUiName] = useState("관리자3");
+  const [uiEmail, setuiEmail] = useState("");
+  const [uiId, setUiid] = useState("");
+  const [uiName, setUiName] = useState("");
   // 이메일 유효성 검사
   const isValidEmail = uiEmail.includes("@") && uiEmail.includes(".");
   const emailHandler = (event) => {
@@ -37,14 +37,14 @@ const IdPwFind = () => {
       .put("http://192.168.0.156:9988/member/findid", { uiEmail, uiName })
       .then((res) => {
         console.log("성공", res);
-        if (res.status = "200") {
+        if ((res.status = "200")) {
           return alert(res.data.msg);
         }
       })
       .catch((err) => {
         console.log(err);
-        if ((err.status !== 200)) {
-          return alert(err.response.data.msg);
+        if (err.status !== 200) {
+          return alert(err.data.msg);
         }
       });
   };
@@ -57,11 +57,10 @@ const IdPwFind = () => {
         if ((res.status = "200")) {
           return alert(res.data.msg);
         }
-      
       })
       .catch((err) => {
         console.log(err);
-        if ((err.status !== 200)) {
+        if (err.status !== 200) {
           return alert(err.response.data.msg);
         }
       });
@@ -176,7 +175,7 @@ const IdPwFind = () => {
       w-full
       px-6
       py-2.5
-      bg-gray-600
+      bg-red-600
       text-white
       font-medium
       text-xs
@@ -184,7 +183,7 @@ const IdPwFind = () => {
       uppercase
       rounded
       shadow-md
-      hover:bg-gray-700 hover:shadow-lg
+      hover:bg-red-700 hover:shadow-lg
       focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0
       active:bg-gray-800 active:shadow-lg
       transition
@@ -201,7 +200,7 @@ const IdPwFind = () => {
       w-full
       px-6
       py-2.5
-      bg-gray-600
+      bg-red-600
       text-white
       font-medium
       text-xs
@@ -209,7 +208,7 @@ const IdPwFind = () => {
       uppercase
       rounded
       shadow-md
-      hover:bg-gray-700 hover:shadow-lg
+      hover:bg-red-700 hover:shadow-lg
       focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0
       active:bg-gray-800 active:shadow-lg
       transition

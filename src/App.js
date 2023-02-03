@@ -14,7 +14,6 @@ import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Detail from "./pages/Detail";
-import Password from "./pages/Password";
 
 import Buy from "./pages/Buy";
 
@@ -33,7 +32,7 @@ function App() {
         <Route path="/idpwfind" element={<IdPwFind />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/password" element={<Password />} />
+        
         <Route path="/shoppingbag" element={<ShoppingBag />} />
         <Route path="/buy" element={<Buy />} />
       </Routes>

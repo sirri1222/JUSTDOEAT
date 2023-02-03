@@ -5,7 +5,7 @@ import { addOrder, deleteOrder, clearOrder } from "../../redux/orderSlice";
 
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { NumberCheck } from "../NumberCheck";
+import { NumberCheck } from "../util/NumberCheck";
 
 const DeliveryInfo = ({ setIsShowing, item, optionData }) => {
   const dispatch = useDispatch();
@@ -145,7 +145,8 @@ const DeliveryInfo = ({ setIsShowing, item, optionData }) => {
                               onChange={changeOption}
                             />
                             <span className=" px-2">
-                            {optItem.moName} + {optItem.moPrice}</span>
+                              {optItem.moName} + {optItem.moPrice}
+                            </span>
                           </label>
                         </li>
                       ))}

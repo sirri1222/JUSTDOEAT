@@ -278,10 +278,10 @@ const Payment = () => {
 
           </div>
          
- <p className="my-3 flex justify-between">총 주문금액 <span>1111</span></p>
-          <p className="flex border-spacing-0.5 justify-between  border-b-2">배달팁 <span>1111</span></p>
+ <p className="my-3 flex justify-between">총 주문금액 <span>25,000</span></p>
+          <p className="flex border-spacing-0.5 justify-between  border-b-2">배달팁 <span>2,000</span></p>
                    
- <p className="my-8 flex justify-between ">결제금액 <span>1111</span></p>
+ <p className="my-8 flex justify-between ">결제금액 <span>27,000</span></p>
           <div className="form-group form-check text-center mb-6">
             <input
               type="checkbox"

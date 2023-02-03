@@ -1,13 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Logo from "../components/Logo.js";
+import Logo from "../components/util/Logo.js";
 import instance from "../api/axios";
 import Layout from "../components/layout/Layout";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { loginUser } from "../redux/userSlice.js";
 
 const Login = () => {
+
   const dispatch = useDispatch();
   const [id, setId] = useState("");
   const [pwd, setPwd] = useState("");
@@ -20,34 +21,29 @@ const Login = () => {
     event.preventDefault();
 
     if (id === "") {
-      alert("아이디를 입력해주세요.");
+      return alert("아이디를 입력해주세요.");
     }
+
     if (pwd === "") {
-      alert("비밀번호를 입력해주세요.");
+      return alert("비밀번호를 입력해주세요.");
     }
+
     instance
       .post("http://192.168.0.156:9988/member/login", { id, pwd })
 
       .then((res) => {
         // store 에 저장 처리 예정
-        console.log("성공", res);
+        // console.log("성공", res);
 
-        if (res.status === 400) {
-          alert("비어있는 내용입니다.");
-        } else if (res.status === 401) {
-          alert("존재하지 않는 id입니다.");
-        } else if (res.status === 402) {
-          alert("비밀번호가 일치하지 않습니다.");
-        } else {
-          console.log("로그인 ");
-          dispatch(loginUser({ id: id, pwd: pwd }));
-        }
+        console.log("로그인 ");
+        dispatch(loginUser({ id: id, pwd: pwd }));
 
         alert(res.data.msg);
         navigate("/home");
       })
       .catch((err) => {
         // 서버가 반응이 없을 때
+
         console.log(err);
 
         // 서버가 죽었을 때 임시처리
@@ -110,7 +106,9 @@ const Login = () => {
                       onClick={(e) => {
                         onSubmitHandler(e);
                       }}
-                      className="inline-block w-full py-3 mb-12 bg-gray-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-gray-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out"
+                      className="inline-block w-full py-3 mb-12  bg-red-600
+                      text-white
+                       font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-gray-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-800 active:shadow-lg transition duration-150 ease-in-out"
                     >
                       로그인
                     </button>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { NumberCheck } from "../NumberCheck";
+import { NumberCheck } from "../util/NumberCheck";
 
 const ShoppingBasket = (props) => {
   return (

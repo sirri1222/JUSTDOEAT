@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import instance from "../api/axios";
-import Logo from "../components/Logo";
+import Logo from "../components/util/Logo";
 import Layout from "../components/layout/Layout";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
@@ -33,19 +33,20 @@ const Signup = () => {
 
   const [uiBirth, setUiBirth] = useState("");
 
-  //오류메시지 상태저장
-  const [nameMessage, setNameMessage] = useState("");
+  //input 하단 오류메시지 상태저장
+ 
   const [emailMessage, setEmailMessage] = useState("");
   const [phoneNumberMessage, setPhoneNumberMessage] = useState("");
   const [IdMessage, setIdMessage] = useState("");
   const [BirthMessage, setBirthMessage] = useState("");
   const [passwordMessage, setPasswordMessage] = useState("");
   const [passwordConfirmMessage, setPasswordConfirmMessage] = useState("");
-
+  // 남/여 성별 체크박스
   const isCheckBoxClicked = (e) => {
     const { value } = e.target;
     setUiGen(parseInt(value));
   };
+  // 남/여 성별 체크박스
   useEffect(() => {
     if (uiGen === 1) {
       setUiGenF(false);
@@ -65,25 +66,11 @@ const Signup = () => {
   // };
 
   const user = useSelector((state) => state.user);
-  // 이메일 유효성 검사
-  const isValidEmail = uiEmail.includes("@") && uiEmail.includes(".");
-  // 이메일
-  const emailHandler = (event) => {
-    setuiEmail(event.target.value);
-    if (!isValidEmail) {
-      setEmailMessage("이메일 형식이 틀렸어요! 다시 확인해주세요 ㅜ ㅜ");
-    } else {
-      setEmailMessage("올바른 이메일 형식이에요 : )");
-    }
-  };
+
   //  이름
   const nameHandler = (event) => {
     setUiName(event.target.value);
-    if (uiName.length < 1 || uiName.length > 5) {
-      setNameMessage();
-    } else {
-      setNameMessage("올바른 이름 형식입니다 :)");
-    }
+  
   };
   // 휴대폰번호 유효성검사
   const autoHyphenregExpPhone =
@@ -102,7 +89,26 @@ const Signup = () => {
       setPhoneNumberMessage("올바른 전화번호 형식입니다 :)");
     }
   };
-
+  // 아이디
+  const idHandler = (event) => {
+    setUiid(event.target.value);
+    if (uiId.length < 5) {
+      setIdMessage("아이디는 5글자 이상 입력해 주세요 ㅜ_ㅜ");
+    } else {
+      setIdMessage("올바른 형식입니다 :)");
+    }
+  };
+  // 이메일 유효성 검사
+  const isValidEmail = uiEmail.includes("@") && uiEmail.includes(".");
+  // 이메일
+  const emailHandler = (event) => {
+    setuiEmail(event.target.value);
+    if (!isValidEmail) {
+      setEmailMessage("이메일 형식이 틀렸어요! 다시 확인해주세요 ㅜ ㅜ");
+    } else {
+      setEmailMessage("올바른 이메일 형식이에요 : )");
+    }
+  };
   //비밀번호 유효성검사
   const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
   // 비밀번호
@@ -146,14 +152,13 @@ const Signup = () => {
 
     if (!HyphenregExpBirth.test(event.target.value)) {
       setBirthMessage(
-        "생년월일 형식이 틀렸습니다! -을 제외하고 입력해주세요 ㅜ_ㅜ"
+        "생년월일 형식이 틀렸습니다! -을 포함한 형식을 입력해주세요 ㅜ_ㅜ"
       );
     } else {
       setBirthMessage("올바른 생년월일 형식입니다 :)");
     }
   };
 
-  const idHandler = (event) => setUiid(event.target.value);
   const onSubmitHandler = (event) => {
     // 로그인 처리
     event.preventDefault();
@@ -219,6 +224,7 @@ const Signup = () => {
       })
       .then((res) => {
         console.log("성공", res);
+        alert("가입이 완료되었습니다. 로그인해 주세요 :)");
         // 로그인 페이지로 이동
         naviagte("/login");
       })
@@ -398,7 +404,7 @@ const Signup = () => {
                         id="phone"
                         aria-describedby="emailHelp124"
                         onChange={phoneHandler}
-                        maxLength={11}
+                        maxLength={15}
                         placeholder="(필수)전화번호 형식(-제외)"
                         value={uiPhone}
                       />
@@ -496,7 +502,7 @@ const Signup = () => {
         m-0
         focus:text-gray-700 focus:bg-white focus:border-gray-600 focus:outline-none"
                       id="birth"
-                      placeholder="(필수)생년월일 형식 yyyymmdd "
+                      placeholder="(필수)생년월일 형식 yyyy-mm-dd "
                       onChange={uiBirthHandler}
                       value={uiBirth}
                       maxLength={10}

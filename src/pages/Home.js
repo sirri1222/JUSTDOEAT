@@ -1,5 +1,5 @@
 import React from "react";
-import Banner from "../components/Banner";
+
 import HeaderBottom from "../components/home/HeaderBottom";
 import MainMenu from "../components/home/MainMenu";
 
@@ -8,7 +8,7 @@ const Home = () => {
     <div>
       <HeaderBottom />
       <MainMenu />
-      <Banner />
+   
     </div>
   );
 };
