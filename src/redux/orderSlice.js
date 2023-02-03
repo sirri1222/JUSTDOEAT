@@ -39,6 +39,7 @@ const orderSlice = createSlice({
     clearOrder: (state, action) => {
       // console.log("clearOrder");
       state.orderGood = [];
+      state.orderMoney = 0;
     },
   },
 });

@@ -319,7 +319,7 @@ const Payment = () => {
   duration-150
   ease-in-out"
           >
-           <span>29000원</span> 결제하기
+           <span>29,000원</span> 결제하기
           </button>
         </form>
       </div>

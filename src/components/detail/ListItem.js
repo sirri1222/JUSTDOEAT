@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import ConvertPrice from "../util/ConvertPrice";
 
 const ListItem = ({ item }) => {
   console.log(item);
@@ -41,12 +42,12 @@ const ListItem = ({ item }) => {
                   </span> */}
                   <span className="text-sm">
                     <span className="font-bold ">최소주문금액 : </span>{" "}
-                    {item.storeInfo.siMinPrice}원
+                    {item.storeInfo.siMinPrice ?  ConvertPrice(item.storeInfo.siMinPrice) : "no price"}원
                   </span>
                   <span className="text-sm">
                     <span className="font-bold ">배달비 : </span> 
                     {deliveryInfo.map((item) => {
-                      return <span>{item.dfiDeliveryFee} 원</span>;
+                      return <span>{item.dfiDeliveryFee ? ConvertPrice(item.dfiDeliveryFee) : "0"} 원</span>;
                     })}
                   </span>
                   <span className="text-sm">
