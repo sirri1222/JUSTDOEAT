@@ -1,12 +1,12 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+
 import Logo from "../components/util/Logo";
 import Layout from "../components/layout/Layout";
 import { useState } from "react";
 import instance from "../api/axios";
 
 const IdPwFind = () => {
-  const navigate = useNavigate();
+ 
   const [uiEmail, setuiEmail] = useState("");
   const [uiId, setUiid] = useState("");
   const [uiName, setUiName] = useState("");
@@ -66,9 +66,7 @@ const IdPwFind = () => {
       });
   };
 
-  const idFind = () => {
-    alert("입력된 번호로 아이디를 전송했습니다.");
-  };
+
 
   return (
     <Layout>
@@ -161,7 +159,7 @@ const IdPwFind = () => {
                       value={uiEmail}
                     />
                     {uiEmail.length > 0 && (
-                      <span className="text-red-500 font-semibold">
+                      <span className="text-red-500 opacity-80 font-semibold text-xs">
                         {emailMessage}
                       </span>
                     )}

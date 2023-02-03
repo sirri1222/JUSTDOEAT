@@ -76,6 +76,7 @@ const Signup = () => {
   const autoHyphenregExpPhone =
     /^(?:(010\d{4})|(01[1|6|7|8|9]\d{3,4}))(\d{4})$/;
   // console.log("검사", autoHyphenregExpPhone.test("01012345678"));
+
   // 휴대폰번호
   const phoneHandler = (event) => {
     let value = event.target.value;
@@ -230,6 +231,7 @@ const Signup = () => {
       })
       .catch((res) => {
         console.log("실패", res);
+      
       });
   };
   // 아이디 중복 체크

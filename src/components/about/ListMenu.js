@@ -5,6 +5,7 @@ import ListReview from "./ListReview";
 import StoreInfo from "./StoreInfo";
 import Order from "./Order";
 import ListItem from "../detail/ListItem";
+import ConvertPrice from "../util/ConvertPrice";
 
 const ListMenu = (props) => {
   // console.log("가게정보 : ", props.storeInfo);
@@ -155,7 +156,7 @@ const ListMenu = (props) => {
                   </li>
                 </ul>
               </span>
-              <span>최소주문금액 {storeInfo.siMinPrice}원</span>
+              <span>최소주문금액 {storeInfo.siMinPrice? ConvertPrice(storeInfo.siMinPrice) : "no price"}원</span>
               <span>결제 신용카드, 현금,JPay</span>
               <span>
                 배달시간 {storeInfo.siMinDeliveryTime}~

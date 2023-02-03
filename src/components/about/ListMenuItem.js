@@ -2,6 +2,8 @@ import React from "react";
 import { useEffect, useState } from "react";
 import DeliveryInfo from "../modal/DeliveryInfo";
 import axios from "axios";
+import ConvertPrice from "../util/ConvertPrice";
+
 
 const ListMenuItem = (props) => {
   // console.log(props);
@@ -54,9 +56,9 @@ const ListMenuItem = (props) => {
         <div className="flex justify-center  flex-col py-4 w-1/2  ">
           <div className="flex flex-col justify-center">
             <h2 className="font-bold "> {props.item.miName} </h2>
-            <span className="text-xs my-2 truncate ">{props.item.miAdditionalEx}</span>
+            <span className="text-xs my-2  ">{props.item.miAdditionalEx ? props.item.miAdditionalEx.substr(0,80): ""}</span>
             {/* <span>★★★★☆4.8</span> */}
-            <span className="text-red-500 ">금액 {props.item.miPrice}원</span>
+            <span className="text-red-500 ">금액 {props.item.miPrice ? ConvertPrice(props.item.miPrice) : "NO price"}원</span>
             {/* 내용 협의 필요 */}
           </div>
         </div>
