@@ -68,14 +68,14 @@ const ListMenu = (props) => {
             <div className="flex justify-center flex-col ">
               <span className="flex  ">
                 총점 4.8
-                <ul class="flex  mt-0.5  scale-75">
+                <ul className="flex  mt-0.5  scale-75">
                   <li>
                     <svg
                       aria-hidden="true"
                       focusable="false"
                       data-prefix="fas"
                       data-icon="star"
-                      class="w-4 text-yellow-500 mr-1"
+                      className="w-4 text-yellow-500 mr-1"
                       role="img"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 576 512"
@@ -92,7 +92,7 @@ const ListMenu = (props) => {
                       focusable="false"
                       data-prefix="fas"
                       data-icon="star"
-                      class="w-4 text-yellow-500 mr-1"
+                      className="w-4 text-yellow-500 mr-1"
                       role="img"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 576 512"
@@ -109,7 +109,7 @@ const ListMenu = (props) => {
                       focusable="false"
                       data-prefix="fas"
                       data-icon="star"
-                      class="w-4 text-yellow-500 mr-1"
+                      className="w-4 text-yellow-500 mr-1"
                       role="img"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 576 512"
@@ -126,7 +126,7 @@ const ListMenu = (props) => {
                       focusable="false"
                       data-prefix="far"
                       data-icon="star"
-                      class="w-4 text-yellow-500 mr-1"
+                      className="w-4 text-yellow-500 mr-1"
                       role="img"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 576 512"
@@ -143,7 +143,7 @@ const ListMenu = (props) => {
                       focusable="false"
                       data-prefix="far"
                       data-icon="star"
-                      class="w-4 text-yellow-500"
+                      className="w-4 text-yellow-500"
                       role="img"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 576 512"

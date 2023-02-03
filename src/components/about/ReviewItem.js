@@ -5,20 +5,20 @@ const ReviewItem = ({ review }) => {
   return (
     <div>
       <li className="flex  py-3 px-3 bg-gray-100  border-gray-500">
-        {review.uiId} **님{" "}
+        {review.userInfo.uiName} 님{" "}
         <span className="text-sm ml-3 text-gray-400"> {review.riRegDt} </span>
         <span className="text-sm ml-3 text-gray-400">
           {" "}
           총점 | {review.rspAllScore}
         </span>
-        <ul class="flex mt-0.5 scale-75">
+        <ul className="flex mt-0.5 scale-75">
           <li>
             <svg
               aria-hidden="true"
               focusable="false"
               data-prefix="fas"
               data-icon="star"
-              class="w-4 text-yellow-500 mr-1"
+              className="w-4 text-yellow-500 mr-1"
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 576 512"
@@ -35,7 +35,7 @@ const ReviewItem = ({ review }) => {
               focusable="false"
               data-prefix="fas"
               data-icon="star"
-              class="w-4 text-yellow-500 mr-1"
+              className="w-4 text-yellow-500 mr-1"
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 576 512"
@@ -52,7 +52,7 @@ const ReviewItem = ({ review }) => {
               focusable="false"
               data-prefix="fas"
               data-icon="star"
-              class="w-4 text-yellow-500 mr-1"
+              className="w-4 text-yellow-500 mr-1"
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 576 512"
@@ -69,7 +69,7 @@ const ReviewItem = ({ review }) => {
               focusable="false"
               data-prefix="far"
               data-icon="star"
-              class="w-4 text-yellow-500 mr-1"
+              className="w-4 text-yellow-500 mr-1"
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 576 512"
@@ -86,7 +86,7 @@ const ReviewItem = ({ review }) => {
               focusable="false"
               data-prefix="far"
               data-icon="star"
-              class="w-4 text-yellow-500"
+              className="w-4 text-yellow-500"
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 576 512"
@@ -108,7 +108,14 @@ const ReviewItem = ({ review }) => {
       </li>
       <div className="flex p-2  border-t border-gray-300 text-gray-600">
         <li>
-          <img src={review.imageInfo.rimgUri} className="" alt="리뷰사진"></img>
+          <img
+            src={
+              review.imageInfo.length >= 1 ? review.imageInfo[0].rimgUri : ""
+            }
+            width={50}
+            className=""
+            alt="리뷰사진"
+          ></img>
         </li>
         <li className="px-3">
           {review.riContent}
