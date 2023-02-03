@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 
 const ListItem = ({ item }) => {
-  // console.log(item);
+  console.log(item);
+
+  const deliveryInfo = item.storeInfo.deliveryInfo;
+  console.log(deliveryInfo);
+
   return (
     <li>
       <Link to={`/about/${item.storeInfo.siSeq}`} state={item}>
@@ -25,23 +29,26 @@ const ListItem = ({ item }) => {
                   {item.storeInfo.siName}
                 </h3>
                 <div className="flex flex-col ">
-                  <span className="text-sm  ">
+                  {/* <span className="text-sm  ">
                     <span className="font-bold ">Open : </span>{" "}
-                    {item.sdOpenTime} /
-                    {/* {item.storeDetail.sdOpenTime} -{" "} */}
+                    {deliveryInfo.map((item) => {
+                      return <div>{item.dfiDeliveryFee}원</div>;
+                    })} /
+                    {item.storeDetail.sdOpenTime} -{" "}
                     <span className="font-bold "> Close : </span>{" "}
-                    {item.sdCloseTime} 
-                    {/* {item.storeDetail.sdCloseTime}{" "} */}
-                  </span>
+                    {item.sdCloseTime}
+                    {item.storeDetail.sdCloseTime}{" "}
+                  </span> */}
                   <span className="text-sm">
                     <span className="font-bold ">최소주문금액 : </span>{" "}
                     {item.storeInfo.siMinPrice}원
                   </span>
                   <span className="text-sm">
-                    <span className="font-bold ">결제 : </span>{" "}
-                    {item.storeInfo.sdPayment}
+                    <span className="font-bold ">배달비 : </span> 
+                    {deliveryInfo.map((item) => {
+                      return <span>{item.dfiDeliveryFee}원</span>;
+                    })}
                   </span>
-                  <span></span>
                   <span className="text-sm">
                     <span className="font-bold ">배달시간 : </span>{" "}
                     {item.storeInfo.siMinDeliveryTime} ~{" "}
