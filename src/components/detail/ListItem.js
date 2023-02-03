@@ -46,7 +46,7 @@ const ListItem = ({ item }) => {
                   <span className="text-sm">
                     <span className="font-bold ">배달비 : </span> 
                     {deliveryInfo.map((item) => {
-                      return <span>{item.dfiDeliveryFee}원</span>;
+                      return <span>{item.dfiDeliveryFee} 원</span>;
                     })}
                   </span>
                   <span className="text-sm">

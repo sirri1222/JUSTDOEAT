@@ -19,6 +19,7 @@ import Buy from "./pages/Buy";
 
 import ShoppingBag from "./pages/ShoppingBag";
 import DetailNav from "./components/detail/DetailNav";
+import Member from "./components/Member";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/idpwfind" element={<IdPwFind />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/member" element={<Member />} />
         
         <Route path="/shoppingbag" element={<ShoppingBag />} />
         <Route path="/buy" element={<Buy />} />
