@@ -46,9 +46,6 @@ const Order = () => {
             )}
           </div>
         </div>
-        <span className="py-3 px-6  flex justify-between text-gray-600">
-          배달요금 <span>3,000원</span>
-        </span>
 
         <span className="py-3 px-6  flex justify-between text-red-500">
           총 합계 <span>21,200원</span>
