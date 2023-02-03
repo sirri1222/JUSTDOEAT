@@ -6,6 +6,7 @@ import { addOrder, deleteOrder, clearOrder } from "../../redux/orderSlice";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { NumberCheck } from "../util/NumberCheck";
+import ConvertPrice from "../util/ConvertPrice";
 
 const DeliveryInfo = ({ setIsShowing, item, optionData }) => {
   const dispatch = useDispatch();
@@ -112,13 +113,13 @@ const DeliveryInfo = ({ setIsShowing, item, optionData }) => {
               <ul className=" rounded-lg w-96 text-gray-900 mb-5">
                 <li className="px-6 flex pb-3 justify-between my-3 py-2 border-b border-gray-200 w-full rounded-t-lg">
                   <span className="font-semibold block ">가격</span>
-                  <span> {item.miPrice}원</span>
+                  <span> {item.miPrice ? ConvertPrice(item.miPrice): "no price"}원</span>
                 </li>
                 <li className="px-6 py-1 border-b my-3 border-gray-200 w-full">
                   <p className="font-semibold block pb-3">메뉴</p>
                   <div className="flex justify-between mb-4">
                   <span className=" text-xs  mr-3">
-                    {item.miAdditionalEx}</span>
+                    {item.miAdditionalEx ? item.miAdditionalEx.substr(0,100) : ""}</span>
                     <div className="my-auto w-16  text-xs ml-5">
                       {/* 해결 필요 */}
                       <NumberCheck setCount={setCount} />
@@ -136,12 +137,12 @@ const DeliveryInfo = ({ setIsShowing, item, optionData }) => {
                             <input
                               type="checkbox"
                               name={optItem.moName}
-                              value={optItem.moPrice}
+                              value={optItem.moPrice }
                               id={optItem.moName}
                               onChange={changeOption}
                             />
                             <span className=" px-2">
-                              {optItem.moName} + {optItem.moPrice}
+                              {optItem.moName} + {optItem.moPrice ? ConvertPrice(optItem.moPrice) :"no price" }
                             </span>
                           </label>
                         </li>
@@ -152,7 +153,7 @@ const DeliveryInfo = ({ setIsShowing, item, optionData }) => {
 
                 <li className="px-6 flex justify-between pt-2 text-red-500">
                   <span className="font-semibold block">총 합계</span>
-                  <span> {totalMoney}원</span>
+                  <span> {totalMoney? ConvertPrice(totalMoney): "no price"}원</span>
                 </li>
               </ul>
             </div>

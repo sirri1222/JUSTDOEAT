@@ -46,7 +46,7 @@ const ListMenuItem = (props) => {
     <div onClick={openDeliveryInfo}>
       <div className="flex justify-between h-40  border-dotted border-b border-gray-300">
         <img
-          src={props.item.miImg}
+          src={props.item.miImg ? props.item.miImg : "/photo/대체.png" }
           className="scale-75  rounded-3xl  shadow-md"
           // flex-shrink-0 object-contain w-40 h-40 border
           //       dark:border-transparent rounded-3xl

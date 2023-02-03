@@ -5,11 +5,11 @@ const ReviewItem = ({ review }) => {
   return (
     <div>
       <li className="flex  py-3 px-3 bg-gray-100  border-gray-500">
-        {review.userInfo.uiName} 님{" "}
-        <span className="text-sm ml-3 text-gray-400"> {review.riRegDt} </span>
+        {review.userInfo.uiName ? review.userInfo.uiName : " " } 님{" "}
+        <span className="text-sm ml-3 text-gray-400"> {review.riRegDt ? review.riRegDt: ""} </span>
         <span className="text-sm ml-3 text-gray-400">
           {" "}
-          총점 | {review.rspAllScore}
+          총점 | {review.rspAllScore ? review.rspAllScore: ""}
         </span>
         <ul className="flex mt-0.5 scale-75">
           <li>
@@ -102,8 +102,8 @@ const ReviewItem = ({ review }) => {
 
       <li className="flex justify-between np-6 ">
         <p className="text-gray-700 text-sm ml-4 p-1 mb-1 justify-content: center">
-          맛 {review.rspTasteScore} | 양 {review.rspQuantityScore} | 배달{" "}
-          {review.rspDeliveryScore}
+          맛 {review.rspTasteScore ? review.rspTasteScore: ""} | 양 {review.rspQuantityScore ? review.rspQuantityScore: ""} | 배달{" "}
+          {review.rspDeliveryScore ? review.rspDeliveryScore: ""}
         </p>
       </li>
       <div className="flex p-2  border-t border-gray-300 text-gray-600">
@@ -118,7 +118,7 @@ const ReviewItem = ({ review }) => {
           ></img>
         </li>
         <li className="px-3">
-          {review.riContent}
+          {review.riContent ? review.riContent: ""}
           {/* 배달 최악. 1시간 넘어서 다 식어서 옴. 가게가 문제인지 배달이
             문제인지 찾아서 고소하고 싶을정도. 얼마나 차게 식었는지 내가
             배달온걸 전자렌지를 돌려먹었다. 이 뭔 */}
