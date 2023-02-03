@@ -7,20 +7,14 @@ const List = (props) => {
   const cateGory = useSelector((state) => {
     return state.cate.cate;
   });
-  // const [ListPage, setListPage] = useState(1);
-  // const [ListPageInfo, setListPageInfo] = useState({});
-  // 가게 메뉴 데이터 가져오기
-  // 외부 서버 데이터 연동
-  // useEffec 를 이용해서 최초에 데이터를 가지고 온다.
+
   const [storeList, setStoreList] = useState([]);
   const fetchData = async () => {
-    // console.log("List 카테고리 : ", cateGory);
     try {
       const storeData = await axios.get(
         "http://192.168.0.156:9988/store/list?cate=" + cateGory
       );
-      // console.log(props.item);
-      // console.log(storeData.data.list);
+
       setStoreList(storeData.data.list);
     } catch (err) {
       console.log("가게의 메뉴 목록 리스트 호출호출시 서버 죽음");
@@ -29,6 +23,8 @@ const List = (props) => {
   useEffect(() => {
     fetchData();
   }, [cateGory]);
+
+  console.log(storeList);
 
   return (
     <div>
