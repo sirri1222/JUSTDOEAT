@@ -108,7 +108,7 @@ const Member = () => {
           <ul className="">
             <li className="text-">리뷰</li>
           </ul>
-         
+         <Link to="/home"><button className="bg-red-600 absolute rounded px-3 right-8">home</button></Link>
         </div>
       </div>
     </div>
