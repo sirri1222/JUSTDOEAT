@@ -24,7 +24,6 @@ const List = (props) => {
     fetchData();
   }, [cateGory]);
 
-  console.log(storeList);
 
   return (
     <div>
