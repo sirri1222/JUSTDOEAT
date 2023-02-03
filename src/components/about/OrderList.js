@@ -20,15 +20,17 @@ const OrderList = ({ item }) => {
     dispatch(deleteOrder(item));
   };
   return (
-    <div>
+    <div className="border-b">
       <div className="flex mt-5 text-gray-900 font-bold ">{item.orderName}</div>
-      <div className="flex mt-5 text-gray-900 text-xs">
-        <ul>
-          {orderArr.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
-      </div>
+
+      <ul className="flex mt-5 text-gray-900 text-xs  mb-2">
+        {orderArr.map((item, index) => (
+          <li key={index} className="mr-2 ">
+            {" "}
+            {item}{" "}
+          </li>
+        ))}
+      </ul>
 
       <div className="flex items-center justify-between ">
         <button
