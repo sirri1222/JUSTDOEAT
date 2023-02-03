@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-const initialState = { orderGood: [] };
+const initialState = { orderGood: [], orderMoney: 0 };
 /*
  {
     제품명(orderName)  :~~~, 
@@ -17,6 +17,12 @@ const orderSlice = createSlice({
       state.orderGood = [...state.orderGood, action.payload];
       // state.orderGood = action.payload;
       // console.log("state.orderGood", state.orderGood);
+
+      let totalMoney = 0;
+      state.orderGood.forEach((element) => {
+        totalMoney += element.orderMoney;
+      });
+      state.orderMoney = totalMoney;
     },
     deleteOrder: (state, action) => {
       // console.log("deleteOrder", action.payload);
@@ -24,6 +30,11 @@ const orderSlice = createSlice({
       state.orderGood = copyArr.filter(
         (item) => item.orderName !== action.payload.orderName
       );
+      let totalMoney = 0;
+      state.orderGood.forEach((element) => {
+        totalMoney += element.orderMoney;
+      });
+      state.orderMoney = totalMoney;
     },
     clearOrder: (state, action) => {
       // console.log("clearOrder");
