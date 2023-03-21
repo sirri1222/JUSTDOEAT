@@ -1,16 +1,18 @@
-# 📚 JUST DO EAT 팀 프로젝트
+<h2>JUST DO EAT 팀 프로젝트</h2>  
 
 This project was bootstrapped with [제작 사이트](https://github.com/sirri1222/kyobo).
 
 ## 프로젝트 목적
 
 React 미니 프로젝트
+#기술스택
 
-## 프로젝트 진행 상황
+#프로젝트 시연영상 
 
-Notion 을 통한 일정관리
 
-[노션사이트](https://)
+
+
+
 
 ## 피그마 URL
 
