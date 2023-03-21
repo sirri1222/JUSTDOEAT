@@ -39,6 +39,7 @@ React 미니 프로젝트
 웹 서비스 레이아웃 및 컴포넌트 구조
 
 [피그마보기](https://www.figma.com/file/NfuFBO6sBleHWZIFMDw0st/Untitled?node-id=37%3A52&t=XFFFn8t3PgdF9oGx-1) 
+![justdoeat_AdobeExpress (1)](https://user-images.githubusercontent.com/117979314/226497980-a69c3d2e-ac24-48a2-b304-a7207a5b5126.gif)
 
 ## 팀원구성
 
