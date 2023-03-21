@@ -1,15 +1,18 @@
-<h2>JUST DO EAT 팀 프로젝트</h2>  
+<h2>JUST DO EAT 팀 프로젝트 소개</h2>  
 
-This project was bootstrapped with [제작 사이트](https://github.com/sirri1222/kyobo).
+This project was bootstrapped with [제작 사이트](https://github.com/sirri1222/JUSTDOEAT).
 
-## 프로젝트 목적
+<h2>프로젝트 기능 </h2>  
+
 
 React 미니 프로젝트
-#기술스택
-
-#프로젝트 시연영상 
+<h2>기술스택 </h2>  
 
 
+
+<h2>프로젝트 시연영상 </h2>  
+
+![justdoeat_AdobeExpress](https://user-images.githubusercontent.com/117979314/226496541-6af281b5-a3ce-46b0-b255-44a9f7384eb2.gif)
 
 
 
