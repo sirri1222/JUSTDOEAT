@@ -28,7 +28,7 @@ React 미니 프로젝트
 
 
 <h2>프로젝트 시연영상 </h2>  
-<img src="file:///C:/Users/user/Desktop/justdoeat.mp4" width="200" height="400"/>
+<img src="https://user-images.githubusercontent.com/117979314/226496541-6af281b5-a3ce-46b0-b255-44a9f7384eb2.gif" width="200" height="400"/>
 ![justdoeat_AdobeExpress](https://user-images.githubusercontent.com/117979314/226496541-6af281b5-a3ce-46b0-b255-44a9f7384eb2.gif)
 
 
