@@ -2,9 +2,26 @@
 
 This project was bootstrapped with [제작 사이트](https://github.com/sirri1222/JUSTDOEAT).
 
+
+<ul>
+  <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+
 <h2>프로젝트 기능 </h2>  
 
-
+<ul>
+  <li>로그인</li>
+    <li>로그아웃</li>
+    <li>장바구니</li>
+    <li>모달</li>
+    <li></li>
+    <li></li>
+</ul>
 React 미니 프로젝트
 <h2>기술스택 </h2>  
 
