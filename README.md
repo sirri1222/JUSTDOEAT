@@ -3,17 +3,12 @@
 
 * 위드코로나와 함께 늘어나는 배달수요에 따른 배달앱 요기요를 참고하여 제작하게 되었습니다. 
 * 배달 요청 서비스를 원하는 사람들에게 유용한 사이트가 될 것으로 기대됩니다.
- <br>
-## 피그마 URL
-
+<h4>🔎피그마 작업</h4> 
 [JUST DO EAT Figma Layout](https://www.figma.com/file/Cq2MXPkiFjjTpt8K6GWkFi/%EB%B0%B0%EB%8B%AC?node-id=0-1&t=BJJwpculcmq01dkt-0) 
+
 ☝ 눌러보시면 프로젝트의 전체적인 구조를 볼 수 있습니다.
 
-웹 서비스 레이아웃 및 컴포넌트 구조
-This project was bootstrapped with [제작 사이트](https://github.com/sirri1222/JUSTDOEAT).
-
-#프로젝트 기능 
-
+<h4>🔎 프로젝트 기능 </h4> 
 <ul>
   <li>로그인</li>
     <li>로그아웃</li>
@@ -31,12 +26,10 @@ This project was bootstrapped with [제작 사이트](https://github.com/sirri12
 **팀장 :** 손현지`<br>`
 **팀원 :** 김주영 하경미
 
-
 **`Backend`**
 
 **팀장 :** 김한수 `<br>`
 **팀원 :** 이태훈, 김동현, 김성민
-
 <br>
 <h4>
 🔨 기술스택
@@ -53,7 +46,6 @@ This project was bootstrapped with [제작 사이트](https://github.com/sirri12
    <img src="https://img.shields.io/badge/Sourcetree-0052CC?style=flat&logo=Sourcetree&logoColor=white" />
    <img src="https://img.shields.io/badge/Tailwind CSS-06B6D4?style=flat&logo=Tailwind CSS&logoColor=white" />
 	<img src="https://img.shields.io/badge/styled-components-DB7093?style=flat&logo=styledcomponents&logoColor=white" />
-
 
 <h2>프로젝트 시연영상 </h2>  
 
